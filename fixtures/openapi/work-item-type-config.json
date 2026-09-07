@@ -1,0 +1,70 @@
+{
+  "id": "openapi.project-key.work-item-type-config.fixture",
+  "capabilityId": "openapi.get.open-api-project-key-work-item-type-work-item-type-key",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "get-work-item-type-config",
+      "outcome": "success",
+      "description": "读取一个工作项类型的基础配置。",
+      "request": {
+        "method": "GET",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/type/work_item_type_demo",
+        "headers": {
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER"
+        }
+      },
+      "response": {
+        "body": {
+          "data": {
+            "type_key": "work_item_type_demo",
+            "name": "Example Type",
+            "api_name": "example_type",
+            "flow_mode": "workflow",
+            "description": "",
+            "is_disabled": false,
+            "is_pinned": false,
+            "enable_schedule": true,
+            "schedule_field_key": "field_schedule",
+            "schedule_field_name": "Schedule",
+            "actual_work_time_switch": false,
+            "enable_model_resource_lib": false,
+            "belong_roles": [],
+            "resource_lib_setting": {
+              "enable_roles": [],
+              "enable_fields": []
+            }
+          },
+          "err": {},
+          "err_msg": "",
+          "err_code": 0
+        }
+      }
+    },
+    {
+      "name": "work-item-type-not-found",
+      "outcome": "failure",
+      "description": "路径中的工作项类型不存在。",
+      "request": {
+        "method": "GET",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/type/work_item_type_missing",
+        "headers": {
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER"
+        }
+      },
+      "response": {
+        "body": {
+          "err_code": 30014,
+          "err_msg": "WorkItem Type Not Found",
+          "err": {
+            "code": 30014,
+            "msg": "Work item not found",
+            "log_id": "LOG_ID_PLACEHOLDER"
+          }
+        }
+      }
+    }
+  ]
+}

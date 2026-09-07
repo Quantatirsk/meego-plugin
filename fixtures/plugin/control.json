@@ -1,0 +1,48 @@
+{
+  "id": "plugin-point.control.fixture",
+  "capabilityId": "plugin-point.control",
+  "kind": "plugin_point",
+  "cases": [
+    {
+      "name": "detail-form-context",
+      "outcome": "success",
+      "description": "场景标签表示已创建工作项的详情表单运行时，不是控件后台位置配置。",
+      "input": {
+        "point": "control",
+        "runtime": "work-item detail form",
+        "client": "web"
+      },
+      "output": {
+        "contextApi": "window.JSSDK.control.getContext()",
+        "context": {
+          "spaceId": "space_demo",
+          "workObjectId": "work_item_type_demo",
+          "workItemId": 1000000000000001
+        }
+      }
+    },
+    {
+      "name": "new-work-item-form-context",
+      "outcome": "success",
+      "description": "新建表单中的控件上下文提供临时 UUID；该 UUID 在回调验证后才可用于关联创建后的工作项。",
+      "input": {
+        "point": "control",
+        "runtime": "new work item form",
+        "client": "web"
+      },
+      "output": {
+        "contextApi": "window.JSSDK.control.getContext()",
+        "context": {
+          "spaceId": "space_demo",
+          "UUID": "uuid_demo_001"
+        }
+      }
+    },
+    {
+      "name": "control-configuration-payload",
+      "outcome": "source_silent",
+      "description": "平台资料描述构成所需概念，但没有提供可移植的后台配置 JSON schema。",
+      "sourceSilence": "The source describes control configuration concepts but does not define a portable control point configuration payload."
+    }
+  ]
+}

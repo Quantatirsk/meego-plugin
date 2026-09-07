@@ -1,0 +1,30 @@
+{
+  "id": "jssdk.shared.set-shared-modules.fixture",
+  "capabilityId": "jssdk.shared.set-shared-modules",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "register-react-modules",
+      "outcome": "success",
+      "description": "JSON 中的模块名仅表示 JavaScript 默认导出的位置，不是实际调用参数的序列化格式。",
+      "input": {
+        "call": "window.JSSDK.shared.setSharedModules()",
+        "arguments": [
+          {
+            "React": "react default export",
+            "ReactDOM": "react-dom default export"
+          }
+        ]
+      },
+      "output": {
+        "promise": "fulfilled"
+      }
+    },
+    {
+      "name": "module-compatibility-matrix",
+      "outcome": "source_silent",
+      "description": "React 和 ReactDOM 的完整版本兼容矩阵没有定义。",
+      "sourceSilence": "The source shows React and ReactDOM module registration but does not define a complete module-version compatibility matrix."
+    }
+  ]
+}

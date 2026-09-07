@@ -1,0 +1,12 @@
+node_modules/
+.log/
+.cache/
+.meego-cache/
+coverage/
+reports/*.local.*
+.env
+.env.*
+!/.env.example
+raw-sources/
+official-assets/
+*.log

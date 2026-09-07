@@ -1,0 +1,25 @@
+{
+  "id": "jssdk.storage.remove-item.fixture",
+  "capabilityId": "jssdk.storage.remove-item",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "remove-stored-string-value",
+      "outcome": "success",
+      "description": "删除一个键后 Promise 解析为 void。",
+      "input": {
+        "call": "window.JSSDK.storage.removeItem()",
+        "arguments": ["ui-preferences"]
+      },
+      "output": {
+        "promise": "fulfilled"
+      }
+    },
+    {
+      "name": "missing-key-semantics",
+      "outcome": "source_silent",
+      "description": "删除不存在键的结果没有统一定义。",
+      "sourceSilence": "The source defines removeItem(key) but does not define a distinct result or error for a missing key."
+    }
+  ]
+}

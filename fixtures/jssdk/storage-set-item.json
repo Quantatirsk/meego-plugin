@@ -1,0 +1,25 @@
+{
+  "id": "jssdk.storage.set-item.fixture",
+  "capabilityId": "jssdk.storage.set-item",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "store-string-value",
+      "outcome": "success",
+      "description": "写入字符串值后 Promise 解析为 void。",
+      "input": {
+        "call": "window.JSSDK.storage.setItem()",
+        "arguments": ["ui-preferences", "{\"density\":\"compact\"}"]
+      },
+      "output": {
+        "promise": "fulfilled"
+      }
+    },
+    {
+      "name": "empty-value-semantics",
+      "outcome": "source_silent",
+      "description": "value 省略、空字符串和其他空值的精确边界没有统一定义。",
+      "sourceSilence": "The source says an empty value clears the key but does not define the exact behavior for omitted and serialized empty values."
+    }
+  ]
+}

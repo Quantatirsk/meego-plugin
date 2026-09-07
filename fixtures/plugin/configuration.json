@@ -1,0 +1,29 @@
+{
+  "id": "plugin-point.configuration.fixture",
+  "capabilityId": "plugin-point.configuration",
+  "kind": "plugin_point",
+  "cases": [
+    {
+      "name": "space-configuration-context",
+      "outcome": "success",
+      "description": "场景标签表示管理员打开的网页端配置页面，不是共享配置的存储协议。",
+      "input": {
+        "point": "configuration",
+        "runtime": "space configuration page",
+        "client": "web"
+      },
+      "output": {
+        "contextApi": "window.JSSDK.configuration.getContext()",
+        "context": {
+          "spaceId": "space_demo"
+        }
+      }
+    },
+    {
+      "name": "shared-configuration-storage",
+      "outcome": "source_silent",
+      "description": "Configuration 点位没有定义跨用户共享配置的存储或权限协议。",
+      "sourceSilence": "The source does not define a platform-managed shared configuration storage or authorization payload."
+    }
+  ]
+}

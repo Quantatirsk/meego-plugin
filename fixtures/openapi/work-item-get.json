@@ -1,0 +1,89 @@
+{
+  "id": "openapi.work-item.get.fixture",
+  "capabilityId": "openapi.work-item.get",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "get-one-work-item",
+      "outcome": "success",
+      "description": "查询同一空间和工作项类型下的一个实例详情。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/work_item_type_demo/query",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER",
+          "x-auth-mode": "1"
+        },
+        "body": {
+          "work_item_ids": [1000000000000001],
+          "fields": ["field_summary"],
+          "expand": {
+            "need_workflow": true,
+            "need_multi_text": true
+          }
+        }
+      },
+      "response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "err": {},
+          "err_code": 0,
+          "err_msg": "",
+          "data": [
+            {
+              "id": 1000000000000001,
+              "project_key": "space_demo",
+              "name": "Example item",
+              "work_item_type_key": "work_item_type_demo",
+              "pattern": "Node",
+              "fields": [
+                {
+                  "field_key": "field_summary",
+                  "field_value": "Example value"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "sourceSilence": "The official endpoint page publishes the JSON success body but does not specify an HTTP response status."
+    },
+    {
+      "name": "work-item-not-found",
+      "outcome": "failure",
+      "description": "请求中包含不存在的工作项 ID。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/work_item_type_demo/query",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER",
+          "x-auth-mode": "1"
+        },
+        "body": {
+          "work_item_ids": [1000000000000999]
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "err_code": 30005,
+          "err_msg": "WorkItem Not Found",
+          "err": {
+            "code": 30005,
+            "msg": "WorkItem Not Found, please refer to https://project.feishu.cn/b/helpcenter/1p8d7djs/5aueo3jr",
+            "log_id": "log_demo_001"
+          }
+        }
+      }
+    }
+  ]
+}

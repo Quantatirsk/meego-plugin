@@ -1,0 +1,57 @@
+{
+  "id": "openapi.project-key.work-item-file-download.fixture",
+  "capabilityId": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-file-download",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "download-work-item-file",
+      "outcome": "success",
+      "description": "下载工作项中的一个附件或富文本文件。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/work_item_type_demo/1000000000000001/file/download",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER"
+        },
+        "body": {
+          "uuid": "FILE_UUID_PLACEHOLDER"
+        }
+      },
+      "response": {
+        "body": {
+          "encoding": "binary",
+          "content": "BINARY_CONTENT_OMITTED"
+        }
+      }
+    },
+    {
+      "name": "file-not-found",
+      "outcome": "failure",
+      "description": "请求的文件标识不存在或不属于路径中的工作项。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/work_item_type_demo/1000000000000001/file/download",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER"
+        },
+        "body": {
+          "uuid": "FILE_UUID_MISSING_PLACEHOLDER"
+        }
+      },
+      "response": {
+        "body": {
+          "err_code": 30019,
+          "err_msg": "file not found",
+          "err": {
+            "code": 30019,
+            "msg": "uuid not found"
+          }
+        }
+      }
+    }
+  ]
+}

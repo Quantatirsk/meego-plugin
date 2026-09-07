@@ -1,0 +1,64 @@
+{
+  "id": "openapi.authen.user-plugin-token.fixture",
+  "capabilityId": "openapi.post.open-api-authen-user-plugin-token",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "exchange-auth-code",
+      "outcome": "success",
+      "description": "服务端以一次性授权码交换用户访问凭证与刷新凭证。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/authen/user_plugin_token",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER"
+        },
+        "body": {
+          "code": "AUTHORIZATION_CODE_PLACEHOLDER",
+          "grant_type": "authorization_code"
+        }
+      },
+      "response": {
+        "body": {
+          "data": {
+            "token": "USER_ACCESS_TOKEN_PLACEHOLDER",
+            "expire_time": 7200,
+            "refresh_token": "REFRESH_TOKEN_PLACEHOLDER",
+            "refresh_token_expire_time": 1209600,
+            "saas_tenant_key": "TENANT_KEY_PLACEHOLDER",
+            "user_key": "USER_KEY_PLACEHOLDER"
+          },
+          "error": {
+            "code": 0,
+            "msg": "success"
+          }
+        }
+      }
+    },
+    {
+      "name": "invalid-authorization-code",
+      "outcome": "failure",
+      "description": "一次性授权码无效、已使用或已过期。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/authen/user_plugin_token",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER"
+        },
+        "body": {
+          "code": "AUTHORIZATION_CODE_PLACEHOLDER",
+          "grant_type": "authorization_code"
+        }
+      },
+      "response": {
+        "status": 403,
+        "body": {
+          "err_code": 10210,
+          "err_msg": "code invalid"
+        }
+      }
+    }
+  ]
+}

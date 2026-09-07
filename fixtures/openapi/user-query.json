@@ -1,0 +1,83 @@
+{
+  "id": "openapi.user.query.fixture",
+  "capabilityId": "openapi.post.open-api-user-query",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "query-by-user-key",
+      "outcome": "success",
+      "description": "用已知的飞书项目用户标识读取用户资料。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/user/query",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER"
+        },
+        "body": {
+          "user_keys": ["USER_KEY_PLACEHOLDER"]
+        }
+      },
+      "response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "err": {},
+          "err_code": 0,
+          "err_msg": "",
+          "data": [
+            {
+              "user_id": 0,
+              "user_key": "USER_KEY_PLACEHOLDER",
+              "username": "USER_KEY_PLACEHOLDER",
+              "email": "user@example.invalid",
+              "avatar_url": "https://example.invalid/avatar.png",
+              "name_cn": "Example User",
+              "name_en": "Example User",
+              "out_id": "OUT_ID_PLACEHOLDER",
+              "status": "activated",
+              "name": {
+                "default": "Example User",
+                "zh_cn": "Example User",
+                "en_us": "Example User"
+              }
+            }
+          ]
+        }
+      },
+      "sourceSilence": "The official endpoint page publishes the JSON success body but does not specify an HTTP response status."
+    },
+    {
+      "name": "user-not-found",
+      "outcome": "failure",
+      "description": "请求中的用户标识没有对应用户。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/user/query",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER"
+        },
+        "body": {
+          "user_keys": ["USER_KEY_MISSING_PLACEHOLDER"]
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "err_code": 30006,
+          "err_msg": "User Not Found",
+          "err": {
+            "code": 30006,
+            "msg": "User Not Found, please refer to https://project.feishu.cn/b/helpcenter/1p8d7djs/5aueo3jr",
+            "log_id": "LOG_ID_PLACEHOLDER"
+          }
+        }
+      }
+    }
+  ]
+}

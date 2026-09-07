@@ -1,0 +1,28 @@
+{
+  "id": "jssdk.tab.get-context.fixture",
+  "capabilityId": "jssdk.tab.get-context",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "work-item-detail-context",
+      "outcome": "success",
+      "description": "详情标签页读取空间、工作项类型和已创建工作项实例。",
+      "input": {
+        "call": "window.JSSDK.tab.getContext()",
+        "arguments": [],
+        "runtime": "work-item detail tab"
+      },
+      "output": {
+        "spaceId": "space_demo",
+        "workObjectId": "work_item_type_demo",
+        "workItemId": 1000000000000001
+      }
+    },
+    {
+      "name": "non-instance-empty-shape",
+      "outcome": "source_silent",
+      "description": "非实例场景中的 workItemId 空值形式没有统一定义。",
+      "sourceSilence": "The source states that workItemId is unavailable outside an instance context but does not define its serialized empty form."
+    }
+  ]
+}

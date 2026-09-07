@@ -1,0 +1,26 @@
+{
+  "id": "jssdk.configuration.get-context.fixture",
+  "capabilityId": "jssdk.configuration.get-context",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "space-configuration-context",
+      "outcome": "success",
+      "description": "配置页面读取所属空间 ID。",
+      "input": {
+        "call": "window.JSSDK.configuration.getContext()",
+        "arguments": [],
+        "runtime": "space configuration page"
+      },
+      "output": {
+        "spaceId": "space_demo"
+      }
+    },
+    {
+      "name": "rejected-promise-shape",
+      "outcome": "source_silent",
+      "description": "官方资料没有定义 getContext 失败时 Promise 拒绝值的统一结构。",
+      "sourceSilence": "The source documents the resolved spaceId but does not define a portable rejection payload."
+    }
+  ]
+}

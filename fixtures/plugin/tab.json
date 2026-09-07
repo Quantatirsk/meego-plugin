@@ -1,0 +1,31 @@
+{
+  "id": "plugin-point.tab.fixture",
+  "capabilityId": "plugin-point.tab",
+  "kind": "plugin_point",
+  "cases": [
+    {
+      "name": "work-item-detail-tab-context",
+      "outcome": "success",
+      "description": "场景标签表示工作项详情页中的标签运行时，不是页面挂载 wire schema。",
+      "input": {
+        "point": "tab",
+        "runtime": "work-item detail tab",
+        "client": "web"
+      },
+      "output": {
+        "contextApi": "window.JSSDK.tab.getContext()",
+        "context": {
+          "spaceId": "space_demo",
+          "workObjectId": "work_item_type_demo",
+          "workItemId": 1000000000000001
+        }
+      }
+    },
+    {
+      "name": "mobile-form-listener-failure-shape",
+      "outcome": "source_silent",
+      "description": "表单值监听只支持网页端，但来源没有定义移动端调用时的统一拒绝值。",
+      "sourceSilence": "The source states that the form value listener is web-only but does not define a portable rejection payload for unsupported clients."
+    }
+  ]
+}

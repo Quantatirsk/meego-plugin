@@ -1,0 +1,79 @@
+{
+  "id": "openapi.work-item.update.fixture",
+  "capabilityId": "openapi.work-item.update",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "replace-one-field",
+      "outcome": "success",
+      "description": "替换一个已存在工作项字段的值。",
+      "request": {
+        "method": "PUT",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/work_item_type_demo/1000000000000001",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER",
+          "X-Idem-UUID": "request_demo_002"
+        },
+        "body": {
+          "update_fields": [
+            {
+              "field_key": "field_summary",
+              "field_value": "Updated value",
+              "update_mode": 0
+            }
+          ]
+        }
+      },
+      "response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "err_code": 0,
+          "err_msg": "",
+          "err": {}
+        }
+      },
+      "sourceSilence": "The official endpoint page publishes the JSON success body but does not specify an HTTP response status."
+    },
+    {
+      "name": "field-not-found",
+      "outcome": "failure",
+      "description": "请求引用了不存在的字段标识。",
+      "request": {
+        "method": "PUT",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/work_item_type_demo/1000000000000001",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER"
+        },
+        "body": {
+          "update_fields": [
+            {
+              "field_key": "field_missing",
+              "field_value": "Updated value"
+            }
+          ]
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "err_code": 30009,
+          "err_msg": "Field Not Found",
+          "err": {
+            "code": 30009,
+            "msg": "field_value_pairs field key nam:can not find field",
+            "log_id": "log_demo_002"
+          }
+        }
+      }
+    }
+  ]
+}

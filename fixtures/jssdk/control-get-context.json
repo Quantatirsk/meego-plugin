@@ -1,0 +1,41 @@
+{
+  "id": "jssdk.control.get-context.fixture",
+  "capabilityId": "jssdk.control.get-context",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "node-form-context",
+      "outcome": "success",
+      "description": "节点表单返回空间、工作项、工作项类型和节点上下文。",
+      "input": {
+        "call": "window.JSSDK.control.getContext()",
+        "runtime": "node_form"
+      },
+      "output": {
+        "spaceId": "space_demo",
+        "workObjectId": "work_item_type_demo",
+        "workItemId": 1000000000000001,
+        "nodeId": "node_demo"
+      }
+    },
+    {
+      "name": "create-form-context",
+      "outcome": "success",
+      "description": "新建页使用 UUID 作为临时关联标识，不依赖尚不存在的工作项 ID。",
+      "input": {
+        "call": "window.JSSDK.control.getContext()",
+        "runtime": "create_form"
+      },
+      "output": {
+        "spaceId": "space_demo",
+        "UUID": "uuid_demo_001"
+      }
+    },
+    {
+      "name": "rejected-promise-shape",
+      "outcome": "source_silent",
+      "description": "官方 API 文档没有定义 getContext 失败时 Promise 拒绝值的统一结构。",
+      "sourceSilence": "The official API documents the resolved context shape but does not define a portable rejection payload."
+    }
+  ]
+}

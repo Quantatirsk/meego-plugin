@@ -1,0 +1,26 @@
+{
+  "id": "jssdk.context.load.fixture",
+  "capabilityId": "jssdk.context.load",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "platform-context",
+      "outcome": "success",
+      "description": "加载当前用户的语言偏好和色彩方案。",
+      "input": {
+        "call": "window.JSSDK.Context.load()",
+        "arguments": []
+      },
+      "output": {
+        "language": "en_US",
+        "colorScheme": "dark"
+      }
+    },
+    {
+      "name": "watch-trigger-set",
+      "outcome": "source_silent",
+      "description": "Context.watch 的完整触发字段集合没有定义。",
+      "sourceSilence": "The source exposes Context.watch but does not enumerate every context change that triggers the callback."
+    }
+  ]
+}

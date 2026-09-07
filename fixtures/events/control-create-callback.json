@@ -1,0 +1,50 @@
+{
+  "id": "event-contract.control-create-callback.fixture",
+  "capabilityId": "event-contract.control-create-callback",
+  "kind": "event_contract",
+  "cases": [
+    {
+      "name": "published-association-example",
+      "outcome": "success",
+      "description": "官方示例展示将 JSON 字符串中的控件 UUID 与已创建工作项关联；示例中的时间戳和 event_type 不是通用契约。",
+      "request": {
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "request_time": 1728363799655,
+          "signature": "SIGNATURE_PLACEHOLDER",
+          "source": "normal",
+          "data": {
+            "idempotent_key": "",
+            "project_key": "PROJECT_KEY_PLACEHOLDER",
+            "work_item_type_key": "WORK_ITEM_TYPE_KEY_PLACEHOLDER",
+            "event_type": 0,
+            "work_item_info": [
+              {
+                "work_item_id": 1000000000000001,
+                "work_item_type_key": "WORK_ITEM_TYPE_KEY_PLACEHOLDER"
+              }
+            ],
+            "field_info": [
+              {
+                "after_field_value": "{\"__system_control_uuid\":\"CONTROL_UUID_PLACEHOLDER\"}"
+              }
+            ]
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": ""
+      }
+    },
+    {
+      "name": "callback-deduplication-key",
+      "outcome": "source_silent",
+      "description": "来源没有定义 Control 新建成功回调可用的稳定去重键。",
+      "sourceSilence": "The Control callback example includes an empty idempotent_key and does not define its generation or deduplication semantics."
+    }
+  ]
+}

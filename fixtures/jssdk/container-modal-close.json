@@ -1,0 +1,26 @@
+{
+  "id": "jssdk.container-modal.close.fixture",
+  "capabilityId": "jssdk.container-modal.close",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "close-current-button-modal",
+      "outcome": "success",
+      "description": "在按钮打开的当前插件弹窗内关闭弹窗。",
+      "input": {
+        "call": "window.JSSDK.containerModal.close()",
+        "arguments": [],
+        "runtime": "current button modal"
+      },
+      "output": {
+        "promise": "fulfilled"
+      }
+    },
+    {
+      "name": "outside-modal-failure-shape",
+      "outcome": "source_silent",
+      "description": "不在当前弹窗内调用时的拒绝值没有统一定义。",
+      "sourceSilence": "The source defines close inside supported modal sources but does not define a portable failure payload outside a current modal."
+    }
+  ]
+}

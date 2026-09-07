@@ -1,0 +1,65 @@
+{
+  "id": "openapi.work-item.create.fixture",
+  "capabilityId": "openapi.work-item.create",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "create-work-item",
+      "outcome": "success",
+      "description": "在指定空间创建一个工作项，并由平台返回新实例 ID。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/create",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER",
+          "X-Idem-UUID": "request_demo_001"
+        },
+        "body": {
+          "work_item_type_key": "work_item_type_demo",
+          "template_id": 1001,
+          "name": "Example item",
+          "required_mode": 1,
+          "field_value_pairs": [
+            {
+              "field_key": "field_summary",
+              "field_value": "Example value"
+            }
+          ]
+        }
+      },
+      "response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "data": 1000000000000002,
+          "err": {},
+          "err_msg": "",
+          "err_code": 0
+        }
+      },
+      "sourceSilence": "The official endpoint page publishes the JSON success body but does not specify an HTTP response status."
+    },
+    {
+      "name": "invalid-work-item-type-response",
+      "outcome": "source_silent",
+      "description": "官方列出工作项类型无效的错误码，但未提供该场景的完整响应示例。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/space_demo/work_item/create",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER"
+        },
+        "body": {
+          "work_item_type_key": "work_item_type_missing",
+          "name": "Example item"
+        }
+      },
+      "sourceSilence": "The official document identifies error code 30014 for an invalid work item type but does not publish a complete failure response body for that case."
+    }
+  ]
+}

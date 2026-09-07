@@ -1,0 +1,38 @@
+{
+  "id": "event-contract.listen.fixture",
+  "capabilityId": "event-contract.listen",
+  "kind": "event_contract",
+  "cases": [
+    {
+      "name": "acknowledge-listener-event",
+      "outcome": "success",
+      "description": "监听事件在 1000ms 内得到 HTTP 200 确认；响应体由接收端自行决定。",
+      "request": {
+        "method": "POST",
+        "path": "/callbacks/listener",
+        "body": {
+          "request_time": 1730184005453,
+          "data": {
+            "event_type": 1001,
+            "idempotent_key": "EVENT_IDEMPOTENCY_KEY_PLACEHOLDER"
+          }
+        }
+      },
+      "response": {
+        "status": 200
+      }
+    },
+    {
+      "name": "receiver-failure-retries",
+      "outcome": "failure",
+      "description": "未在时限内返回 HTTP 200 的监听事件会按平台重试策略重新投递。",
+      "request": {
+        "method": "POST",
+        "path": "/callbacks/listener"
+      },
+      "response": {
+        "status": 500
+      }
+    }
+  ]
+}

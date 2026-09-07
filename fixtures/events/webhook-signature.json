@@ -1,0 +1,29 @@
+{
+  "id": "event-contract.webhook-signature.fixture",
+  "capabilityId": "event-contract.webhook-signature",
+  "kind": "event_contract",
+  "cases": [
+    {
+      "name": "configured-callback-token",
+      "outcome": "success",
+      "description": "callback token 已配置时，使用请求中的原始时间戳十进制表示计算签名。",
+      "input": {
+        "pluginId": "MII_example",
+        "callbackToken": "callback-token",
+        "requestTime": 1730184005453
+      },
+      "output": {
+        "signature": "b8824f0304aa9f1c90f5624315ac296aafc4e66b77b8f55fabbce22d40421ce0"
+      }
+    },
+    {
+      "name": "callback-token-not-configured",
+      "outcome": "source_silent",
+      "description": "callback token 未配置时，不能把签名字段格式或缺失行为当作本地已验证契约。",
+      "input": {
+        "pluginId": "MII_example"
+      },
+      "sourceSilence": "The event configuration documents that callback token is optional but does not define a portable signature-field contract for an unconfigured token."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "plugin-point.button.fixture",
+  "capabilityId": "plugin-point.button",
+  "kind": "plugin_point",
+  "cases": [
+    {
+      "name": "work-item-more-modal",
+      "outcome": "success",
+      "description": "场景标签表示按钮在工作项更多菜单中打开的插件弹窗，不是后台配置 JSON。",
+      "input": {
+        "point": "button",
+        "runtime": "work-item-more modal",
+        "client": "web"
+      },
+      "output": {
+        "contextApi": "window.JSSDK.button.getContext()",
+        "context": {
+          "spaceId": "space_demo",
+          "workObjectId": "work_item_type_demo",
+          "workItemId": 1000000000000001
+        }
+      }
+    },
+    {
+      "name": "view-batch-modal",
+      "outcome": "success",
+      "description": "视图批量按钮的上下文按空间和工作项类型组织选中实例。",
+      "input": {
+        "point": "button",
+        "runtime": "view batch modal",
+        "client": "web"
+      },
+      "output": {
+        "contextApi": "window.JSSDK.button.getContext()",
+        "context": {
+          "spaceId": "space_demo",
+          "workObjectId": "work_item_type_demo",
+          "viewId": "view_demo",
+          "selectedWorkItems": [
+            {
+              "spaceId": "space_demo",
+              "workObjectId": "work_item_type_demo",
+              "selectedWorkItemIds": [1000000000000001, 1000000000000002]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "wbs-configuration-shape",
+      "outcome": "source_silent",
+      "description": "WBS 入口存在上下文示例，但后台位置配置和移动端支持没有统一协议。",
+      "sourceSilence": "The source documents a WBS context example but does not define a portable configuration payload or mobile support contract."
+    }
+  ]
+}

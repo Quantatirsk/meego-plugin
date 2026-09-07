@@ -1,0 +1,25 @@
+{
+  "id": "jssdk.storage.get-item.fixture",
+  "capabilityId": "jssdk.storage.get-item",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "stored-string-value",
+      "outcome": "success",
+      "description": "读取当前用户与当前插件隔离的字符串值。",
+      "input": {
+        "call": "window.JSSDK.storage.getItem()",
+        "arguments": ["ui-preferences"]
+      },
+      "output": {
+        "resolvedValue": "{\"density\":\"compact\"}"
+      }
+    },
+    {
+      "name": "rejected-promise-shape",
+      "outcome": "source_silent",
+      "description": "官方资料没有定义读取失败时 Promise 拒绝值的统一结构。",
+      "sourceSilence": "The source defines the resolved string or undefined value but does not define a portable rejection payload."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "openapi.authen.plugin-token.fixture",
+  "capabilityId": "openapi.post.open-api-authen-plugin-token",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "get-plugin-access-token",
+      "outcome": "success",
+      "description": "服务端用插件 ID 和插件密钥获取正式插件访问凭证。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/authen/plugin_token",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "plugin_id": "PLUGIN_ID_PLACEHOLDER",
+          "plugin_secret": "PLUGIN_SECRET_PLACEHOLDER",
+          "type": 0
+        }
+      },
+      "response": {
+        "body": {
+          "data": {
+            "expire_time": 7200,
+            "token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER"
+          },
+          "error": {
+            "code": 0,
+            "msg": "success"
+          }
+        }
+      }
+    },
+    {
+      "name": "invalid-plugin-credentials",
+      "outcome": "source_silent",
+      "description": "插件 ID 或插件密钥无效时，官方主文没有提供完整错误响应体。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/authen/plugin_token",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "plugin_id": "PLUGIN_ID_PLACEHOLDER",
+          "plugin_secret": "PLUGIN_SECRET_PLACEHOLDER",
+          "type": 0
+        }
+      },
+      "sourceSilence": "The official credential guide publishes the success envelope but no complete failure body for an invalid plugin ID or plugin secret."
+    }
+  ]
+}

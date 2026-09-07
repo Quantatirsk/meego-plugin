@@ -1,0 +1,50 @@
+{
+  "id": "jssdk.button.get-context.fixture",
+  "capabilityId": "jssdk.button.get-context",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "work-item-more-context",
+      "outcome": "success",
+      "description": "工作项更多按钮弹窗读取工作项上下文。",
+      "input": {
+        "call": "window.JSSDK.button.getContext()",
+        "arguments": [],
+        "runtime": "work-item-more modal"
+      },
+      "output": {
+        "spaceId": "space_demo",
+        "workObjectId": "work_item_type_demo",
+        "workItemId": 1000000000000001
+      }
+    },
+    {
+      "name": "view-batch-context",
+      "outcome": "success",
+      "description": "视图批量操作按空间和工作项类型返回选中实例。",
+      "input": {
+        "call": "window.JSSDK.button.getContext()",
+        "arguments": [],
+        "runtime": "view batch modal"
+      },
+      "output": {
+        "spaceId": "space_demo",
+        "workObjectId": "work_item_type_demo",
+        "viewId": "view_demo",
+        "selectedWorkItems": [
+          {
+            "spaceId": "space_demo",
+            "workObjectId": "work_item_type_demo",
+            "selectedWorkItemIds": [1000000000000001, 1000000000000002]
+          }
+        ]
+      }
+    },
+    {
+      "name": "rejected-promise-shape",
+      "outcome": "source_silent",
+      "description": "官方资料没有定义 getContext 失败时 Promise 拒绝值的统一结构。",
+      "sourceSilence": "The source documents resolved context fields but does not define a portable rejection payload."
+    }
+  ]
+}

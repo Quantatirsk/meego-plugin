@@ -1,0 +1,30 @@
+{
+  "id": "jssdk.toast.error.fixture",
+  "capabilityId": "jssdk.toast.error",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "show-error-toast",
+      "outcome": "success",
+      "description": "显示错误提示并返回可用于关闭的 toast ID。",
+      "input": {
+        "call": "window.JSSDK.toast.error()",
+        "arguments": [
+          {
+            "content": "Unable to save",
+            "duration": 5
+          }
+        ]
+      },
+      "output": {
+        "toastId": "toast_demo"
+      }
+    },
+    {
+      "name": "rejected-promise-shape",
+      "outcome": "source_silent",
+      "description": "显示失败时的 Promise 拒绝值没有统一定义。",
+      "sourceSilence": "The source defines a fulfilled toast ID but does not define a portable rejection payload."
+    }
+  ]
+}

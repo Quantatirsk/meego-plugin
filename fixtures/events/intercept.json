@@ -1,0 +1,37 @@
+{
+  "id": "event-contract.intercept.fixture",
+  "capabilityId": "event-contract.intercept",
+  "kind": "event_contract",
+  "cases": [
+    {
+      "name": "allow-operation-field-omission",
+      "outcome": "source_silent",
+      "description": "平台定义 false 放行，但未定义放行响应中其它字段是否可以省略。",
+      "sourceSilence": "The published response example includes msg, custom_data, and intercept_options, but does not define omission semantics when need_intercept is false."
+    },
+    {
+      "name": "block-operation",
+      "outcome": "success",
+      "description": "在时限内返回 true，平台阻止当前操作并展示可选提示。",
+      "request": {
+        "method": "POST",
+        "path": "/callbacks/intercept"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "need_intercept": true,
+          "msg": {
+            "zh": "ACTION_IS_NOT_ALLOWED",
+            "en": "ACTION_IS_NOT_ALLOWED",
+            "ja": "ACTION_IS_NOT_ALLOWED"
+          },
+          "custom_data": "",
+          "intercept_options": {
+            "disable_show_plugin": true
+          }
+        }
+      }
+    }
+  ]
+}

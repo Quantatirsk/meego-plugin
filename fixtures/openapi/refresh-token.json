@@ -1,0 +1,62 @@
+{
+  "id": "openapi.authen.refresh-token.fixture",
+  "capabilityId": "openapi.post.open-api-authen-refresh-token",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "refresh-user-access-token",
+      "outcome": "success",
+      "description": "服务端用刷新凭证换取新的用户访问凭证。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/authen/refresh_token",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER"
+        },
+        "body": {
+          "refresh_token": "REFRESH_TOKEN_PLACEHOLDER",
+          "type": 1
+        }
+      },
+      "response": {
+        "body": {
+          "data": {
+            "token": "USER_ACCESS_TOKEN_PLACEHOLDER",
+            "expire_time": 7200,
+            "refresh_token": "REFRESH_TOKEN_PLACEHOLDER",
+            "refresh_token_expire_time": 1209600
+          },
+          "error": {
+            "code": 0,
+            "msg": "success"
+          }
+        }
+      }
+    },
+    {
+      "name": "invalid-plugin-token",
+      "outcome": "failure",
+      "description": "用于认证刷新请求的插件凭证无法通过校验。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/authen/refresh_token",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "INVALID_PLUGIN_ACCESS_TOKEN_PLACEHOLDER"
+        },
+        "body": {
+          "refresh_token": "REFRESH_TOKEN_PLACEHOLDER",
+          "type": 1
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": {
+          "err_code": 10022,
+          "err_msg": "Check Token Failed"
+        }
+      }
+    }
+  ]
+}

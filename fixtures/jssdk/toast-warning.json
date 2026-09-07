@@ -1,0 +1,30 @@
+{
+  "id": "jssdk.toast.warning.fixture",
+  "capabilityId": "jssdk.toast.warning",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "show-warning-toast",
+      "outcome": "success",
+      "description": "显示警告提示并返回可用于关闭的 toast ID。",
+      "input": {
+        "call": "window.JSSDK.toast.warning()",
+        "arguments": [
+          {
+            "content": "Review the input",
+            "duration": 5
+          }
+        ]
+      },
+      "output": {
+        "toastId": "toast_demo"
+      }
+    },
+    {
+      "name": "rejected-promise-shape",
+      "outcome": "source_silent",
+      "description": "显示失败时的 Promise 拒绝值没有统一定义。",
+      "sourceSilence": "The source defines a fulfilled toast ID but does not define a portable rejection payload."
+    }
+  ]
+}

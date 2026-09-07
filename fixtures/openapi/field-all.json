@@ -1,0 +1,70 @@
+{
+  "id": "openapi.project-key.field-all.fixture",
+  "capabilityId": "openapi.post.open-api-project-key-field-all",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "list-fields-for-work-item-type",
+      "outcome": "success",
+      "description": "读取指定工作项类型的字段定义。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/space_demo/field/all",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER"
+        },
+        "body": {
+          "work_item_type_key": "work_item_type_demo"
+        }
+      },
+      "response": {
+        "body": {
+          "data": [
+            {
+              "field_key": "field_summary",
+              "field_alias": "summary_alias",
+              "field_type_key": "text",
+              "field_name": "Summary",
+              "is_custom_field": true,
+              "work_item_scopes": ["work_item_type_demo"],
+              "relation_id": ""
+            }
+          ],
+          "err": {},
+          "err_code": 0,
+          "err_msg": ""
+        }
+      }
+    },
+    {
+      "name": "work-item-type-not-in-project",
+      "outcome": "failure",
+      "description": "路径空间中不存在请求的工作项类型。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/space_demo/field/all",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER"
+        },
+        "body": {
+          "work_item_type_key": "work_item_type_missing"
+        }
+      },
+      "response": {
+        "body": {
+          "err_code": 30001,
+          "err_msg": "Data Not Found",
+          "err": {
+            "code": 30001,
+            "msg": "Data not found in project space_demo with work_item_type work_item_type_missing",
+            "log_id": "LOG_ID_PLACEHOLDER"
+          }
+        }
+      }
+    }
+  ]
+}

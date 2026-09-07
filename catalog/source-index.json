@@ -1,0 +1,3663 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-07",
+  "capabilities": [
+    {
+      "id": "ai.field.event",
+      "kind": "ai_capability",
+      "title": "AI 字段事件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9kfb8nr5",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "event",
+        "field"
+      ]
+    },
+    {
+      "id": "ai.node.data",
+      "kind": "ai_capability",
+      "title": "AI 节点数据结构",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bw18ioud",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "data",
+        "node"
+      ]
+    },
+    {
+      "id": "ai.node.event",
+      "kind": "ai_capability",
+      "title": "AI 节点事件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dl7cjf41",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "event",
+        "node"
+      ]
+    },
+    {
+      "id": "ai.node.link-options",
+      "kind": "ai_capability",
+      "title": "AI 节点链接选项",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9nqnv8jk",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "link-options",
+        "node"
+      ]
+    },
+    {
+      "id": "ai.node.permissions",
+      "kind": "ai_capability",
+      "title": "AI 节点权限",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/kej409jy",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "node",
+        "permissions"
+      ]
+    },
+    {
+      "id": "ai.operation.event",
+      "kind": "ai_capability",
+      "title": "AI 操作事件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bfxx3ljy",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "event",
+        "operation"
+      ]
+    },
+    {
+      "id": "ai.operation.link-options",
+      "kind": "ai_capability",
+      "title": "AI 操作链接选项",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/21c9ip0n",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "link-options",
+        "operation"
+      ]
+    },
+    {
+      "id": "ai.operation.permissions",
+      "kind": "ai_capability",
+      "title": "AI 操作权限",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bz5jtmow",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "operation",
+        "permissions"
+      ]
+    },
+    {
+      "id": "event-contract.control-create-callback",
+      "kind": "event_contract",
+      "title": "Control 新建成功回调",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/kui20z6a",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "control",
+        "callback",
+        "uuid"
+      ]
+    },
+    {
+      "id": "event-contract.intercept",
+      "kind": "event_contract",
+      "title": "拦截事件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5cojktgi",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "event",
+        "intercept"
+      ]
+    },
+    {
+      "id": "event-contract.listen",
+      "kind": "event_contract",
+      "title": "监听事件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lvojfwht",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "event",
+        "webhook"
+      ]
+    },
+    {
+      "id": "event-contract.plugin-lifecycle",
+      "kind": "event_contract",
+      "title": "插件装卸监听",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lswla3b5",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "event",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "event-contract.webhook-signature",
+      "kind": "event_contract",
+      "title": "Webhook 验签",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/kztn7qno",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "event",
+        "signature",
+        "webhook"
+      ]
+    },
+    {
+      "id": "jssdk.action-sheet.show",
+      "kind": "jssdk_api",
+      "title": "actionSheet.show",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9haq6j0j",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "action-sheet",
+        "jssdk",
+        "show"
+      ]
+    },
+    {
+      "id": "jssdk.button.get-context",
+      "kind": "jssdk_api",
+      "title": "Button.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ytcawthh",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "button",
+        "get-context",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.button.on-work-item-form-value-changed",
+      "kind": "jssdk_api",
+      "title": "Button.onWorkItemFormValueChanged",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ytcawthh",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "button",
+        "jssdk",
+        "on-work-item-form-value-changed"
+      ]
+    },
+    {
+      "id": "jssdk.clipboard.write-text",
+      "kind": "jssdk_api",
+      "title": "clipboard.writeText",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nqztnm4h",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "clipboard",
+        "jssdk",
+        "write-text"
+      ]
+    },
+    {
+      "id": "jssdk.component.date-picker",
+      "kind": "jssdk_api",
+      "title": "日期选择器 / DatePicker",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9wxgrizq",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "component",
+        "date-picker",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.component.library",
+      "kind": "jssdk_api",
+      "title": "客户端组件库接入",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/aa6btca8",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "component",
+        "jssdk",
+        "library"
+      ]
+    },
+    {
+      "id": "jssdk.component.popover",
+      "kind": "jssdk_api",
+      "title": "气泡卡片 / Popover",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/cq5cwaw6",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "component",
+        "jssdk",
+        "popover"
+      ]
+    },
+    {
+      "id": "jssdk.component.rich-text-editor",
+      "kind": "jssdk_api",
+      "title": "富文本 / RichTextEditor",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/t5w5ov8p",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "component",
+        "jssdk",
+        "rich-text-editor"
+      ]
+    },
+    {
+      "id": "jssdk.component.select",
+      "kind": "jssdk_api",
+      "title": "选择器 / Select",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/six0xskc",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "component",
+        "jssdk",
+        "select"
+      ]
+    },
+    {
+      "id": "jssdk.component.user-select",
+      "kind": "jssdk_api",
+      "title": "用户选择器 / UserSelect",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/p1h1pvdr",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "component",
+        "jssdk",
+        "user-select"
+      ]
+    },
+    {
+      "id": "jssdk.component.user-tag",
+      "kind": "jssdk_api",
+      "title": "用户标签 / UserTag",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/6v3a3hml",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "component",
+        "jssdk",
+        "user-tag"
+      ]
+    },
+    {
+      "id": "jssdk.component.work-item-finder",
+      "kind": "jssdk_api",
+      "title": "工作项筛选器 / WorkItemFinder",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7dpe5r3v",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "component",
+        "jssdk",
+        "work-item-finder"
+      ]
+    },
+    {
+      "id": "jssdk.configuration.get-context",
+      "kind": "jssdk_api",
+      "title": "Configuration.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/o8q4bptu",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "configuration",
+        "get-context",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.container-modal.close",
+      "kind": "jssdk_api",
+      "title": "containerModal.close",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/cxj9ivdg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "close",
+        "container-modal",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.container-modal.configure",
+      "kind": "jssdk_api",
+      "title": "containerModal.configure",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/cxj9ivdg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "configure",
+        "container-modal",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.container-modal.submit",
+      "kind": "jssdk_api",
+      "title": "containerModal.submit",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/cxj9ivdg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "container-modal",
+        "jssdk",
+        "submit"
+      ]
+    },
+    {
+      "id": "jssdk.context.get-custom-context",
+      "kind": "jssdk_api",
+      "title": "Context.getCustomContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/zq8fg6bl",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "context",
+        "get-custom-context",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.context.load",
+      "kind": "jssdk_api",
+      "title": "Context.load",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/zq8fg6bl",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "context",
+        "jssdk",
+        "load"
+      ]
+    },
+    {
+      "id": "jssdk.context.watch",
+      "kind": "jssdk_api",
+      "title": "Context.watch",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/zq8fg6bl",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "context",
+        "jssdk",
+        "watch"
+      ]
+    },
+    {
+      "id": "jssdk.control.get-context",
+      "kind": "jssdk_api",
+      "title": "Control.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x4isqv2u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "control",
+        "get-context",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.control.get-create-work-item-form-item-values",
+      "kind": "jssdk_api",
+      "title": "Control.getCreateWorkItemFormItemValues",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x4isqv2u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "control",
+        "get-create-work-item-form-item-values",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.control.get-display-info",
+      "kind": "jssdk_api",
+      "title": "Control.getDisplayInfo",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x4isqv2u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "control",
+        "get-display-info",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.control.on-work-item-form-value-changed",
+      "kind": "jssdk_api",
+      "title": "Control.onWorkItemFormValueChanged",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x4isqv2u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "control",
+        "jssdk",
+        "on-work-item-form-value-changed"
+      ]
+    },
+    {
+      "id": "jssdk.control.open-full-screen-plugin",
+      "kind": "jssdk_api",
+      "title": "Control.openFullScreenPlugin",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x4isqv2u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "control",
+        "jssdk",
+        "open-full-screen-plugin"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.get-context",
+      "kind": "jssdk_api",
+      "title": "CustomField.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "get-context",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.get-create-work-item-form-item-values",
+      "kind": "jssdk_api",
+      "title": "CustomField.getCreateWorkItemFormItemValues",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "get-create-work-item-form-item-values",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.get-display-info",
+      "kind": "jssdk_api",
+      "title": "CustomField.getDisplayInfo",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "get-display-info",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.get-field-config",
+      "kind": "jssdk_api",
+      "title": "CustomField.getFieldConfig",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "get-field-config",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.get-props",
+      "kind": "jssdk_api",
+      "title": "CustomField.getProps",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "get-props",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.get-table-cell-init-props",
+      "kind": "jssdk_api",
+      "title": "CustomField.getTableCellInitProps",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "get-table-cell-init-props",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.on-work-item-form-value-changed",
+      "kind": "jssdk_api",
+      "title": "CustomField.onWorkItemFormValueChanged",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "jssdk",
+        "on-work-item-form-value-changed"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.open-full-screen-plugin",
+      "kind": "jssdk_api",
+      "title": "CustomField.openFullScreenPlugin",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "jssdk",
+        "open-full-screen-plugin"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.save-field-value",
+      "kind": "jssdk_api",
+      "title": "CustomField.saveFieldValue",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "jssdk",
+        "save-field-value"
+      ]
+    },
+    {
+      "id": "jssdk.custom-field.watch",
+      "kind": "jssdk_api",
+      "title": "CustomField.watch",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "jssdk",
+        "watch"
+      ]
+    },
+    {
+      "id": "jssdk.event.on-message",
+      "kind": "jssdk_api",
+      "title": "event.onMessage",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jx1tl8aj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "event",
+        "jssdk",
+        "on-message"
+      ]
+    },
+    {
+      "id": "jssdk.field.load",
+      "kind": "jssdk_api",
+      "title": "Field.load",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bsj55m0d",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "field",
+        "jssdk",
+        "load"
+      ]
+    },
+    {
+      "id": "jssdk.intercept.get-context",
+      "kind": "jssdk_api",
+      "title": "Intercept.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/282nm7ww",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-context",
+        "intercept",
+        "jssdk"
+      ]
+    },
+    {
+      "id": "jssdk.lite-app-component.get-config",
+      "kind": "jssdk_api",
+      "title": "LiteAppComponent.getConfig",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-config",
+        "jssdk",
+        "lite-app-component"
+      ]
+    },
+    {
+      "id": "jssdk.lite-app-component.get-context",
+      "kind": "jssdk_api",
+      "title": "LiteAppComponent.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-context",
+        "jssdk",
+        "lite-app-component"
+      ]
+    },
+    {
+      "id": "jssdk.lite-app-component.get-data-source-result",
+      "kind": "jssdk_api",
+      "title": "LiteAppComponent.getDataSourceResult",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-data-source-result",
+        "jssdk",
+        "lite-app-component"
+      ]
+    },
+    {
+      "id": "jssdk.lite-app-component.get-preset",
+      "kind": "jssdk_api",
+      "title": "LiteAppComponent.getPreset",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-preset",
+        "jssdk",
+        "lite-app-component"
+      ]
+    },
+    {
+      "id": "jssdk.lite-app-component.get-prop-full-config",
+      "kind": "jssdk_api",
+      "title": "LiteAppComponent.getPropFullConfig",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-prop-full-config",
+        "jssdk",
+        "lite-app-component"
+      ]
+    },
+    {
+      "id": "jssdk.lite-app-component.get-props",
+      "kind": "jssdk_api",
+      "title": "LiteAppComponent.getProps",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-props",
+        "jssdk",
+        "lite-app-component"
+      ]
+    },
+    {
+      "id": "jssdk.lite-app-component.notify",
+      "kind": "jssdk_api",
+      "title": "LiteAppComponent.notify",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "lite-app-component",
+        "notify"
+      ]
+    },
+    {
+      "id": "jssdk.lite-app-component.watch",
+      "kind": "jssdk_api",
+      "title": "LiteAppComponent.watch",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "lite-app-component",
+        "watch"
+      ]
+    },
+    {
+      "id": "jssdk.modal.confirm",
+      "kind": "jssdk_api",
+      "title": "modal.confirm",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jj1uma7o",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "confirm",
+        "jssdk",
+        "modal"
+      ]
+    },
+    {
+      "id": "jssdk.modal.open",
+      "kind": "jssdk_api",
+      "title": "modal.open",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jj1uma7o",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "modal",
+        "open"
+      ]
+    },
+    {
+      "id": "jssdk.navigation.get-hostname",
+      "kind": "jssdk_api",
+      "title": "navigation.getHostname",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/eya1z1nb",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-hostname",
+        "jssdk",
+        "navigation"
+      ]
+    },
+    {
+      "id": "jssdk.navigation.get-href",
+      "kind": "jssdk_api",
+      "title": "navigation.getHref",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/eya1z1nb",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-href",
+        "jssdk",
+        "navigation"
+      ]
+    },
+    {
+      "id": "jssdk.navigation.open",
+      "kind": "jssdk_api",
+      "title": "navigation.open",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/eya1z1nb",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "navigation",
+        "open"
+      ]
+    },
+    {
+      "id": "jssdk.navigation.open-work-item-create-page",
+      "kind": "jssdk_api",
+      "title": "navigation.openWorkItemCreatePage",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/eya1z1nb",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "navigation",
+        "open-work-item-create-page"
+      ]
+    },
+    {
+      "id": "jssdk.navigation.open-work-item-detail-page",
+      "kind": "jssdk_api",
+      "title": "navigation.openWorkItemDetailPage",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/eya1z1nb",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "navigation",
+        "open-work-item-detail-page"
+      ]
+    },
+    {
+      "id": "jssdk.page.get-context",
+      "kind": "jssdk_api",
+      "title": "Page.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2m5pu0j9",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-context",
+        "jssdk",
+        "page"
+      ]
+    },
+    {
+      "id": "jssdk.rich-text-editor.show",
+      "kind": "jssdk_api",
+      "title": "richTextEditor.show",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1btl061e",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "rich-text-editor",
+        "show"
+      ]
+    },
+    {
+      "id": "jssdk.schedule.get-context",
+      "kind": "jssdk_api",
+      "title": "Schedule.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-context",
+        "jssdk",
+        "schedule"
+      ]
+    },
+    {
+      "id": "jssdk.schedule.get-owners-info",
+      "kind": "jssdk_api",
+      "title": "Schedule.getOwnersInfo",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-owners-info",
+        "jssdk",
+        "schedule"
+      ]
+    },
+    {
+      "id": "jssdk.schedule.get-props",
+      "kind": "jssdk_api",
+      "title": "Schedule.getProps",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-props",
+        "jssdk",
+        "schedule"
+      ]
+    },
+    {
+      "id": "jssdk.schedule.get-wbs-status",
+      "kind": "jssdk_api",
+      "title": "Schedule.getWbsStatus",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-wbs-status",
+        "jssdk",
+        "schedule"
+      ]
+    },
+    {
+      "id": "jssdk.schedule.handle-cancel",
+      "kind": "jssdk_api",
+      "title": "Schedule.handleCancel",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "handle-cancel",
+        "jssdk",
+        "schedule"
+      ]
+    },
+    {
+      "id": "jssdk.schedule.handle-submit",
+      "kind": "jssdk_api",
+      "title": "Schedule.handleSubmit",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "handle-submit",
+        "jssdk",
+        "schedule"
+      ]
+    },
+    {
+      "id": "jssdk.schedule.resize-container",
+      "kind": "jssdk_api",
+      "title": "Schedule.resizeContainer",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "resize-container",
+        "schedule"
+      ]
+    },
+    {
+      "id": "jssdk.schedule.watch",
+      "kind": "jssdk_api",
+      "title": "Schedule.watch",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "schedule",
+        "watch"
+      ]
+    },
+    {
+      "id": "jssdk.script.end",
+      "kind": "jssdk_api",
+      "title": "Script.end",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dff7a89n",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "end",
+        "jssdk",
+        "script"
+      ]
+    },
+    {
+      "id": "jssdk.script.get-context",
+      "kind": "jssdk_api",
+      "title": "Script.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dff7a89n",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-context",
+        "jssdk",
+        "script"
+      ]
+    },
+    {
+      "id": "jssdk.shared.set-shared-modules",
+      "kind": "jssdk_api",
+      "title": "shared.setSharedModules",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yrdbq8to",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "set-shared-modules",
+        "shared"
+      ]
+    },
+    {
+      "id": "jssdk.space.load",
+      "kind": "jssdk_api",
+      "title": "Space.load",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7fn34lb6",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "load",
+        "space"
+      ]
+    },
+    {
+      "id": "jssdk.storage.clear",
+      "kind": "jssdk_api",
+      "title": "storage.clear",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/arvsjvf3",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "clear",
+        "jssdk",
+        "storage"
+      ]
+    },
+    {
+      "id": "jssdk.storage.get-item",
+      "kind": "jssdk_api",
+      "title": "storage.getItem",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/arvsjvf3",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-item",
+        "jssdk",
+        "storage"
+      ]
+    },
+    {
+      "id": "jssdk.storage.remove-item",
+      "kind": "jssdk_api",
+      "title": "storage.removeItem",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/arvsjvf3",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "remove-item",
+        "storage"
+      ]
+    },
+    {
+      "id": "jssdk.storage.set-item",
+      "kind": "jssdk_api",
+      "title": "storage.setItem",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/arvsjvf3",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "set-item",
+        "storage"
+      ]
+    },
+    {
+      "id": "jssdk.tab.get-context",
+      "kind": "jssdk_api",
+      "title": "Tab.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/z1gnwa6r",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-context",
+        "jssdk",
+        "tab"
+      ]
+    },
+    {
+      "id": "jssdk.tab.on-work-item-form-value-changed",
+      "kind": "jssdk_api",
+      "title": "Tab.onWorkItemFormValueChanged",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/z1gnwa6r",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "on-work-item-form-value-changed",
+        "tab"
+      ]
+    },
+    {
+      "id": "jssdk.toast.close",
+      "kind": "jssdk_api",
+      "title": "toast.close",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7330ys5f",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "close",
+        "jssdk",
+        "toast"
+      ]
+    },
+    {
+      "id": "jssdk.toast.error",
+      "kind": "jssdk_api",
+      "title": "toast.error",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7330ys5f",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "error",
+        "jssdk",
+        "toast"
+      ]
+    },
+    {
+      "id": "jssdk.toast.info",
+      "kind": "jssdk_api",
+      "title": "toast.info",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7330ys5f",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "info",
+        "jssdk",
+        "toast"
+      ]
+    },
+    {
+      "id": "jssdk.toast.success",
+      "kind": "jssdk_api",
+      "title": "toast.success",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7330ys5f",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "success",
+        "toast"
+      ]
+    },
+    {
+      "id": "jssdk.toast.warning",
+      "kind": "jssdk_api",
+      "title": "toast.warning",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7330ys5f",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "toast",
+        "warning"
+      ]
+    },
+    {
+      "id": "jssdk.utils.get-auth-code",
+      "kind": "jssdk_api",
+      "title": "utils.getAuthCode",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/hcok4x6h",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-auth-code",
+        "jssdk",
+        "utils"
+      ]
+    },
+    {
+      "id": "jssdk.utils.overwrite-theme-for-semi-ui",
+      "kind": "jssdk_api",
+      "title": "utils.overwriteThemeForSemiUI",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/hcok4x6h",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "overwrite-theme-for-semi-ui",
+        "utils"
+      ]
+    },
+    {
+      "id": "jssdk.view.get-context",
+      "kind": "jssdk_api",
+      "title": "View.getContext",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/27zrsrd9",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get-context",
+        "jssdk",
+        "view"
+      ]
+    },
+    {
+      "id": "jssdk.work-item.load",
+      "kind": "jssdk_api",
+      "title": "WorkItem.load",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/gvuo2oip",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "load",
+        "work-item"
+      ]
+    },
+    {
+      "id": "jssdk.work-object.load",
+      "kind": "jssdk_api",
+      "title": "WorkObject.load",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/573t1k6j",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "jssdk",
+        "load",
+        "work-object"
+      ]
+    },
+    {
+      "id": "openapi.delete.open-api-project-key-fix-view-view-id",
+      "kind": "http_api",
+      "title": "删除视图",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/56dbdl39",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "delete",
+        "openapi",
+        "space",
+        "view"
+      ]
+    },
+    {
+      "id": "openapi.delete.open-api-project-key-relation-work-item-type-key-work-item-id",
+      "kind": "http_api",
+      "title": "解绑空间关联的关联工作项实例",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3ppvsink",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "delete",
+        "openapi",
+        "relation",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.delete.open-api-project-key-work-item-work-item-type-key-work-item-id",
+      "kind": "http_api",
+      "title": "删除工作项",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2f5xepox",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "delete",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.delete.open-api-project-key-work-item-work-item-type-key-work-item-id-comment-comment-id",
+      "kind": "http_api",
+      "title": "删除评论（不再维护）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5yw0c0pc",
+      "docPath": "docs/README.md",
+      "status": "deprecated",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "comment",
+        "delete",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.delete.open-api-project-key-work-item-work-item-type-key-work-item-id-task-task-id",
+      "kind": "http_api",
+      "title": "删除子任务",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/618axe1l",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "delete",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.delete.open-api-project-key-work-item-work-item-type-key-work-item-id-work-hour-record",
+      "kind": "http_api",
+      "title": "删除工时登记记录",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/13lbkx3c",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "delete",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.delete.open-api-template-v2-delete-template-project-key-template-id",
+      "kind": "http_api",
+      "title": "删除流程模板",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5gfsziwr",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "delete",
+        "openapi",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.delete.open-api-work-item-relation-delete",
+      "kind": "http_api",
+      "title": "删除工作项关系",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9eshiov0",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "delete",
+        "openapi",
+        "relation",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-commercial-product-tenant-entitlement",
+      "kind": "http_api",
+      "title": "查询买方租户权益信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/a9ivkh5y",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-commercial-tenant",
+      "kind": "http_api",
+      "title": "获取租户信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x86fpblb",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-intercept-project-intercept-config-list",
+      "kind": "http_api",
+      "title": "查询拦截事件配置",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/a0t04wsi",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-business-all",
+      "kind": "http_api",
+      "title": "获取空间下业务线详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/55tfjp4z",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-file-stream-download-file-token",
+      "kind": "http_api",
+      "title": "下载文件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yy4lfi2t",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "get",
+        "openapi",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-fix-view-view-id",
+      "kind": "http_api",
+      "title": "获取视图下工作项列表（非全景视图）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4haemefz",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space",
+        "view"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-flow-roles-work-item-type-key",
+      "kind": "http_api",
+      "title": "获取流程角色配置详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2s90fy0i",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-measure-chart-id",
+      "kind": "http_api",
+      "title": "获取度量图表明细数据",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/374vhy4w",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "measure",
+        "openapi",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-teams-all",
+      "kind": "http_api",
+      "title": "获取空间下团队人员",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/22b5rbpo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-template-detail-template-id",
+      "kind": "http_api",
+      "title": "获取流程模板配置详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2vyv76g6",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-template-list-work-item-type-key",
+      "kind": "http_api",
+      "title": "获取工作项下的流程模板列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3pq8jlhd",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-work-item-all-types",
+      "kind": "http_api",
+      "title": "获取空间下工作项类型",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3pjp854w",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-work-item-relation",
+      "kind": "http_api",
+      "title": "获取工作项关系列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/35c0ynpy",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "relation",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-work-item-type-work-item-type-key",
+      "kind": "http_api",
+      "title": "获取工作项基础信息配置",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1g7mtrm9",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-work-item-work-item-type-key-meta",
+      "kind": "http_api",
+      "title": "获取创建工作项元数据",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2jhqmwhn",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-work-item-work-item-type-key-work-item-id-comments",
+      "kind": "http_api",
+      "title": "查询评论（不再维护）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2nzx0xat",
+      "docPath": "docs/README.md",
+      "status": "deprecated",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "comment",
+        "get",
+        "openapi",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-work-item-work-item-type-key-work-item-id-wbs-view",
+      "kind": "http_api",
+      "title": "获取工作流详情（WBS）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1t3boa28",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space",
+        "view",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-project-key-work-item-work-item-type-key-work-item-id-workflow-task",
+      "kind": "http_api",
+      "title": "获取子任务详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3ymu8uej",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "space",
+        "work-item",
+        "workflow"
+      ]
+    },
+    {
+      "id": "openapi.get.open-api-task-result",
+      "kind": "http_api",
+      "title": "获取批量更新处理进度",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/u3szcu4r",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi"
+      ]
+    },
+    {
+      "id": "openapi.patch.open-api-project-key-user-group-members",
+      "kind": "http_api",
+      "title": "更新用户组成员",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/mvl54xof",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "patch",
+        "space",
+        "user"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-ai-node-confirm",
+      "kind": "http_api",
+      "title": "完成 AI 节点",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xrny90gr",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-ai-node-edit",
+      "kind": "http_api",
+      "title": "修改 AI 节点数据",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/wlpb4t26",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-ai-node-query",
+      "kind": "http_api",
+      "title": "获取 AI 节点信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/pskw0p8q",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-authen-plugin-token",
+      "kind": "http_api",
+      "title": "获取访问凭证",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4id4bvnf",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "credentials",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-authen-refresh-token",
+      "kind": "http_api",
+      "title": "获取访问凭证",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4id4bvnf",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "credentials",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-authen-user-plugin-token",
+      "kind": "http_api",
+      "title": "获取访问凭证",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4id4bvnf",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "credentials",
+        "openapi",
+        "post",
+        "user"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-comment-create",
+      "kind": "http_api",
+      "title": "添加评论",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yczge3li",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "comment",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-comment-delete",
+      "kind": "http_api",
+      "title": "删除评论",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dnyfor3v",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "comment",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-comment-query",
+      "kind": "http_api",
+      "title": "查询评论",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bjzhf9ue",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "comment",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-comment-update",
+      "kind": "http_api",
+      "title": "更新评论",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yylbbxna",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "comment",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-compositive-search",
+      "kind": "http_api",
+      "title": "获取指定的工作项列表（全局搜索）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/42w754bv",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-file-delete",
+      "kind": "http_api",
+      "title": "删除附件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lhvqwtl0",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-intercept-project-intercept-config-create",
+      "kind": "http_api",
+      "title": "按空间设置拦截事件配置",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/qloaybfv",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-measure-charts",
+      "kind": "http_api",
+      "title": "通过视图ID查询所有图表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nr49t4o9",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "measure",
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-op-record-work-item-list",
+      "kind": "http_api",
+      "title": "获取工作项操作记录",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/swels3ca",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-field-all",
+      "kind": "http_api",
+      "title": "获取字段信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3tsposa2",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "field",
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-field-work-item-type-key-create",
+      "kind": "http_api",
+      "title": "创建自定义字段",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3ywaejjy",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "field",
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-file-resource-resource-type-upload-preprocess",
+      "kind": "http_api",
+      "title": "分片初始化",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/h6naf43w",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-file-stream-resource-resource-type-upload-form",
+      "kind": "http_api",
+      "title": "上传文件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vul5ty2o",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-file-stream-upload-multipart-resource-id-part-number",
+      "kind": "http_api",
+      "title": "上传分片",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/r1yl09yh",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-file-upload",
+      "kind": "http_api",
+      "title": "上传文件或富文本图片",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/g33r3mo4",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-file-upload-multipart-abort-resource-id",
+      "kind": "http_api",
+      "title": "终止分片上传",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xyf5dxn9",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-file-upload-multipart-finish-resource-id",
+      "kind": "http_api",
+      "title": "完成分片上传",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/gxhy3jbv",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-flow-roles-work-item-type-key-create-role",
+      "kind": "http_api",
+      "title": "创建流程角色配置",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/y7wmiq1z",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-flow-roles-work-item-type-key-delete-role",
+      "kind": "http_api",
+      "title": "删除流程角色配置",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jm2zmhh5",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-flow-roles-work-item-type-key-update-role",
+      "kind": "http_api",
+      "title": "更新流程角色配置",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vqkz8qts",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-relation-rules",
+      "kind": "http_api",
+      "title": "获取空间关联规则列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4vo9hsuj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "relation",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-relation-work-item-type-key-work-item-id-batch-bind",
+      "kind": "http_api",
+      "title": "绑定空间关联的关联工作项实例",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2tnjgvum",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "relation",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-relation-work-item-type-key-work-item-id-work-item-list",
+      "kind": "http_api",
+      "title": "获取空间关联下的关联工作项实例列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5sxml78p",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "relation",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-user-group",
+      "kind": "http_api",
+      "title": "创建自定义用户组",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9y00jus7",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "user"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-user-groups-members-page",
+      "kind": "http_api",
+      "title": "查询用户组成员",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yqthlc1b",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "user"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-view-conf-list",
+      "kind": "http_api",
+      "title": "获取视图列表及配置信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/36ugg5au",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "view"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-view-view-id",
+      "kind": "http_api",
+      "title": "获取视图下工作项列表（全景视图）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/51e6a9f0",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "view"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-filter",
+      "kind": "http_api",
+      "title": "获取指定的工作项列表（单空间）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1attl6vt",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-type-key-fix-view",
+      "kind": "http_api",
+      "title": "创建固定视图",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5pynwolg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "view",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-type-key-fix-view-view-id",
+      "kind": "http_api",
+      "title": "更新固定视图",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3qupjx4p",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "view",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-id-bot-join-chat",
+      "kind": "http_api",
+      "title": "拉机器人入群",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/57nppvv0",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-search-params",
+      "kind": "http_api",
+      "title": "获取指定的工作项列表（单空间-复杂传参）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/19pti4e2",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-comment-create",
+      "kind": "http_api",
+      "title": "添加评论（不再维护）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3x89d4rk",
+      "docPath": "docs/README.md",
+      "status": "deprecated",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "comment",
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-file-download",
+      "kind": "http_api",
+      "title": "下载附件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4bimiqjg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-file-upload",
+      "kind": "http_api",
+      "title": "添加附件",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/47zp0n7n",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "file",
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-search-by-relation",
+      "kind": "http_api",
+      "title": "获取指定的关联工作项列表（单空间）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/39dcbh1d",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "relation",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-subtask-modify",
+      "kind": "http_api",
+      "title": "子任务完成/回滚",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lopkplic",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-work-hour-record",
+      "kind": "http_api",
+      "title": "新增工时登记记录",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vkgw3rnf",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-workflow-node-id-task-task-id",
+      "kind": "http_api",
+      "title": "更新子任务",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5xugnkcg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item",
+        "workflow"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-workflow-query",
+      "kind": "http_api",
+      "title": "获取工作流详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5hcmcl04",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item",
+        "workflow"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-workflow-task",
+      "kind": "http_api",
+      "title": "创建子任务",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/25stn1j2",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item",
+        "workflow"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-workflow-work-item-type-key-work-item-id-node-node-id-operate",
+      "kind": "http_api",
+      "title": "节点完成/回滚",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/48ft4i1k",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item",
+        "workflow"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-workflow-work-item-type-key-work-item-id-node-state-change",
+      "kind": "http_api",
+      "title": "状态流转",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4xve8n8c",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item",
+        "workflow"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-projects",
+      "kind": "http_api",
+      "title": "获取空间列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/568y2esm",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-projects-detail",
+      "kind": "http_api",
+      "title": "获取空间详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2cicquna",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-template-v2-create-template",
+      "kind": "http_api",
+      "title": "新增流程模板",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5nzrex9h",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-tenant-projects-install-list",
+      "kind": "http_api",
+      "title": "获取租户安装空间列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/32vaett2",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-user-query",
+      "kind": "http_api",
+      "title": "获取用户详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xqbea3rp",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "user"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-user-search",
+      "kind": "http_api",
+      "title": "搜索租户内的用户列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4cxu45fl",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "user"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-view-search-universal-search",
+      "kind": "http_api",
+      "title": "获取指定的工作项列表（全量搜索）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vmr4o7vo",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "view"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-view-v1-create-condition-view",
+      "kind": "http_api",
+      "title": "创建条件视图",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nvvyv2uy",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "view"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-view-v1-update-condition-view",
+      "kind": "http_api",
+      "title": "更新条件视图",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/y92dumtg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "view"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-batch-update",
+      "kind": "http_api",
+      "title": "批量更新工作项字段值",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1ejjh85x",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-deliverable-batch-query",
+      "kind": "http_api",
+      "title": "交付物信息批量查询（WBS）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xe2145vg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-field-options",
+      "kind": "http_api",
+      "title": "获取工作项指定字段可选选项",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7oladdi2",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "field",
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-field-value-update-compound-field",
+      "kind": "http_api",
+      "title": "按组更新复合字段值",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ig302a5x",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "field",
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-finished-batch-query",
+      "kind": "http_api",
+      "title": "批量查询评审意见、评审结论",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/0tkstw4m",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-finished-query-conclusion-option",
+      "kind": "http_api",
+      "title": "评审结论标签值查询",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/f64oghb7",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-finished-update",
+      "kind": "http_api",
+      "title": "修改评审结论和评审意见",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/m22xvgja",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-man-hour-records",
+      "kind": "http_api",
+      "title": "获取工作项的工时登记记录列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5rihsq8h",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-relation-create",
+      "kind": "http_api",
+      "title": "新增工作项关系",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5wu3rjdm",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "relation",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-relation-update",
+      "kind": "http_api",
+      "title": "更新工作项关系",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/z7kirxwr",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "relation",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-resource-create-work-item",
+      "kind": "http_api",
+      "title": "创建工作项资源库",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ph8311e5",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-resource-project-key-work-item-id-create-instance",
+      "kind": "http_api",
+      "title": "通过资源创建实例",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2cqg3j9p",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-resource-query",
+      "kind": "http_api",
+      "title": "获取工作项资源实例详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lrr9osj6",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-resource-search-params",
+      "kind": "http_api",
+      "title": "获取指定的工作项资源库实例列表（复杂传参）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1443tpcg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-resource-update",
+      "kind": "http_api",
+      "title": "更新工作项资源实例",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1y9308dj",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-subtask-search",
+      "kind": "http_api",
+      "title": "获取指定的子任务列表（跨空间）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3fjk1e50",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-transition-required-info-get",
+      "kind": "http_api",
+      "title": "获取指定节点/状态流转所需必填信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/acce3p44",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-create",
+      "kind": "http_api",
+      "title": "创建计划表草稿",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ugnb82si",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-create-progress-query",
+      "kind": "http_api",
+      "title": "创建计划表草稿进度查询",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3fjx6q4w",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-detail-query",
+      "kind": "http_api",
+      "title": "查询计划表草稿数据行详细信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/fltmxkzs",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-patch-progress-query",
+      "kind": "http_api",
+      "title": "更新计划表草稿查询进度",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xu489qs7",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-patch-update",
+      "kind": "http_api",
+      "title": "更新计划表草稿",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/co7nfs59",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-publish",
+      "kind": "http_api",
+      "title": "发布计划表草稿",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bi4fe65p",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-publish-progress-query",
+      "kind": "http_api",
+      "title": "计划表草稿发布进度查询",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/uaq3vxrp",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-reset",
+      "kind": "http_api",
+      "title": "重置计划表草稿",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yqqe22cc",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-reset-progress-query",
+      "kind": "http_api",
+      "title": "重置计划表草稿进度查询",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/31yzphbx",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-structure-query",
+      "kind": "http_api",
+      "title": "查询全量计划表草稿骨架",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yh31sjap",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-draft-task-conf-query",
+      "kind": "http_api",
+      "title": "查询计划表草稿行配置信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x32pya8p",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-instance-expand-query",
+      "kind": "http_api",
+      "title": "查询计划表扩展信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/gbbsyel6",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-view-detail-query",
+      "kind": "http_api",
+      "title": "查询计划表行详细信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/c6m0yamn",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "view",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-view-structure-query",
+      "kind": "http_api",
+      "title": "查询全量计划表骨架",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/00y3th5g",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "view",
+        "wbs",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-items-filter-across-project",
+      "kind": "http_api",
+      "title": "获取指定的工作项列表（跨空间）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1hpwuxld",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-ai-application-field-update",
+      "kind": "http_api",
+      "title": "更新 AI 字段",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ttbbzh62",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "field",
+        "openapi",
+        "put"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-ai-entity-update",
+      "kind": "http_api",
+      "title": "更新 AI 操作的运行状态",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7pwq27rz",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "ai",
+        "openapi",
+        "put"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-project-key-field-work-item-type-key",
+      "kind": "http_api",
+      "title": "更新自定义字段",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/tcu33puw",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "field",
+        "openapi",
+        "put",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-project-key-work-item-type-work-item-type-key",
+      "kind": "http_api",
+      "title": "更新工作项基础信息配置",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5pimojrd",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "put",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-project-key-work-item-work-item-type-key-work-item-id-abort",
+      "kind": "http_api",
+      "title": "终止/恢复工作项",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/23i17woe",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "put",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-project-key-work-item-work-item-type-key-work-item-id-comment-comment-id",
+      "kind": "http_api",
+      "title": "更新评论（不再维护）",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ilb51y5o",
+      "docPath": "docs/README.md",
+      "status": "deprecated",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "comment",
+        "openapi",
+        "put",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-project-key-work-item-work-item-type-key-work-item-id-work-hour-record",
+      "kind": "http_api",
+      "title": "更新工时登记记录",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4g04f0lr",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "put",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-project-key-workflow-work-item-type-key-work-item-id-node-node-id",
+      "kind": "http_api",
+      "title": "更新节点/排期",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/16ejynnw",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "put",
+        "space",
+        "work-item",
+        "workflow"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-template-v2-update-template",
+      "kind": "http_api",
+      "title": "更新流程模板",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5hi2qv80",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "put"
+      ]
+    },
+    {
+      "id": "openapi.put.open-api-work-item-freeze",
+      "kind": "http_api",
+      "title": "冻结/解冻工作项",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ae3livot",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "put",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.work-item.create",
+      "kind": "http_api",
+      "title": "创建工作项",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/6c8et3fg",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.work-item.get",
+      "kind": "http_api",
+      "title": "获取工作项详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/r9jxqxnd",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "post",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "openapi.work-item.update",
+      "kind": "http_api",
+      "title": "更新工作项",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3e73r2k5",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "openapi",
+        "put",
+        "space",
+        "work-item"
+      ]
+    },
+    {
+      "id": "plugin-point.button",
+      "kind": "plugin_point",
+      "title": "按钮 / Button",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ozbttwpc",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "button",
+        "plugin",
+        "point"
+      ]
+    },
+    {
+      "id": "plugin-point.configuration",
+      "kind": "plugin_point",
+      "title": "插件配置 / Configuration",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2vwtbynb",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "configuration",
+        "plugin",
+        "point"
+      ]
+    },
+    {
+      "id": "plugin-point.connector",
+      "kind": "plugin_point",
+      "title": "自动化连接器 / Connector",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2cnupe2z",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "connector",
+        "plugin",
+        "point"
+      ]
+    },
+    {
+      "id": "plugin-point.control",
+      "kind": "plugin_point",
+      "title": "控件 / Control",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/kui20z6a",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "control",
+        "plugin",
+        "point"
+      ]
+    },
+    {
+      "id": "plugin-point.custom-field",
+      "kind": "plugin_point",
+      "title": "扩展字段-字段类型 / CustomField",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/l6963wv2",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "custom-field",
+        "plugin",
+        "point"
+      ]
+    },
+    {
+      "id": "plugin-point.intercept",
+      "kind": "plugin_point",
+      "title": "拦截事件 / Intercept",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1s5ly1az",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "intercept",
+        "plugin",
+        "point"
+      ]
+    },
+    {
+      "id": "plugin-point.lite-app-component",
+      "kind": "plugin_point",
+      "title": "轻应用组件 / LiteAppComponent",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bnlgrufr",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "lite-app-component",
+        "plugin",
+        "point"
+      ]
+    },
+    {
+      "id": "plugin-point.page",
+      "kind": "plugin_point",
+      "title": "导航功能页 / Page",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/cgz5y882",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "page",
+        "plugin",
+        "point"
+      ]
+    },
+    {
+      "id": "plugin-point.schedule",
+      "kind": "plugin_point",
+      "title": "扩展字段-节点排期 / Schedule",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/zmyxzvfb",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "plugin",
+        "point",
+        "schedule"
+      ]
+    },
+    {
+      "id": "plugin-point.tab",
+      "kind": "plugin_point",
+      "title": "详情标签页 / Tab",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/e7darc0m",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "high",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "plugin",
+        "point",
+        "tab"
+      ]
+    },
+    {
+      "id": "plugin-point.view",
+      "kind": "plugin_point",
+      "title": "视图模式 / View",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3i2084ts",
+      "docPath": "docs/README.md",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "medium",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "plugin",
+        "point",
+        "view"
+      ]
+    }
+  ]
+}

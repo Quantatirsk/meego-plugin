@@ -1,0 +1,30 @@
+{
+  "id": "jssdk.toast.success.fixture",
+  "capabilityId": "jssdk.toast.success",
+  "kind": "jssdk_api",
+  "cases": [
+    {
+      "name": "show-success-toast",
+      "outcome": "success",
+      "description": "显示成功提示并返回可用于关闭的 toast ID。",
+      "input": {
+        "call": "window.JSSDK.toast.success()",
+        "arguments": [
+          {
+            "content": "Saved",
+            "duration": 5
+          }
+        ]
+      },
+      "output": {
+        "toastId": "toast_demo"
+      }
+    },
+    {
+      "name": "mobile-minimum-version",
+      "outcome": "source_silent",
+      "description": "toast.success 的移动端最低版本没有在来源支持表中定义。",
+      "sourceSilence": "The source support table omits a mobile minimum version for toast.success."
+    }
+  ]
+}
