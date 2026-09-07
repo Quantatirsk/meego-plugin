@@ -25,5 +25,17 @@
 
 fixture 用于理解契约和本地验证，不携带可用凭证，也不构成任何远程调用授权。
 
+## 全量参考层
+
+`meego resolve <query>` 会返回最准确的本地能力页。高频能力优先进入本目录的精修页；其余能力直接定位到 `reference/` 中与官方页面一一映射的资料。
+
+| 资料 | 覆盖范围 |
+| --- | --- |
+| [OpenAPI 参考](reference/openapi/README.md) | 163 篇 OpenAPI 与直接相关的服务端资料。 |
+| [插件与客户端参考](reference/plugin/README.md) | 75 篇插件点位、客户端、JSSDK、组件、CLI 与发布资料。 |
+| [来源清单](../catalog/reference-sources.json) | 每篇源页面、目标路径、官方 URL 和内容哈希。 |
+
+参考层中有 231 篇页面带独立官方 URL。另有 7 篇本地目录、导读或覆盖说明没有对应独立官方页面，均在各自的 `COVERAGE-GAPS.md` 中明确标记为 `source_silent`，不作为平台契约依据。
+
 更新时间：2026-09-07
 官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn

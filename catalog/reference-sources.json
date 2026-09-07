@@ -1,0 +1,1927 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-07",
+  "sources": [
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/更新AI操作运行状态.md",
+      "targetPath": "docs/reference/openapi/ai/更新AI操作运行状态.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7pwq27rz",
+      "contentHash": "bfb84c191a83f485df8a38ddae84ecfe83d33fe8f63ccc98f50c00052fc6f275"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/更新AI字段.md",
+      "targetPath": "docs/reference/openapi/ai/更新AI字段.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ttbbzh62",
+      "contentHash": "e687c9ae66dc1f6d80b2d922f19c14f4110e27cd7e45876d02ec36b026e7cbbe"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/获取AI节点信息.md",
+      "targetPath": "docs/reference/openapi/ai/获取AI节点信息.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/pskw0p8q",
+      "contentHash": "b3cea927e45857d76b596bc95a340a0365116193723d1eeec164e9e3b588f3ff"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/完成AI节点.md",
+      "targetPath": "docs/reference/openapi/ai/完成AI节点.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xrny90gr",
+      "contentHash": "6fd3bead45a2e54d265a1cb408912cb5ad3b05ad13b0ff16912acb787eb8dc94"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/修改AI节点数据.md",
+      "targetPath": "docs/reference/openapi/ai/修改AI节点数据.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/wlpb4t26",
+      "contentHash": "b7e32c59caa955deff717067ed69b523ad5b6cb42e1f52fe16ce51cd32179390"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/AI操作链接选项.md",
+      "targetPath": "docs/reference/openapi/ai/AI操作链接选项.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/21c9ip0n",
+      "contentHash": "70d96942fa0c1d3c3d5d28fc6b7a9efeba31e15f61ea5e3a0be789bfc17c60e3"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/AI操作权限说明.md",
+      "targetPath": "docs/reference/openapi/ai/AI操作权限说明.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bz5jtmow",
+      "contentHash": "a28395e30beeb478b10fc5d31c6859567b77ebf5d5cbd52c136fdc433e6d7133"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/AI操作事件说明.md",
+      "targetPath": "docs/reference/openapi/ai/AI操作事件说明.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bfxx3ljy",
+      "contentHash": "670d2fc346eec403de127fd29e6f539befd6d4888c2eac3e52e066fafe8257a3"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/AI节点链接选项.md",
+      "targetPath": "docs/reference/openapi/ai/AI节点链接选项.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9nqnv8jk",
+      "contentHash": "134e03f2ba88ce729c840792f851299d02501ec7b0d2633f774917fe77186d6a"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/AI节点权限说明.md",
+      "targetPath": "docs/reference/openapi/ai/AI节点权限说明.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/kej409jy",
+      "contentHash": "a6d0af4f4bd5609966c1dfc55de094d23fd833bcd0251b6e228f7eb8196d13bd"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/AI节点事件.md",
+      "targetPath": "docs/reference/openapi/ai/AI节点事件.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dl7cjf41",
+      "contentHash": "0e9deeb2871fa4076758d5b630c28d345bc183bb4c4ae9788ef0f2d4d8224914"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/AI节点数据结构.md",
+      "targetPath": "docs/reference/openapi/ai/AI节点数据结构.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bw18ioud",
+      "contentHash": "a92d05f29767c474d6bff2c7ad0a1c16463dc05149c45cf79d8ad338a415a089"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ai/AI字段事件说明.md",
+      "targetPath": "docs/reference/openapi/ai/AI字段事件说明.md",
+      "category": "ai",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9kfb8nr5",
+      "contentHash": "3fe937e36b582fd99f913f88aafc05dba11d4f1a065f47cd9034b2493a179989"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/按组更新复合字段值.md",
+      "targetPath": "docs/reference/openapi/api/按组更新复合字段值.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ig302a5x",
+      "contentHash": "cdf31750fb6a52cd7532b1b5d2fcecc71fcf6ec7e5f6ea83eb9189a603c9a710"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/绑定空间关联的关联工作项实例.md",
+      "targetPath": "docs/reference/openapi/api/绑定空间关联的关联工作项实例.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2tnjgvum",
+      "contentHash": "26c7390c42f4a8c6de9100a4c6a7325bc39ffd1cd8c216f02b756c620bcf741f"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询计划表草稿数据行详细信息.md",
+      "targetPath": "docs/reference/openapi/api/查询计划表草稿数据行详细信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/fltmxkzs",
+      "contentHash": "3d9d7586d10c4edf2ddfa1c7337c7161a2e3acde850e94d0e1589d2e8f3d1812"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询计划表草稿行配置信息.md",
+      "targetPath": "docs/reference/openapi/api/查询计划表草稿行配置信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x32pya8p",
+      "contentHash": "c68a0782ea87794e4fd7cb82c29632eb0b0aa144d65f71e8af1895dc8a748ddf"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询计划表扩展信息.md",
+      "targetPath": "docs/reference/openapi/api/查询计划表扩展信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/gbbsyel6",
+      "contentHash": "962177a620fbf9ec4f424c7cc752b7461de3804c2629caa9c5a20fdf654ad432"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询计划表行详细信息.md",
+      "targetPath": "docs/reference/openapi/api/查询计划表行详细信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/c6m0yamn",
+      "contentHash": "deebfcbdbeaab66892533f3f61847f518eb7f67e3fa22cb5d2e2dba8fcafa216"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询买方租户权益信息.md",
+      "targetPath": "docs/reference/openapi/api/查询买方租户权益信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/a9ivkh5y",
+      "contentHash": "ee49f7f1ae0def3813a95db41964b6185ade343b9164029f8bf23d09df23a477"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询评论.md",
+      "targetPath": "docs/reference/openapi/api/查询评论.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bjzhf9ue",
+      "contentHash": "fd2dcedfd769d6f2817d89b149f8890e8e8d49d057c4d3350782f2e912a02da7"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询评论（不再维护）.md",
+      "targetPath": "docs/reference/openapi/api/查询评论（不再维护）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2nzx0xat",
+      "contentHash": "b8a96aa4f3d097e473e2ad7bf5323837948c317bfdc4d497381ca7ee57832c5b"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询全量计划表草稿骨架.md",
+      "targetPath": "docs/reference/openapi/api/查询全量计划表草稿骨架.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yh31sjap",
+      "contentHash": "bacfd42d045a60ceeeecdf646009c565cc7f3ad3111011d082bb303eb206e686"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询全量计划表骨架.md",
+      "targetPath": "docs/reference/openapi/api/查询全量计划表骨架.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/00y3th5g",
+      "contentHash": "519639cddaee89edb9dea9f0f105ef44c67ea19e035dc93c0063d1eab2e3f137"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询用户组成员.md",
+      "targetPath": "docs/reference/openapi/api/查询用户组成员.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yqthlc1b",
+      "contentHash": "1157dcd44960cb3596704fdd6e2ef7eb59f931a962aefd7e08a9d742fa5d86df"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建工作项.md",
+      "targetPath": "docs/reference/openapi/api/创建工作项.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/6c8et3fg",
+      "contentHash": "3ec4e6a69b9d7bd5c60925a362622ceb0f4803886071d3d08b067f24577d6e02"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建工作项资源库.md",
+      "targetPath": "docs/reference/openapi/api/创建工作项资源库.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ph8311e5",
+      "contentHash": "e9d42db0a9240ee03e3a24d22e77987533e9faffcebd5f8c89bdf3417b202512"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建固定视图.md",
+      "targetPath": "docs/reference/openapi/api/创建固定视图.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5pynwolg",
+      "contentHash": "40a42ab370e6744540cd230fa2799c161f6883c2de7297bc1aee621671003644"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建计划表草稿.md",
+      "targetPath": "docs/reference/openapi/api/创建计划表草稿.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ugnb82si",
+      "contentHash": "99942014425c0571edabfd647ca902dfe4958a65bd84b7f1e1fa62e154eb08f4"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建计划表草稿进度查询.md",
+      "targetPath": "docs/reference/openapi/api/创建计划表草稿进度查询.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3fjx6q4w",
+      "contentHash": "8acb8ef63bb798f26c487dd2f53328c5f522ae33b1cd295102c19d5562bcb612"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建流程角色配置.md",
+      "targetPath": "docs/reference/openapi/api/创建流程角色配置.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/y7wmiq1z",
+      "contentHash": "5a213a65805be04c03ecf36c679696fbaedc3b8432ea9ab112def8d24e345a2b"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建条件视图.md",
+      "targetPath": "docs/reference/openapi/api/创建条件视图.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nvvyv2uy",
+      "contentHash": "2a08a611fdd2917e1281906d93f23416810f7c04300078b27578730ff7c5bc70"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建子任务.md",
+      "targetPath": "docs/reference/openapi/api/创建子任务.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/25stn1j2",
+      "contentHash": "9b3f1a93f05e6eac4193b5f97a060f6ca0019f2e2a6cdbc965e869fb55253e2c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建自定义用户组.md",
+      "targetPath": "docs/reference/openapi/api/创建自定义用户组.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9y00jus7",
+      "contentHash": "a2db9a61a4e5e46612b2d86f10a4a7ad819d61fb7ff6b4f5c1f4d0a75e84b2da"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/创建自定义字段.md",
+      "targetPath": "docs/reference/openapi/api/创建自定义字段.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3ywaejjy",
+      "contentHash": "171d9596924c822d2da98065e954306a8719924bed28491a03509c40d355c159"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/冻结与解冻工作项.md",
+      "targetPath": "docs/reference/openapi/api/冻结与解冻工作项.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ae3livot",
+      "contentHash": "e5fba636584acc8edc8e5e44c8b2ebe692019bf858abdabe0baf3722fa8b46ae"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/发布计划表草稿.md",
+      "targetPath": "docs/reference/openapi/api/发布计划表草稿.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bi4fe65p",
+      "contentHash": "b90c210c00b4c6645ece99ec03c98c5ed31b3fc54ed1f0ed30704bbe1297c74c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/分片初始化.md",
+      "targetPath": "docs/reference/openapi/api/分片初始化.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/h6naf43w",
+      "contentHash": "1121e0a34f2a90390d21266bcfeb3be69838534f10082d689ac647823ed5df52"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新工时登记记录.md",
+      "targetPath": "docs/reference/openapi/api/更新工时登记记录.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4g04f0lr",
+      "contentHash": "7efbd26922239b4dd457b717c38bc074bdc80c71df50e19c48e2e1f739a6ff20"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新工作项.md",
+      "targetPath": "docs/reference/openapi/api/更新工作项.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3e73r2k5",
+      "contentHash": "caf47d87950305acfb46facd69e1c2564e5a67c545101494dc7de5ca319eb9f5"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新工作项关系.md",
+      "targetPath": "docs/reference/openapi/api/更新工作项关系.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/z7kirxwr",
+      "contentHash": "e5f7ebb883685a778e91f89652067870f9a15f6e8048d586a7645b4044cdfc0c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新工作项基础信息配置.md",
+      "targetPath": "docs/reference/openapi/api/更新工作项基础信息配置.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5pimojrd",
+      "contentHash": "60e5c5278da1d33ffd041bcf8ea768fe972455b865eea2d008586d6cc5fc5d14"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新工作项资源实例.md",
+      "targetPath": "docs/reference/openapi/api/更新工作项资源实例.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1y9308dj",
+      "contentHash": "da438b66989c53149314f1d8a68d3e0240fa5a8487594dd02bf6b9e651396910"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新固定视图.md",
+      "targetPath": "docs/reference/openapi/api/更新固定视图.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3qupjx4p",
+      "contentHash": "09361f3d06e6ac5c44f92e6d701f8fa9be42cafa7e5acbe3d3d9cd2c979129d0"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新计划表草稿.md",
+      "targetPath": "docs/reference/openapi/api/更新计划表草稿.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/co7nfs59",
+      "contentHash": "e4089808f5313e5fec32981bf5801e851fed1703999a6aead798bee834f9de89"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新计划表草稿查询进度.md",
+      "targetPath": "docs/reference/openapi/api/更新计划表草稿查询进度.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xu489qs7",
+      "contentHash": "cde7930b66e4abaca9b3cd89f325edfd49e15952e94d209178bb3773ae8956c6"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新节点与排期.md",
+      "targetPath": "docs/reference/openapi/api/更新节点与排期.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/16ejynnw",
+      "contentHash": "b1e48eef60d1bc570d58dadf6071f30518ae5eed3c5f1e4417a412de639c2448"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新流程角色配置.md",
+      "targetPath": "docs/reference/openapi/api/更新流程角色配置.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vqkz8qts",
+      "contentHash": "da9f272a5301d3861b14ee56f3703ee1135185a622351a962f01baaf0e25801d"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新流程模板.md",
+      "targetPath": "docs/reference/openapi/api/更新流程模板.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5hi2qv80",
+      "contentHash": "79a460a4afbc793dbadd10ab0af73d065825c2a888b324acced6a15df1946ef4"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新评论.md",
+      "targetPath": "docs/reference/openapi/api/更新评论.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yylbbxna",
+      "contentHash": "90f6d9b73d48fa172c7f23133e9456db1038b06945795b0b173d8778092241cd"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新评论（不再维护）.md",
+      "targetPath": "docs/reference/openapi/api/更新评论（不再维护）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ilb51y5o",
+      "contentHash": "afba4db9c724d28b15836330ef617f07dfed52941a1c05c6096cc2a737c7dc51"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新条件视图.md",
+      "targetPath": "docs/reference/openapi/api/更新条件视图.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/y92dumtg",
+      "contentHash": "5c642f81357282b7567c7457831686ccd64d58c077b83ff6e72043b056b94fd8"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新用户组成员.md",
+      "targetPath": "docs/reference/openapi/api/更新用户组成员.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/mvl54xof",
+      "contentHash": "c4d7c98c1bb6eaf308f787bfa07b97ade61f462bd81f3ae7373d74277144751f"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新子任务.md",
+      "targetPath": "docs/reference/openapi/api/更新子任务.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5xugnkcg",
+      "contentHash": "d28238b0e1bea9e810efd12d10759204c141ed134eb97b210393f94943c1e952"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/更新自定义字段.md",
+      "targetPath": "docs/reference/openapi/api/更新自定义字段.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/tcu33puw",
+      "contentHash": "277eacf4b76ce4282db639afab37154994d7c6c650ef4aa514c6ae15cd800cb5"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取创建工作项元数据.md",
+      "targetPath": "docs/reference/openapi/api/获取创建工作项元数据.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2jhqmwhn",
+      "contentHash": "a862fc103c31f97ebaaae4beac52488eea3bdc4d11c41bea1e4aa82444b1e95b"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取度量图表明细数据.md",
+      "targetPath": "docs/reference/openapi/api/获取度量图表明细数据.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/374vhy4w",
+      "contentHash": "d6b58c068423c1b07f69a0649d54ba2390cbea7abc7f0f38643bac226059502f"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作流详情.md",
+      "targetPath": "docs/reference/openapi/api/获取工作流详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5hcmcl04",
+      "contentHash": "445f236103f7e217aa063b5fba6e8b45f4a34a48a7d4c2e4bd29e278529d7a59"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作流详情（WBS）.md",
+      "targetPath": "docs/reference/openapi/api/获取工作流详情（WBS）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1t3boa28",
+      "contentHash": "4ee78bf35a3b038993554806384d18dd8c033269fb742fb9e1e478bca70569d7"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作项操作记录.md",
+      "targetPath": "docs/reference/openapi/api/获取工作项操作记录.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/swels3ca",
+      "contentHash": "a6521f3686ce85420d91754d3393bb89cd66a41308c83c7b9dc51df315df658a"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作项的工时登记记录列表.md",
+      "targetPath": "docs/reference/openapi/api/获取工作项的工时登记记录列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5rihsq8h",
+      "contentHash": "44531ef3a5449ebdbe4de5682243d6a62724df6b681985a4b4bec43e12acb0b3"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作项关系列表.md",
+      "targetPath": "docs/reference/openapi/api/获取工作项关系列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/35c0ynpy",
+      "contentHash": "9f23f34e48bab9376b606701903981665babdf889c37766283ca9ae01d83ae27"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作项基础信息配置.md",
+      "targetPath": "docs/reference/openapi/api/获取工作项基础信息配置.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1g7mtrm9",
+      "contentHash": "7d148d5a9f39f656420bcdf76b4ecb161825dca4ea2f0d408061635ef453a0ba"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作项下的流程模板列表.md",
+      "targetPath": "docs/reference/openapi/api/获取工作项下的流程模板列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3pq8jlhd",
+      "contentHash": "afb908d8dbad0fcfea76857bd99bc26b5dcb65f2db6eb6bf1eb1a7aaed660225"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作项详情.md",
+      "targetPath": "docs/reference/openapi/api/获取工作项详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/r9jxqxnd",
+      "contentHash": "e5d09e31b4dc0e6bb6a7a981f59d7ffba01398e37f72cbbb6fec785993b536b5"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作项指定字段可选选项.md",
+      "targetPath": "docs/reference/openapi/api/获取工作项指定字段可选选项.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7oladdi2",
+      "contentHash": "92f229c680aff96ff07b9cd3822b5db9c0706d743170601bc70c66452a9348ab"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取工作项资源实例详情.md",
+      "targetPath": "docs/reference/openapi/api/获取工作项资源实例详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lrr9osj6",
+      "contentHash": "34bfb04df35000e727896880044c17e3c844ad1345b3d319f162b694e8846476"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取空间关联规则列表.md",
+      "targetPath": "docs/reference/openapi/api/获取空间关联规则列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4vo9hsuj",
+      "contentHash": "260bb1162e337cc5c43a4ed89136b05076356f044d13a87107e46842ad5ce53c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取空间关联下的关联工作项实例列表.md",
+      "targetPath": "docs/reference/openapi/api/获取空间关联下的关联工作项实例列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5sxml78p",
+      "contentHash": "23cc1d7ba18b3121389fdcdad5bad6563b145f40dedcd6350b1667117f60889f"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取空间列表.md",
+      "targetPath": "docs/reference/openapi/api/获取空间列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/568y2esm",
+      "contentHash": "33f495c9f88a3afdd6fc7dc45826f9156adfdb2609b3f0c77048266f86f69200"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取空间下工作项类型.md",
+      "targetPath": "docs/reference/openapi/api/获取空间下工作项类型.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3pjp854w",
+      "contentHash": "0c09d4e57871bfa75f08ba9b8b254f9b9a30e99385236018bf1c0b13aef0af2f"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取空间下团队人员.md",
+      "targetPath": "docs/reference/openapi/api/获取空间下团队人员.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/22b5rbpo",
+      "contentHash": "2434be8681b45306da7eef4ecea08026461fee502cac1bdd061493afb11eb41a"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取空间下业务线详情.md",
+      "targetPath": "docs/reference/openapi/api/获取空间下业务线详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/55tfjp4z",
+      "contentHash": "48f4eaa017145fd33e538782c6af5357005aa06ca524f9bbba7fefe4ed4c1986"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取空间详情.md",
+      "targetPath": "docs/reference/openapi/api/获取空间详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2cicquna",
+      "contentHash": "5de156a879a07bfd3793436cbc5c0176e7b5e8aca9d0860ca323df1867a50d75"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取流程角色配置详情.md",
+      "targetPath": "docs/reference/openapi/api/获取流程角色配置详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2s90fy0i",
+      "contentHash": "aeb49290ac6229625800f393b662d9d268bd77b5a1392f7079added2aeddb539"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取流程模板配置详情.md",
+      "targetPath": "docs/reference/openapi/api/获取流程模板配置详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2vyv76g6",
+      "contentHash": "8424f188607e22a415dff79b9e1f3d5c7c7bd0edfb734e985704954ac5230fa0"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取批量更新处理进度.md",
+      "targetPath": "docs/reference/openapi/api/获取批量更新处理进度.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/u3szcu4r",
+      "contentHash": "38aeaa961ec5436262f8ac84a48d9e9779f8a29248b8cb775c0fd32b0f579399"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取视图列表及配置信息.md",
+      "targetPath": "docs/reference/openapi/api/获取视图列表及配置信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/36ugg5au",
+      "contentHash": "575a7f3148c489683d7754859b96c165f0359c79cdd32691e2fb351d62d0446d"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取视图下工作项列表（非全景视图）.md",
+      "targetPath": "docs/reference/openapi/api/获取视图下工作项列表（非全景视图）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4haemefz",
+      "contentHash": "63b0b3386018165771d80348d210acb518c8b6e53dd4535d4c08d934b099b5df"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取视图下工作项列表（全景视图）.md",
+      "targetPath": "docs/reference/openapi/api/获取视图下工作项列表（全景视图）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/51e6a9f0",
+      "contentHash": "3194f505c1be7b88805873e104306a4a6845a40c8399e8b9fa30ecc8bd86b724"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取用户详情.md",
+      "targetPath": "docs/reference/openapi/api/获取用户详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xqbea3rp",
+      "contentHash": "e79cbada5019cf312509c0ee076857e5980fff445c5270cbdf8e010fc8936cef"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定的工作项列表（单空间-复杂传参）.md",
+      "targetPath": "docs/reference/openapi/api/获取指定的工作项列表（单空间-复杂传参）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/19pti4e2",
+      "contentHash": "5f4eadceab79661eb111716417e7f3cbd5e8039378db21bf2a584a7c3c792e0c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定的工作项列表（单空间）.md",
+      "targetPath": "docs/reference/openapi/api/获取指定的工作项列表（单空间）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1attl6vt",
+      "contentHash": "5a2546ad2e2faf416a5cf0ba308352efbb3980c0f09cba7824b4bd9119a26dbe"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定的工作项列表（跨空间）.md",
+      "targetPath": "docs/reference/openapi/api/获取指定的工作项列表（跨空间）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1hpwuxld",
+      "contentHash": "2537ce2b13fb41b7b8a1f518bdd08cefd8d27df502fbd409d45d156cb8e6055d"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定的工作项列表（全局搜索）.md",
+      "targetPath": "docs/reference/openapi/api/获取指定的工作项列表（全局搜索）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/42w754bv",
+      "contentHash": "a891ec4c0d1afb61cf5a156af5c8f3691087acb90b750aafc001061009608353"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定的工作项列表（全量搜索）.md",
+      "targetPath": "docs/reference/openapi/api/获取指定的工作项列表（全量搜索）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vmr4o7vo",
+      "contentHash": "fdbcb210c1ec368e4ca48b98ff497ae67d974afa294ab329132969bdd90eb786"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定的工作项资源库实例列表（复杂传参）.md",
+      "targetPath": "docs/reference/openapi/api/获取指定的工作项资源库实例列表（复杂传参）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1443tpcg",
+      "contentHash": "dec542a4119c87c9254990de06191fffcb60b21a96937ecdc4a68a849642ab01"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定的关联工作项列表（单空间）.md",
+      "targetPath": "docs/reference/openapi/api/获取指定的关联工作项列表（单空间）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/39dcbh1d",
+      "contentHash": "45db2cf799ded2fab3983ebe7dccdc4181138582a79e4e0db1bc9f0f1c51f01e"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定的子任务列表（跨空间）.md",
+      "targetPath": "docs/reference/openapi/api/获取指定的子任务列表（跨空间）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3fjk1e50",
+      "contentHash": "8484a9949f09641f832affb01678b68fefd79e8953e9042365b91257171a7ed0"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取指定节点与状态流转所需必填信息.md",
+      "targetPath": "docs/reference/openapi/api/获取指定节点与状态流转所需必填信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/acce3p44",
+      "contentHash": "d1642d8d40d3bbec3d3da88cd6f5ad2d9d4037cb15d813a6df9d5a7ebf97bf7c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取子任务详情.md",
+      "targetPath": "docs/reference/openapi/api/获取子任务详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3ymu8uej",
+      "contentHash": "618920e0ef46d8fcafec8390607670a0a9a7b1217650687d5538d769cdaa6c0c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取字段信息.md",
+      "targetPath": "docs/reference/openapi/api/获取字段信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3tsposa2",
+      "contentHash": "512fa560534b4f8101d876b2fabcf594be6c78976e5f2c9eae5ddb8a9cc6c9ea"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取租户安装空间列表.md",
+      "targetPath": "docs/reference/openapi/api/获取租户安装空间列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/32vaett2",
+      "contentHash": "2df935ca7f9bf3a4f42c67c924c7147255025c5bd3a43ed5bb66d6be74663d39"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取租户信息.md",
+      "targetPath": "docs/reference/openapi/api/获取租户信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x86fpblb",
+      "contentHash": "8fff1de444a8dcf4c04e27b1ef511315e2c78c4d6250d37f5b85de222e7fecd0"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/计划表草稿发布进度查询.md",
+      "targetPath": "docs/reference/openapi/api/计划表草稿发布进度查询.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/uaq3vxrp",
+      "contentHash": "3a57ccef3904cb7a8d5c5f4cec98183eeee955fed805a3f6f0bab3d1d064dd16"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/交付物信息批量查询（WBS）.md",
+      "targetPath": "docs/reference/openapi/api/交付物信息批量查询（WBS）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xe2145vg",
+      "contentHash": "304be748d36ee57b1f40bba2dbb5d541bfda70ddcfaad6b6986b0b4c9c546f0a"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/节点完成与回滚.md",
+      "targetPath": "docs/reference/openapi/api/节点完成与回滚.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/48ft4i1k",
+      "contentHash": "582d87d6cac4ffd76c037d52989a2cc1b99c7200661e7c553610277ce5604cf7"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/解绑空间关联的关联工作项实例.md",
+      "targetPath": "docs/reference/openapi/api/解绑空间关联的关联工作项实例.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3ppvsink",
+      "contentHash": "a47bbf2ed663c0489d524eeb6c77eab10e42a923082aefd639efc1e99e1557ff"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/拉机器人入群.md",
+      "targetPath": "docs/reference/openapi/api/拉机器人入群.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/57nppvv0",
+      "contentHash": "c8034c5547d947d8045cace75d0079016e3b0105ee6b45f2166184a7ecc04cbf"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/批量查询评审意见、评审结论.md",
+      "targetPath": "docs/reference/openapi/api/批量查询评审意见、评审结论.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/0tkstw4m",
+      "contentHash": "8956ca97f2dcc5c82dece8addfe54e3cb9d858fc020a4c4a9ad4bb8d464c3720"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/批量更新工作项字段值.md",
+      "targetPath": "docs/reference/openapi/api/批量更新工作项字段值.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1ejjh85x",
+      "contentHash": "d48cddc67fe73301450acf75c9d08cbf3751428d1c43229d2720ce2d495716ce"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/评审结论标签值查询.md",
+      "targetPath": "docs/reference/openapi/api/评审结论标签值查询.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/f64oghb7",
+      "contentHash": "9847792ea314d9913e762c29fad44c0352fd01605c142f573575ce16afd0c413"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除附件.md",
+      "targetPath": "docs/reference/openapi/api/删除附件.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lhvqwtl0",
+      "contentHash": "ba0cfc0910c13d0a4a8524e5d71ca2ff37c9d643f38b63f77392a796ca28ded6"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除工时登记记录.md",
+      "targetPath": "docs/reference/openapi/api/删除工时登记记录.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/13lbkx3c",
+      "contentHash": "2356e2f854f08c846db6f4bd3f29eb1846fd90ff0b1cd7ae2b8019cfb1b53a42"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除工作项.md",
+      "targetPath": "docs/reference/openapi/api/删除工作项.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2f5xepox",
+      "contentHash": "709ddacd511fa15edf8ede1a7899fbad43a92b95e63dd855f86f00160421288a"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除工作项关系.md",
+      "targetPath": "docs/reference/openapi/api/删除工作项关系.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9eshiov0",
+      "contentHash": "9936f0fe73b4218f9850834689e73417f6255c4df0caa8b6e47279fc304e9d54"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除流程角色配置.md",
+      "targetPath": "docs/reference/openapi/api/删除流程角色配置.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jm2zmhh5",
+      "contentHash": "6244738c2c9745a74bd3ddd874b24f37d7a62f1041018a6e63ebb5dc9f08e1ec"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除流程模板.md",
+      "targetPath": "docs/reference/openapi/api/删除流程模板.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5gfsziwr",
+      "contentHash": "fbb76ff26e769ed2539fba09b5046c3d3670568edb59ff5c4626982703be57c2"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除评论.md",
+      "targetPath": "docs/reference/openapi/api/删除评论.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dnyfor3v",
+      "contentHash": "93094e38a6da4bfec623f6cce1d5ab39b8eeee8e49ada1dae7781bfe7144ae15"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除评论（不再维护）.md",
+      "targetPath": "docs/reference/openapi/api/删除评论（不再维护）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5yw0c0pc",
+      "contentHash": "5934de2a06f0220508923cf579dbba70f895d9023fc720512be56d3fd5eedfa6"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除视图.md",
+      "targetPath": "docs/reference/openapi/api/删除视图.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/56dbdl39",
+      "contentHash": "434be29c6ab29c77d22fbad420521f3f8c4a429027f84c8f9cc4e29be136f148"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/删除子任务.md",
+      "targetPath": "docs/reference/openapi/api/删除子任务.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/618axe1l",
+      "contentHash": "c99f5bde51517268bbe7416529c212de3e6e48ec51431526fdc3e47daad0109b"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/上传分片.md",
+      "targetPath": "docs/reference/openapi/api/上传分片.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/r1yl09yh",
+      "contentHash": "b0c647edee7935158762a4f80889aba6487835837fad8943bfdf808fa64c2ad1"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/上传文件.md",
+      "targetPath": "docs/reference/openapi/api/上传文件.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vul5ty2o",
+      "contentHash": "245b4d7b20ba5841b9fa0fb7d6e02fb83476865072176b5a8eac47f0a5f4c2ae"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/上传文件或富文本图片.md",
+      "targetPath": "docs/reference/openapi/api/上传文件或富文本图片.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/g33r3mo4",
+      "contentHash": "78c294b1b954fd5f20646d5dd624f742d500e66fdd52439702b6ddad099af86a"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/搜索租户内的用户列表.md",
+      "targetPath": "docs/reference/openapi/api/搜索租户内的用户列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4cxu45fl",
+      "contentHash": "c01cadec0a96c573e27073f435fcc5b120ba30d28f6f1fb8bb4db53de2f15c94"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/添加附件.md",
+      "targetPath": "docs/reference/openapi/api/添加附件.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/47zp0n7n",
+      "contentHash": "a36669d17d065acfa3ef7fd93c86272df630a437ddd42673ebb5ddb45ee4a054"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/添加评论.md",
+      "targetPath": "docs/reference/openapi/api/添加评论.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yczge3li",
+      "contentHash": "e70daa3a140784614397281f6081f3154320a10f4f2b6db9e63327411909978b"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/添加评论（不再维护）.md",
+      "targetPath": "docs/reference/openapi/api/添加评论（不再维护）.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3x89d4rk",
+      "contentHash": "1e2d09fec177163548cb8825ea65d2211ba67ad660ff29625961506fee846af9"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/条件视图格式及常用示例.md",
+      "targetPath": "docs/reference/openapi/api/条件视图格式及常用示例.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/6ivq0dbj",
+      "contentHash": "739d6c5c2643140b6b3d4b5b09ebf57c354f9880c85d8f64540abcac5842c949"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/通过视图ID查询所有图表.md",
+      "targetPath": "docs/reference/openapi/api/通过视图ID查询所有图表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nr49t4o9",
+      "contentHash": "121ca95998653e0cebfb0df7aa038f0afc58c3f63769666add27dcfc09dd47d1"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/通过资源创建实例.md",
+      "targetPath": "docs/reference/openapi/api/通过资源创建实例.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2cqg3j9p",
+      "contentHash": "7784c7970fd77187288b5d3fa3e7ce8244d3b27f4f0c17f5084a95547ae9dbb8"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/完成分片上传.md",
+      "targetPath": "docs/reference/openapi/api/完成分片上传.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/gxhy3jbv",
+      "contentHash": "003b9fb8f5b83423f073076fb6d373997f1d6832caf86e6d732880ca6d300a0d"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/下载附件.md",
+      "targetPath": "docs/reference/openapi/api/下载附件.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4bimiqjg",
+      "contentHash": "a6d858f2fa195f508294dca069075231df7c9bed29e8a405ffdfe5cddb81d753"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/下载文件.md",
+      "targetPath": "docs/reference/openapi/api/下载文件.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yy4lfi2t",
+      "contentHash": "5e0f10882f205e0d83e97eb322d27c276dfd0f170e0df7bcaf093f25d763dc86"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/新增工时登记记录.md",
+      "targetPath": "docs/reference/openapi/api/新增工时登记记录.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vkgw3rnf",
+      "contentHash": "0b6bd3123442b85da9b560dfb1b988f299739b7171bfe5d83393ff577436822d"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/新增工作项关系.md",
+      "targetPath": "docs/reference/openapi/api/新增工作项关系.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5wu3rjdm",
+      "contentHash": "fe9bcd605a44b61cab945772f8439b4100d94a37afb23e1b9b1a42eccd71538f"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/新增流程模板.md",
+      "targetPath": "docs/reference/openapi/api/新增流程模板.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5nzrex9h",
+      "contentHash": "0ecedbd86d2f0ca804192187c52a3322534e1f1910587f2e11e73269e2b1b215"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/修改评审结论和评审意见.md",
+      "targetPath": "docs/reference/openapi/api/修改评审结论和评审意见.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/m22xvgja",
+      "contentHash": "79b95e7aadede250aca22abcee23cce35fb7be32e72a9143ef845797f8f77170"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/终止分片上传.md",
+      "targetPath": "docs/reference/openapi/api/终止分片上传.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xyf5dxn9",
+      "contentHash": "b8f05991545394c3172de29c03777251fa9377b011cae75dd9c102055af99762"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/终止与恢复工作项.md",
+      "targetPath": "docs/reference/openapi/api/终止与恢复工作项.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/23i17woe",
+      "contentHash": "3fb525240bd435df94ddd3a054127976d5885bcee6cffcc3852b9029a3f86032"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/重置计划表草稿.md",
+      "targetPath": "docs/reference/openapi/api/重置计划表草稿.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yqqe22cc",
+      "contentHash": "d8e56b40b2bc2d3887dc9bbe7bcd97763fb07f06f832028bbd19f0230d501e9c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/重置计划表草稿进度查询.md",
+      "targetPath": "docs/reference/openapi/api/重置计划表草稿进度查询.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/31yzphbx",
+      "contentHash": "95f3b074559a0364a66b9156a13de12d67e489c7bfeb3f1e5f75adcf822ec141"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/状态流转.md",
+      "targetPath": "docs/reference/openapi/api/状态流转.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4xve8n8c",
+      "contentHash": "7acbd5089264e7226bff7f293d5efa655f47785d321e6601fe21000d46595d97"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/子任务完成与回滚.md",
+      "targetPath": "docs/reference/openapi/api/子任务完成与回滚.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lopkplic",
+      "contentHash": "4cee8b4191926957c4f6e6dbffced1c3901021057e7abb23a647c79ea4ec6d7b"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/API列表.md",
+      "targetPath": "docs/reference/openapi/api/API列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/wlcwhshe",
+      "contentHash": "0471de94252b4eb27ef23a98d5930d80584b93cd143d4e8ebc4505ed44633a43"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "COVERAGE.md",
+      "targetPath": "docs/reference/openapi/COVERAGE.md",
+      "category": "root",
+      "officialUrl": null,
+      "contentHash": "0e5e926973c00a7bca6e195422c6a310a89a024448b163b1d23015a06ab800ce"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "ENDPOINTS.md",
+      "targetPath": "docs/reference/openapi/ENDPOINTS.md",
+      "category": "root",
+      "officialUrl": null,
+      "contentHash": "97be9e18e1f5cc3618663c83ed1cb9c6d87fcfbba0cbc58fc31ca82a4b704c3e"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "events/按空间设置拦截事件配置.md",
+      "targetPath": "docs/reference/openapi/events/按空间设置拦截事件配置.md",
+      "category": "events",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/qloaybfv",
+      "contentHash": "f3d0f92ca84eddf91a0bcc161e70908eb55412836973002d583936eb06211805"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "events/插件装卸监听.md",
+      "targetPath": "docs/reference/openapi/events/插件装卸监听.md",
+      "category": "events",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lswla3b5",
+      "contentHash": "9c45c0920f465a62afb6225aafe01f29d09ff2100fd90cc14f1095a7ae383002"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "events/查询拦截事件配置.md",
+      "targetPath": "docs/reference/openapi/events/查询拦截事件配置.md",
+      "category": "events",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/a0t04wsi",
+      "contentHash": "6b85fb4ec84afa39770893efb25b40f573afc89f1e339cd3efee07491ae2aac6"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "events/监听事件.md",
+      "targetPath": "docs/reference/openapi/events/监听事件.md",
+      "category": "events",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/lvojfwht",
+      "contentHash": "bd156fd7bc6e7bf6a64fdbaa01457f8db982d97e7ef13f0d010e7af6d4e9d9b6"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "events/拦截事件.md",
+      "targetPath": "docs/reference/openapi/events/拦截事件.md",
+      "category": "events",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5cojktgi",
+      "contentHash": "553498e724448fa418751a0621278e77586ad32fffde52c540ebf49e15134f97"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "events/事件兼容性与验签.md",
+      "targetPath": "docs/reference/openapi/events/事件兼容性与验签.md",
+      "category": "events",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/kztn7qno",
+      "contentHash": "b6d505308d30b770e4443861474fe1ec2022ac69383e8eb4668112db5c5339c0"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "formats/数据结构汇总.md",
+      "targetPath": "docs/reference/openapi/formats/数据结构汇总.md",
+      "category": "formats",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1x1d372l",
+      "contentHash": "92b8312a7631b784e03d8f7781051c5aa70dc5c9c2dd23cda42cabdc0104a750"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "formats/搜索参数格式及常用示例.md",
+      "targetPath": "docs/reference/openapi/formats/搜索参数格式及常用示例.md",
+      "category": "formats",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1l8il0l6",
+      "contentHash": "634919f6e1e739359d6111650607a916b5cb82e6abf5497732f0b908f0bb6589"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "formats/字段与属性解析格式.md",
+      "targetPath": "docs/reference/openapi/formats/字段与属性解析格式.md",
+      "category": "formats",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1tj6ggll",
+      "contentHash": "398077464fb6e8828cac22488cf3266abc57c0ec0b208f1258ca8d753b117815"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "formats/Markdown 格式说明.md",
+      "targetPath": "docs/reference/openapi/formats/Markdown 格式说明.md",
+      "category": "formats",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/i10jbjk4",
+      "contentHash": "277f9f66118e7eed873818f43e925098525f424a92e16cbd791f251cf13bcf07"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "formats/MQL 语法说明.md",
+      "targetPath": "docs/reference/openapi/formats/MQL 语法说明.md",
+      "category": "formats",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/tsl2uj3i",
+      "contentHash": "01cc149f38565d485ab7c63cd6440a86242c01d46dff815ed7683c22a769a3df"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "formats/Open API 错误码.md",
+      "targetPath": "docs/reference/openapi/formats/Open API 错误码.md",
+      "category": "formats",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5aueo3jr",
+      "contentHash": "a2ce04036fde338c0713e5c0480aa7b36cc2f6d1f91ec35d29e889789aecd685"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "GUIDE.md",
+      "targetPath": "docs/reference/openapi/GUIDE.md",
+      "category": "root",
+      "officialUrl": null,
+      "contentHash": "42188bd3a464ace1e922b5fb691b293834c2d22251a2b4922a8429a164fd868a"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "guides/服务端SDK.md",
+      "targetPath": "docs/reference/openapi/guides/服务端SDK.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3ajzsqlv",
+      "contentHash": "8642d543b20f1b65e421818fef09a3ba0d887ebd9e7e6830f8414ae708693df4"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "guides/获取访问凭证.md",
+      "targetPath": "docs/reference/openapi/guides/获取访问凭证.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4id4bvnf",
+      "contentHash": "56340c93758fa063bbfe3715bda1ba9b702e0a707a782c8071220feaf3830871"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "guides/权限管理.md",
+      "targetPath": "docs/reference/openapi/guides/权限管理.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5bkub0oc",
+      "contentHash": "cabd1c08722272768a36f34377ab19aae95cafdda0b71e110ea0c4edab6e64ff"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "guides/OpenAPI概述.md",
+      "targetPath": "docs/reference/openapi/guides/OpenAPI概述.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4bsmoql6",
+      "contentHash": "0fb2ff444f58bd56ee41db8e73e0836d2adbc71db401c03f68f0a9e4435197c3"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "guides/Postman调用API.md",
+      "targetPath": "docs/reference/openapi/guides/Postman调用API.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/5kwry3yy",
+      "contentHash": "14985ba8a3e63731df272c5b7cc88710c6649ad2ad5f6f7a498faea9291936f3"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "guides/x-auth-mode鉴权模式.md",
+      "targetPath": "docs/reference/openapi/guides/x-auth-mode鉴权模式.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x7bjo7aw",
+      "contentHash": "1ec9b4da30cce20677dafa89646eecb613ab74104b8d3e3f755239af2caa2701"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "INDEX.md",
+      "targetPath": "docs/reference/openapi/INDEX.md",
+      "category": "root",
+      "officialUrl": null,
+      "contentHash": "818e5827ddd8ff0df88aaa9f64f9e34a3ec4ba5007762b8beae59bdc44a539b1"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "README.md",
+      "targetPath": "docs/reference/openapi/README.md",
+      "category": "root",
+      "officialUrl": null,
+      "contentHash": "afc1333cf3c8dd53d9448cb6361452e9c7c283b046042cc3faaa4b56cac304d6"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "reference/插件访问凭证咨询.md",
+      "targetPath": "docs/reference/openapi/reference/插件访问凭证咨询.md",
+      "category": "reference",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/61dmhkek",
+      "contentHash": "802b7845eec98f0cc4b917573e46cf0e7566dc71f8b7b2449cc3a5216cdb72d5"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "reference/OpenAPI错误码排查.md",
+      "targetPath": "docs/reference/openapi/reference/OpenAPI错误码排查.md",
+      "category": "reference",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3utghkpj",
+      "contentHash": "1a80f139ad4ff100271044e2212c954ed18bcf9c64b6345961565639344a66df"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "reference/OpenAPI调用咨询.md",
+      "targetPath": "docs/reference/openapi/reference/OpenAPI调用咨询.md",
+      "category": "reference",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/z2ox1bjb",
+      "contentHash": "6c8014233ba221de32c49dd74df25682fc7602616896465c562d0b1378897386"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "reference/OpenAPI限流调整公告-2025-05-12.md",
+      "targetPath": "docs/reference/openapi/reference/OpenAPI限流调整公告-2025-05-12.md",
+      "category": "reference",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/uxzsn71q",
+      "contentHash": "1972c15dcf01339568f037507e9ac902f207674a72321aa66ff5897a373feec3"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "cli/飞书项目开发工具 CLI 介绍.md",
+      "targetPath": "docs/reference/plugin/cli/飞书项目开发工具 CLI 介绍.md",
+      "category": "cli",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ijp3xr2d",
+      "contentHash": "1ce247636781ccbcc79ccb11536dd264593b1ca0803a9b39b155d04e3f3065ba"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "cli/飞书项目开发工具 CLI 开发实践.md",
+      "targetPath": "docs/reference/plugin/cli/飞书项目开发工具 CLI 开发实践.md",
+      "category": "cli",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/rjuw0vvx",
+      "contentHash": "bf125666b4915bafdedc2c4f2e1f28a06cf409bc149ce421a9380d31aa5a43c2"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/表格列搭建工具.md",
+      "targetPath": "docs/reference/plugin/client/表格列搭建工具.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/leqxx4hc",
+      "contentHash": "3abaf80413c50ee9e5b365de1c31fb170bd7656f7e2cd2c7b880084a82039080"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/初始化插件工程.md",
+      "targetPath": "docs/reference/plugin/client/初始化插件工程.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xegyrrdi",
+      "contentHash": "d86425d3c5250c0e6624c6ab62a3c164c8b7d45b4a723982abd6c72fe60c6430"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/发布插件产物.md",
+      "targetPath": "docs/reference/plugin/client/发布插件产物.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2akj6c1q",
+      "contentHash": "cae3da12cc11b86446be3cef3755f42281d97b4d1079d9e56775749315c17d8e"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/脚本模式.md",
+      "targetPath": "docs/reference/plugin/client/脚本模式.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/f3j7vt0e",
+      "contentHash": "601388ffb93ab9d37bcd123f2c11fed67b73dc1adc5ec7b2931718174e4cad7b"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/开发调试客户端.md",
+      "targetPath": "docs/reference/plugin/client/开发调试客户端.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nezl0l65",
+      "contentHash": "e22f98c2a4eef2535b9a02d6488a455360625f845c597f9d581b0afd30aff362"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/客户端官方示例插件.md",
+      "targetPath": "docs/reference/plugin/client/客户端官方示例插件.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/g75kawcq",
+      "contentHash": "a32cc58e18a4df4607e6c5d726ed56a88d60c845f926d01fc0d16739c527aa7d"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/客户端开发概述.md",
+      "targetPath": "docs/reference/plugin/client/客户端开发概述.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/zeyhwyhg",
+      "contentHash": "4c8e14e9daeb988835f3e329a7e3ae170a3a163a8399b10d468e397c47c50398"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/客户端开发限制.md",
+      "targetPath": "docs/reference/plugin/client/客户端开发限制.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jmvewurc",
+      "contentHash": "f73ab60c917202be098f8695f722ac63e4fc9491b112ccfd3d8a2702392a2c2d"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/客户端容器自适应机制.md",
+      "targetPath": "docs/reference/plugin/client/客户端容器自适应机制.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/l1uyfrwa",
+      "contentHash": "a97c5f8d08c6b1f7d8fe5060c53ff13194369baad0c5d8260f96aba5ed0d92ef"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "client/客户端术语.md",
+      "targetPath": "docs/reference/plugin/client/客户端术语.md",
+      "category": "client",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/4ljzjwub",
+      "contentHash": "4692fd43dd0d9af3e683cde728d2911ba3a97258b0fc068741281fdb7e4e7514"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "components/富文本 RichTextEditor.md",
+      "targetPath": "docs/reference/plugin/components/富文本 RichTextEditor.md",
+      "category": "components",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/t5w5ov8p",
+      "contentHash": "6b1377b550baa31502a4c2a82a52f4628e218fddfdbeff3eb6970c904e0fc10c"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "components/工作项筛选器 WorkItemFinder.md",
+      "targetPath": "docs/reference/plugin/components/工作项筛选器 WorkItemFinder.md",
+      "category": "components",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7dpe5r3v",
+      "contentHash": "f21b039b2cdbf9d4fc7a182c39476afd9459e5e639cc994420761305d8e82196"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "components/客户端组件库接入.md",
+      "targetPath": "docs/reference/plugin/components/客户端组件库接入.md",
+      "category": "components",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/aa6btca8",
+      "contentHash": "9657e54ae0e0f6d9d8288045da331d23eb9799963e0ca8f7286eb156ca257f4a"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "components/气泡卡片 Popover.md",
+      "targetPath": "docs/reference/plugin/components/气泡卡片 Popover.md",
+      "category": "components",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/cq5cwaw6",
+      "contentHash": "a135d8477047950aa88a6678fba34e3876d686aabc66cd45178edd2948cdcbdc"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "components/日期选择器 DatePicker.md",
+      "targetPath": "docs/reference/plugin/components/日期选择器 DatePicker.md",
+      "category": "components",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9wxgrizq",
+      "contentHash": "056aa17e92dc8a13941c5c5d9735af64fa63eee8e8d78ac05dba39896387f89f"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "components/选择器 Select.md",
+      "targetPath": "docs/reference/plugin/components/选择器 Select.md",
+      "category": "components",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/six0xskc",
+      "contentHash": "9e1277042e5ff9ad9a78824597940c61e892f80948dcf1f37b3be3569aa3e91d"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "components/用户标签 UserTag.md",
+      "targetPath": "docs/reference/plugin/components/用户标签 UserTag.md",
+      "category": "components",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/6v3a3hml",
+      "contentHash": "d3774b6cad3b6133bf3f88ef180879ce26289106183e87e8f678233de3c08194"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "components/用户选择器 UserSelect.md",
+      "targetPath": "docs/reference/plugin/components/用户选择器 UserSelect.md",
+      "category": "components",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/p1h1pvdr",
+      "contentHash": "1a611da1cd00140a336fafa13b2e3e401d425faf9c265c7e6bbb08b3331e6521"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/安装统计.md",
+      "targetPath": "docs/reference/plugin/guides/安装统计.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/80r8vm0q",
+      "contentHash": "1797031c8f82203d8503589e2a4cf4a42a4f89b029dc261d9bd352d1d51c731b"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/创建插件.md",
+      "targetPath": "docs/reference/plugin/guides/创建插件.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/49k1ojm9",
+      "contentHash": "d37d4eeaafc5c76089e048b2d534e746d0debedbf6141b3d062952cc71f753f7"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/发布插件.md",
+      "targetPath": "docs/reference/plugin/guides/发布插件.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/61c1qm8q",
+      "contentHash": "d96ecb487ceb652af87e92d11a0552a98732ebf8e509fe5a634c4b3f969332bf"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/谷歌浏览器本地网络访问授权公告.md",
+      "targetPath": "docs/reference/plugin/guides/谷歌浏览器本地网络访问授权公告.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/re0t2g5v",
+      "contentHash": "a4981d9885a4adb5da8f27da4ee7857c11745d8e9911d1552074886dd775aff4"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/环境准备.md",
+      "targetPath": "docs/reference/plugin/guides/环境准备.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2ila4b2b",
+      "contentHash": "da8c837e18d5b60728b3b8808e03afa066b1b8d3027e87703593f1b1e8dafe46"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/开发并发布第一个插件.md",
+      "targetPath": "docs/reference/plugin/guides/开发并发布第一个插件.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
+      "contentHash": "7c9c7289cc939aa987b32f988dd6fa8138e53c32bad0d3916b6fc8d9a0f1935d"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/开发调试咨询.md",
+      "targetPath": "docs/reference/plugin/guides/开发调试咨询.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/xfknq6e7",
+      "contentHash": "37af3b026827ec9d05fde86050ff80586150ff09c90997388de7a0589c2f432c"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/日志检索.md",
+      "targetPath": "docs/reference/plugin/guides/日志检索.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/75qefsp2",
+      "contentHash": "bd790854341ef1f465e1437c1318391fa33ff29139423ab286c70c109d3f60b7"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/什么是插件.md",
+      "targetPath": "docs/reference/plugin/guides/什么是插件.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/hscnld90",
+      "contentHash": "5ebad2a0c36921ac563d440a1c893b58d914ff7d3193c9e95ee6299100c087a6"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/使用场景.md",
+      "targetPath": "docs/reference/plugin/guides/使用场景.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x322tygu",
+      "contentHash": "60806e6055c58b97324ee5d272c2306acb67e188e73b32cb5d09b0738e084052"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/术语.md",
+      "targetPath": "docs/reference/plugin/guides/术语.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/gcy4c27m",
+      "contentHash": "316ec21c9ac804347c3125f836c8e54d60eb9030bdb27aded93c2f176633d14c"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/添加插件功能.md",
+      "targetPath": "docs/reference/plugin/guides/添加插件功能.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/41jvuw3r",
+      "contentHash": "de3ee178cc3ecb4738b1711e120f9dc0814a393ad922ba1f4587ab01c82ef9ba"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/Release Note.md",
+      "targetPath": "docs/reference/plugin/guides/Release Note.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/qcw96ljx",
+      "contentHash": "3f43830dfb18f936fe8699f0639e7162c291ba1f2821899fd2fb345952506b34"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "INDEX.md",
+      "targetPath": "docs/reference/plugin/INDEX.md",
+      "category": "root",
+      "officialUrl": null,
+      "contentHash": "11824d7e6fd0ab5b1b97487afaa5b27fcef93fe19e8e4e6a930d6861bf385d90"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/客户端 API 概述.md",
+      "targetPath": "docs/reference/plugin/jssdk/客户端 API 概述.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x4l57qtx",
+      "contentHash": "d9a26f7ff770f6753444a59e8378c93e448941f26f41b00efbd0d3dbccd2d469"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/通用类型定义.md",
+      "targetPath": "docs/reference/plugin/jssdk/通用类型定义.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/pue9fm91",
+      "contentHash": "31f2f5484fcc2c16d41b3f1e7ee4c356c0dcc473d0c7e2850b1dfb44e2936900"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/actionSheet.md",
+      "targetPath": "docs/reference/plugin/jssdk/actionSheet.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/9haq6j0j",
+      "contentHash": "8237356eebdabb9dd5657ef3e0d1157e33e61f4a883bb627ae263774df90557a"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Button.md",
+      "targetPath": "docs/reference/plugin/jssdk/Button.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ytcawthh",
+      "contentHash": "19239100d8513001017380a3e49f4b04df35c75c5b705f31371104e187aff006"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/clipboard.md",
+      "targetPath": "docs/reference/plugin/jssdk/clipboard.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nqztnm4h",
+      "contentHash": "192e7b267c67fa5276ef657151282beae0f848d64565459c18a6f35f785825ba"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Configuration.md",
+      "targetPath": "docs/reference/plugin/jssdk/Configuration.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/o8q4bptu",
+      "contentHash": "b627d1afefa6677f1c66a80ee0ad63c384166de170549bed26da55c9d5acc053"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/containerModal.md",
+      "targetPath": "docs/reference/plugin/jssdk/containerModal.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/cxj9ivdg",
+      "contentHash": "632529f13ebba412028658baff5f1b31b6a5448de272588b04ded8926d7dca30"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Context.md",
+      "targetPath": "docs/reference/plugin/jssdk/Context.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/zq8fg6bl",
+      "contentHash": "336f99310f4ed3f2c943a5a294066978611c8e297b4001ba680acd11c02da4d1"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Control.md",
+      "targetPath": "docs/reference/plugin/jssdk/Control.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/x4isqv2u",
+      "contentHash": "c0558eecebf49c3436bfa457628cb167ef7eacd7b49baaea799378ee1ae2e1d5"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/CustomField.md",
+      "targetPath": "docs/reference/plugin/jssdk/CustomField.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dx9dznmo",
+      "contentHash": "2c74643390ea4310965a17b88b75acc5f386567ed9a551cf77ecf8abb744874f"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/event.md",
+      "targetPath": "docs/reference/plugin/jssdk/event.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jx1tl8aj",
+      "contentHash": "507474c2088e7ae69ac6d5464e8cde0707e24b1c49bde1bc3d8ce48e6b38139b"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Field.md",
+      "targetPath": "docs/reference/plugin/jssdk/Field.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bsj55m0d",
+      "contentHash": "19298daa19bd4753947469d208a77b11276e99f55dca029863edf77d816c142f"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Intercept.md",
+      "targetPath": "docs/reference/plugin/jssdk/Intercept.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/282nm7ww",
+      "contentHash": "e3a7bf8de37fda63219f85ad59d18da4daf42e000002e8e9ca3504bd10efebe4"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/LiteAppComponent.md",
+      "targetPath": "docs/reference/plugin/jssdk/LiteAppComponent.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/vcu1jxrj",
+      "contentHash": "b0aabce201a5de9e81fb950e85e62d329506ddc6ba283e3cf5defe7f9e92ff3c"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/modal.md",
+      "targetPath": "docs/reference/plugin/jssdk/modal.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jj1uma7o",
+      "contentHash": "e92bfa3d5f6210b1d9a701e61972a46fdccc415a39c08014fa2dd10695abec95"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/navigation.md",
+      "targetPath": "docs/reference/plugin/jssdk/navigation.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/eya1z1nb",
+      "contentHash": "451d62a401348a1d33edba4e0595039ce2e057124c077bc4570fff83ddcf39db"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Page.md",
+      "targetPath": "docs/reference/plugin/jssdk/Page.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2m5pu0j9",
+      "contentHash": "abf2a956deb7ab82147730e6d2018e1a301cf422fe7d8f250786e8725c66beba"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/richTextEditor.md",
+      "targetPath": "docs/reference/plugin/jssdk/richTextEditor.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1btl061e",
+      "contentHash": "66f404e54fb8942ede2f49be06aadb76053c5926ef00f390d8ca1da5e72ee74a"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Schedule.md",
+      "targetPath": "docs/reference/plugin/jssdk/Schedule.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/145ygv1u",
+      "contentHash": "a923949a5ebe5ee8d24a3ef5cd2227d7dfe239218289909f9b72733e7b8153fb"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Script.md",
+      "targetPath": "docs/reference/plugin/jssdk/Script.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dff7a89n",
+      "contentHash": "7ae44f5cfcf03286f96cb3fdd2f204b60185f5f9903ba8026fcefe3b7c828756"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/shared.md",
+      "targetPath": "docs/reference/plugin/jssdk/shared.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yrdbq8to",
+      "contentHash": "b4a511abd99cc5e1656b9e88141663da2a8ec5cbdbca6f296bbda45d1582f0bf"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Space.md",
+      "targetPath": "docs/reference/plugin/jssdk/Space.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7fn34lb6",
+      "contentHash": "ea0aa53ff51557483cab801fc269def6e43deb5a324dadd6f8bd09e9208cfb7f"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/storage.md",
+      "targetPath": "docs/reference/plugin/jssdk/storage.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/arvsjvf3",
+      "contentHash": "ff2fbe20ccd76efa141e9419903051f01ccdca60ec14971db2338df338e87328"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/Tab.md",
+      "targetPath": "docs/reference/plugin/jssdk/Tab.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/z1gnwa6r",
+      "contentHash": "45da34efb91e6aad5fcf34786aad9040973789f003b16449cca055fec4a5175c"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/toast.md",
+      "targetPath": "docs/reference/plugin/jssdk/toast.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/7330ys5f",
+      "contentHash": "b072d41e859aa193fc072b34ede09874af4fdce6edcdf3cb6096c0bf6d6a41b4"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/utils.md",
+      "targetPath": "docs/reference/plugin/jssdk/utils.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/hcok4x6h",
+      "contentHash": "ed05d12c6860bfce57d604addef9c7ef7cc4ffdf8ca048180f10ede6446bc528"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/View.md",
+      "targetPath": "docs/reference/plugin/jssdk/View.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/27zrsrd9",
+      "contentHash": "4e666a4fb6e5c70c9185b1d4dce2432ba83932510494a8eaccd5bc1d0516dd6d"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/WorkItem.md",
+      "targetPath": "docs/reference/plugin/jssdk/WorkItem.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/gvuo2oip",
+      "contentHash": "71aaeecd9195695c2d62552097858fae4c2ac362132bf73ae23e5423227f89cd"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "jssdk/WorkObject.md",
+      "targetPath": "docs/reference/plugin/jssdk/WorkObject.md",
+      "category": "jssdk",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/573t1k6j",
+      "contentHash": "8ca86735aa3e9ecae4faee48c5371200eb9bc1cfc8b5a29756d330257f555c80"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/按钮 Button.md",
+      "targetPath": "docs/reference/plugin/points/按钮 Button.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ozbttwpc",
+      "contentHash": "e9952783e071f480916cef608d3708382b38ec2b31fc980b180ff1e09dbba780"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/插件配置 Configuration.md",
+      "targetPath": "docs/reference/plugin/points/插件配置 Configuration.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2vwtbynb",
+      "contentHash": "f36f0cc6d816380f94407100a31bdd335fa63ba975356898963de53ae6fe0dc2"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/导航功能页 Page.md",
+      "targetPath": "docs/reference/plugin/points/导航功能页 Page.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/cgz5y882",
+      "contentHash": "03cffda4b009f4caf6871efc16ef3f965eaa0379dfadb38cb35a615bcffe930e"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/控件 Control.md",
+      "targetPath": "docs/reference/plugin/points/控件 Control.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/kui20z6a",
+      "contentHash": "a11c1e31c93c734f5b0588d73e1dae53714c288bbdb1cbc0ff6d64b9a207d454"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/扩展字段-节点排期 Schedule.md",
+      "targetPath": "docs/reference/plugin/points/扩展字段-节点排期 Schedule.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/zmyxzvfb",
+      "contentHash": "6654fbabf251f80ed390056a6818c5e330e8a471f72f1c74eb5049dff439d376"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/扩展字段-字段类型 CustomField.md",
+      "targetPath": "docs/reference/plugin/points/扩展字段-字段类型 CustomField.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/l6963wv2",
+      "contentHash": "59c7b76d031b6e8bf169a2cc08362118a9532b141d94dc9b0bb38a11793c3b56"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/拦截事件 Intercept.md",
+      "targetPath": "docs/reference/plugin/points/拦截事件 Intercept.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1s5ly1az",
+      "contentHash": "61fef712e5e07b7ad365f18a27fb3c5bf3c3da2bd73b0e4f04dba63c2c614654"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/轻应用组件 LiteAppComponent.md",
+      "targetPath": "docs/reference/plugin/points/轻应用组件 LiteAppComponent.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bnlgrufr",
+      "contentHash": "26e5cf046fa469716b52c0028d7026f72496dec6af801104641e832756ed5faf"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/视图模式 View.md",
+      "targetPath": "docs/reference/plugin/points/视图模式 View.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3i2084ts",
+      "contentHash": "b19f79d6368c51f61f49144aa0d00a7ed8647702a736092439f3199185056553"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/详情标签页 Tab.md",
+      "targetPath": "docs/reference/plugin/points/详情标签页 Tab.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/e7darc0m",
+      "contentHash": "0eb82bd5cc5e48e277bfc9e8a950ba7c849ac8a27274b8cddd56d92495169a41"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "points/自动化连接器 Connector.md",
+      "targetPath": "docs/reference/plugin/points/自动化连接器 Connector.md",
+      "category": "points",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/2cnupe2z",
+      "contentHash": "970229e0f05799631cd58c6ae08ee8abb32a46187363763d31778dab8b46e6aa"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "README.md",
+      "targetPath": "docs/reference/plugin/README.md",
+      "category": "root",
+      "officialUrl": null,
+      "contentHash": "7491747e897b1ed710c6de7e5352dd2d43044ad67aeb3424d76b6d4a0ee5ba18"
+    }
+  ],
+  "totals": {
+    "sourceDocuments": 238,
+    "withOfficialUrl": 231,
+    "withoutOfficialUrl": 7,
+    "byPlatform": {
+      "openapi": {
+        "sourceDocuments": 163,
+        "withOfficialUrl": 158,
+        "withoutOfficialUrl": 5
+      },
+      "plugin": {
+        "sourceDocuments": 75,
+        "withOfficialUrl": 73,
+        "withoutOfficialUrl": 2
+      }
+    }
+  }
+}

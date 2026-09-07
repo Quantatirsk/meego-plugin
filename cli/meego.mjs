@@ -4,8 +4,10 @@ import path from "node:path";
 
 import {
   findCapabilities,
+  loadReferenceSources,
   loadRegistry,
   summarizeCapabilities,
+  summarizeReferenceSources,
 } from "./lib/catalog.mjs";
 import { renderCoverageReport, verifyRepository } from "./lib/verify.mjs";
 import { repositoryRoot } from "./lib/paths.mjs";
@@ -50,12 +52,17 @@ function printJson(value) {
   console.log(JSON.stringify(value, null, 2));
 }
 
-function printStatus(summary) {
+function printStatus(status) {
+  const { capabilities, reference } = status;
   console.log(`Repository: ${repositoryRoot}`);
-  console.log(`Capabilities: ${summary.total}`);
-  console.log(`By kind: ${JSON.stringify(summary.byKind)}`);
-  console.log(`By status: ${JSON.stringify(summary.byStatus)}`);
-  console.log(`By usage frequency: ${JSON.stringify(summary.byUsageFrequency)}`);
+  console.log(`Capabilities: ${capabilities.total}`);
+  console.log(`By kind: ${JSON.stringify(capabilities.byKind)}`);
+  console.log(`By status: ${JSON.stringify(capabilities.byStatus)}`);
+  console.log(`By usage frequency: ${JSON.stringify(capabilities.byUsageFrequency)}`);
+  console.log(`Reference pages: ${reference.total}`);
+  console.log(`Reference pages with official URL: ${reference.withOfficialUrl}`);
+  console.log(`Reference navigation pages: ${reference.sourceSilent}`);
+  console.log(`Reference pages by platform: ${JSON.stringify(reference.byPlatform)}`);
 }
 
 function printMatches(matches) {
@@ -109,12 +116,18 @@ async function run() {
   }
 
   if (command === "status") {
-    const registry = await loadRegistry();
-    const summary = summarizeCapabilities(registry.capabilities);
+    const [registry, referenceSources] = await Promise.all([
+      loadRegistry(),
+      loadReferenceSources(),
+    ]);
+    const status = {
+      capabilities: summarizeCapabilities(registry.capabilities),
+      reference: summarizeReferenceSources(referenceSources),
+    };
     if (format === "json") {
-      printJson(summary);
+      printJson(status);
     } else {
-      printStatus(summary);
+      printStatus(status);
     }
     return;
   }

@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 
-import { registryPath } from "./paths.mjs";
+import { referenceSourceManifestPath, registryPath } from "./paths.mjs";
 
 export async function loadRegistry() {
   const content = await readFile(registryPath, "utf8");
@@ -11,6 +11,17 @@ export async function loadRegistry() {
   }
 
   return registry;
+}
+
+export async function loadReferenceSources() {
+  const content = await readFile(referenceSourceManifestPath, "utf8");
+  const manifest = JSON.parse(content);
+
+  if (!Array.isArray(manifest.sources)) {
+    throw new Error("catalog/reference-sources.json must contain a sources array.");
+  }
+
+  return manifest.sources;
 }
 
 function normalize(value) {
@@ -88,6 +99,34 @@ export function summarizeCapabilities(capabilities) {
       (summary.byStatus[capability.status] ?? 0) + 1;
     summary.byUsageFrequency[capability.usageFrequency] =
       (summary.byUsageFrequency[capability.usageFrequency] ?? 0) + 1;
+  }
+
+  return summary;
+}
+
+export function summarizeReferenceSources(sources) {
+  const summary = {
+    total: sources.length,
+    withOfficialUrl: 0,
+    sourceSilent: 0,
+    byPlatform: {},
+  };
+
+  for (const source of sources) {
+    const platformSummary = summary.byPlatform[source.platform] ?? {
+      total: 0,
+      withOfficialUrl: 0,
+      sourceSilent: 0,
+    };
+    platformSummary.total += 1;
+    if (source.officialUrl === null) {
+      summary.sourceSilent += 1;
+      platformSummary.sourceSilent += 1;
+    } else {
+      summary.withOfficialUrl += 1;
+      platformSummary.withOfficialUrl += 1;
+    }
+    summary.byPlatform[source.platform] = platformSummary;
   }
 
   return summary;

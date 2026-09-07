@@ -5,6 +5,11 @@ const moduleDirectory = path.dirname(fileURLToPath(import.meta.url));
 
 export const repositoryRoot = path.resolve(moduleDirectory, "../..");
 export const sourceIndexPath = path.join(repositoryRoot, "catalog", "source-index.json");
+export const referenceSourceManifestPath = path.join(
+  repositoryRoot,
+  "catalog",
+  "reference-sources.json",
+);
 export const registryPath = path.join(repositoryRoot, "catalog", "registry.json");
 export const capabilitySchemaPath = path.join(
   repositoryRoot,

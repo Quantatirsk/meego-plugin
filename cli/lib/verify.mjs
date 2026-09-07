@@ -13,6 +13,7 @@ import {
   documentationDirectory,
   fixtureDirectory,
   fixtureSchemaPath,
+  referenceSourceManifestPath,
   registryPath,
   reportDirectory,
   repositoryRoot,
@@ -37,6 +38,20 @@ const textFenceLanguages = new Set(["", "text", "plaintext"]);
 const typescriptFenceLanguages = new Set(["ts", "tsx", "typescript", "js", "jsx", "javascript"]);
 const pythonFenceLanguages = new Set(["py", "python"]);
 const shellFenceLanguages = new Set(["sh", "shell", "bash"]);
+const opaqueFenceLanguages = new Set([
+  "css",
+  "go",
+  "html",
+  "http",
+  "java",
+  "markdown",
+  "md",
+  "nginx",
+  "sql",
+  "xml",
+  "yaml",
+  "yml",
+]);
 
 export async function listFiles(directory, predicate = () => true) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -100,13 +115,44 @@ function uniquePaths(filePaths) {
 export function extractMarkdownLinks(content) {
   const links = [];
   const pattern = /!?\[[^\]]*\]\((?:<([^>]+)>|([^\s)]+))(?:\s+[^)]*)?\)/g;
+  const linkSource = stripMarkdownCode(content);
   let match;
 
-  while ((match = pattern.exec(content)) !== null) {
+  while ((match = pattern.exec(linkSource)) !== null) {
     links.push(match[1] ?? match[2]);
   }
 
   return links;
+}
+
+function stripMarkdownCode(content) {
+  let fence;
+  const lines = [];
+
+  for (const line of content.split(/\r?\n/)) {
+    if (!fence) {
+      const openingMatch = /^(?: {0,3})(`{3,}|~{3,})/.exec(line);
+      if (openingMatch) {
+        fence = openingMatch[1];
+        lines.push("");
+        continue;
+      }
+      lines.push(line.replace(/`+[^`\n]*`+/g, ""));
+      continue;
+    }
+
+    const closingMatch = /^(?: {0,3})(`{3,}|~{3,})\s*$/.exec(line);
+    if (
+      closingMatch &&
+      closingMatch[1][0] === fence[0] &&
+      closingMatch[1].length >= fence.length
+    ) {
+      fence = undefined;
+    }
+    lines.push("");
+  }
+
+  return lines.join("\n");
 }
 
 function decodeUriComponent(value) {
@@ -161,6 +207,20 @@ function markdownHeadingSlugs(content) {
   return slugs;
 }
 
+function markdownAnchors(content) {
+  const anchors = markdownHeadingSlugs(content);
+  const pattern = /<(?:a|[a-z][a-z0-9-]*)\b[^>]*\b(?:id|name)\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))/gi;
+  let match;
+
+  while ((match = pattern.exec(content)) !== null) {
+    const anchor = match[1] ?? match[2] ?? match[3];
+    anchors.add(anchor);
+    anchors.add(markdownHeadingSlug(anchor));
+  }
+
+  return anchors;
+}
+
 export async function checkMarkdownLinks(content, markdownPath, errors, rootDirectory = repositoryRoot) {
   const relativePath = path.relative(rootDirectory, markdownPath);
 
@@ -170,7 +230,9 @@ export async function checkMarkdownLinks(content, markdownPath, errors, rootDire
     }
 
     const { pathPart, fragment } = splitMarkdownLink(link);
-    const targetPath = path.resolve(path.dirname(markdownPath), pathPart || ".");
+    const targetPath = pathPart
+      ? path.resolve(path.dirname(markdownPath), pathPart)
+      : markdownPath;
     if (!isPathInsideDirectory(targetPath, rootDirectory)) {
       errors.push(`${relativePath}: local link escapes the repository: ${link}.`);
       continue;
@@ -188,7 +250,8 @@ export async function checkMarkdownLinks(content, markdownPath, errors, rootDire
     }
 
     const targetContent = targetPath === markdownPath ? content : await readFile(targetPath, "utf8");
-    if (!markdownHeadingSlugs(targetContent).has(markdownHeadingSlug(fragment))) {
+    const anchors = markdownAnchors(targetContent);
+    if (!anchors.has(fragment) && !anchors.has(markdownHeadingSlug(fragment))) {
       errors.push(`${relativePath}: broken local anchor ${link}.`);
     }
   }
@@ -244,6 +307,9 @@ function checkCodeFences(content, relativePath, errors) {
       if (textFenceLanguages.has(fence.language)) {
         continue;
       }
+      if (opaqueFenceLanguages.has(fence.language)) {
+        continue;
+      }
       if (fence.language === "json") {
         JSON.parse(fence.source);
         continue;
@@ -291,15 +357,113 @@ function checkCodeFences(content, relativePath, errors) {
   }
 }
 
-function checkDocumentFooter(content) {
+function checkDocumentFooter(content, officialUrl) {
   const lines = content.trimEnd().split(/\r?\n/);
   const footer = lines.slice(-2);
 
   return (
     footer.length === 2 &&
     /^更新时间：\d{4}-\d{2}-\d{2}$/.test(footer[0]) &&
-    /^官方 URL：https:\/\/.+/.test(footer[1])
+    footer[1] === `官方 URL：${officialUrl}`
   );
+}
+
+function isSafeRelativePath(value) {
+  return (
+    typeof value === "string" &&
+    value.length > 0 &&
+    !value.startsWith("/") &&
+    !value.split("/").includes("..")
+  );
+}
+
+function validateReferenceManifest(manifest) {
+  const errors = [];
+  const expectedCounts = { openapi: 163, plugin: 75 };
+
+  if (manifest?.schemaVersion !== 1 || !Array.isArray(manifest?.sources)) {
+    return ["catalog/reference-sources.json: expected schemaVersion 1 and a sources array."];
+  }
+
+  const sourceKeys = new Set();
+  const targetPaths = new Set();
+  const counts = { openapi: 0, plugin: 0 };
+  for (const source of manifest.sources) {
+    if (!source || typeof source !== "object") {
+      errors.push("catalog/reference-sources.json: source entry must be an object.");
+      continue;
+    }
+    if (!(source.platform in expectedCounts)) {
+      errors.push(`catalog/reference-sources.json: invalid platform ${source.platform ?? "unknown"}.`);
+      continue;
+    }
+    if (!isSafeRelativePath(source.sourcePath) || !source.sourcePath.endsWith(".md")) {
+      errors.push(`catalog/reference-sources.json: invalid source path for ${source.platform}.`);
+    }
+    const expectedPrefix = `docs/reference/${source.platform}/`;
+    if (
+      typeof source.targetPath !== "string" ||
+      !source.targetPath.startsWith(expectedPrefix) ||
+      !source.targetPath.endsWith(".md")
+    ) {
+      errors.push(`catalog/reference-sources.json: invalid target path for ${source.sourcePath}.`);
+    }
+    if (typeof source.officialUrl !== "string" && source.officialUrl !== null) {
+      errors.push(`catalog/reference-sources.json: invalid official URL for ${source.sourcePath}.`);
+    }
+    if (
+      typeof source.officialUrl === "string" &&
+      !/^https:\/\/project\.feishu\.cn\/b\/helpcenter\/[^\s]+$/.test(source.officialUrl)
+    ) {
+      errors.push(`catalog/reference-sources.json: invalid official URL for ${source.sourcePath}.`);
+    }
+
+    const sourceKey = `${source.platform}:${source.sourcePath}`;
+    if (sourceKeys.has(sourceKey)) {
+      errors.push(`catalog/reference-sources.json: duplicate source ${sourceKey}.`);
+    }
+    sourceKeys.add(sourceKey);
+    if (targetPaths.has(source.targetPath)) {
+      errors.push(`catalog/reference-sources.json: duplicate target ${source.targetPath}.`);
+    }
+    targetPaths.add(source.targetPath);
+    counts[source.platform] += 1;
+  }
+
+  for (const [platform, expectedCount] of Object.entries(expectedCounts)) {
+    if (counts[platform] !== expectedCount) {
+      errors.push(
+        `catalog/reference-sources.json: expected ${expectedCount} ${platform} sources, found ${counts[platform]}.`,
+      );
+    }
+  }
+  if (manifest.sources.length !== 238) {
+    errors.push(`catalog/reference-sources.json: expected 238 sources, found ${manifest.sources.length}.`);
+  }
+
+  return errors;
+}
+
+async function verifyReferenceCorpus(manifest, errors) {
+  for (const source of manifest.sources) {
+    if (!source || typeof source.targetPath !== "string") {
+      continue;
+    }
+    const documentPath = path.join(repositoryRoot, source.targetPath);
+    if (!isPathInsideDirectory(documentPath, repositoryRoot) || !(await exists(documentPath))) {
+      errors.push(`${source.targetPath}: missing reference document for ${source.platform}/${source.sourcePath}.`);
+      continue;
+    }
+
+    const content = await readFile(documentPath, "utf8");
+    const expectedOfficialUrl = source.officialUrl ?? "source_silent";
+    if (!checkDocumentFooter(content, expectedOfficialUrl)) {
+      errors.push(`${source.targetPath}: footer does not match its reference source.`);
+    }
+    if (source.officialUrl === null && !content.includes("来源链接：source_silent")) {
+      errors.push(`${source.targetPath}: source-silent navigation pages must identify the missing official URL.`);
+    }
+  }
 }
 
 function checkForbiddenContent(content, relativePath, errors) {
@@ -394,9 +558,23 @@ export async function verifyRepository() {
   const errors = [];
   const warnings = [];
   const sourceIndexContent = await readTextOrNull(sourceIndexPath);
+  const referenceManifestContent = await readTextOrNull(referenceSourceManifestPath);
   const registryContent = await readTextOrNull(registryPath);
   const coverageContent = await readTextOrNull(coverageReportPath);
   let registry;
+  let referenceManifest;
+
+  if (referenceManifestContent === null) {
+    errors.push("catalog/reference-sources.json: reference manifest is missing.");
+  } else {
+    try {
+      referenceManifest = JSON.parse(referenceManifestContent);
+      errors.push(...validateReferenceManifest(referenceManifest));
+      await verifyReferenceCorpus(referenceManifest, errors);
+    } catch (error) {
+      errors.push(`catalog/reference-sources.json: invalid JSON: ${error.message}`);
+    }
+  }
 
   if (sourceIndexContent === null) {
     errors.push("catalog/source-index.json: source index is missing.");
@@ -488,7 +666,7 @@ export async function verifyRepository() {
     }
 
     const document = await readFile(documentPath, "utf8");
-    if (!checkDocumentFooter(document)) {
+    if (!checkDocumentFooter(document, capability.officialUrl)) {
       errors.push(`${capability.docPath}: expected the minimal two-line source footer.`);
     }
   }
@@ -558,6 +736,9 @@ export async function verifyRepository() {
 
   const policyFiles = uniquePaths([
     ...markdownFiles,
+    ...(await listFiles(documentationDirectory, (filePath) =>
+      filePath.endsWith(".json") || filePath.endsWith(".mjs"),
+    )),
     ...(await listFiles(path.join(repositoryRoot, "catalog"), (filePath) =>
       filePath.endsWith(".json") || filePath.endsWith(".md") || filePath.endsWith(".mjs"),
     )),

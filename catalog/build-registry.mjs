@@ -1,11 +1,12 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const catalogDirectory = path.dirname(fileURLToPath(import.meta.url));
 const sourceIndexPath = path.join(catalogDirectory, "source-index.json");
 const registryPath = path.join(catalogDirectory, "registry.json");
-const overviewDocumentPath = "docs/README.md";
+const referenceSourceManifestPath = path.join(catalogDirectory, "reference-sources.json");
 
 const validKinds = new Set([
   "http_api",
@@ -25,6 +26,7 @@ const capabilityIdPattern = /^[a-z0-9]+(?:[._-][a-z0-9]+)*$/;
 const documentPathPattern = /^docs\/.+\.md$/;
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/;
 const officialHost = "project.feishu.cn";
+const referenceSourceManifest = JSON.parse(readFileSync(referenceSourceManifestPath, "utf8"));
 
 const curatedOverrides = {
   "plugin-point.control": {
@@ -622,6 +624,48 @@ function ensure(condition, message) {
   }
 }
 
+function referenceSourcesByOfficialUrl(manifest) {
+  ensure(manifest?.schemaVersion === 1, "catalog/reference-sources.json: schemaVersion must be 1.");
+  ensure(Array.isArray(manifest.sources), "catalog/reference-sources.json must contain sources.");
+
+  const sourcesByOfficialUrl = new Map();
+  for (const source of manifest.sources) {
+    ensure(source && typeof source === "object", "Reference source must be an object.");
+    ensure(
+      source.platform === "openapi" || source.platform === "plugin",
+      `Invalid reference platform for ${source.sourcePath ?? "unknown"}.`,
+    );
+    ensure(
+      typeof source.sourcePath === "string" && source.sourcePath.endsWith(".md"),
+      "Reference source must have a Markdown source path.",
+    );
+    ensure(
+      typeof source.targetPath === "string" && documentPathPattern.test(source.targetPath),
+      `Invalid reference target path for ${source.sourcePath}.`,
+    );
+    ensure(
+      typeof source.officialUrl === "string" || source.officialUrl === null,
+      `Invalid official URL for reference source ${source.sourcePath}.`,
+    );
+    if (source.officialUrl === null) {
+      continue;
+    }
+
+    const url = new URL(source.officialUrl);
+    ensure(
+      url.protocol === "https:" && url.hostname === officialHost,
+      `Invalid official URL for reference source ${source.sourcePath}.`,
+    );
+    ensure(
+      !sourcesByOfficialUrl.has(source.officialUrl),
+      `Duplicate reference official URL: ${source.officialUrl}.`,
+    );
+    sourcesByOfficialUrl.set(source.officialUrl, source);
+  }
+
+  return sourcesByOfficialUrl;
+}
+
 function validateSourceCapability(capability) {
   const allowedKeys = new Set([
     "id",
@@ -702,10 +746,6 @@ function validateGeneratedCapability(capability, knownIds) {
   const hasCuratedMaterial = hasFixture || hasContract;
 
   ensure(
-    !hasCuratedMaterial || capability.docPath !== overviewDocumentPath,
-    `${capability.id} needs a dedicated document when it publishes curated material.`,
-  );
-  ensure(
     hasFixture === hasContract,
     `${capability.id} must publish fixture IDs and a contract together.`,
   );
@@ -738,10 +778,6 @@ function validateGeneratedCapability(capability, knownIds) {
   }
 
   if (!hasCuratedMaterial) {
-    ensure(
-      capability.docPath === overviewDocumentPath,
-      `${capability.id} must use the overview document until it has curated material.`,
-    );
     return;
   }
 
@@ -770,6 +806,7 @@ export function buildRegistry(sourceIndex) {
   ensure(Array.isArray(sourceIndex.capabilities), "catalog/source-index.json must contain capabilities.");
 
   const sourceIds = new Set();
+  const sourcesByOfficialUrl = referenceSourcesByOfficialUrl(referenceSourceManifest);
   for (const capability of sourceIndex.capabilities) {
     validateSourceCapability(capability);
     ensure(!sourceIds.has(capability.id), `Duplicate source capability ID: ${capability.id}.`);
@@ -782,12 +819,17 @@ export function buildRegistry(sourceIndex) {
 
   const capabilities = sourceIndex.capabilities.map((sourceCapability) => {
     const override = curatedOverrides[sourceCapability.id];
+    const referenceSource = sourcesByOfficialUrl.get(sourceCapability.officialUrl);
+    ensure(
+      referenceSource,
+      `${sourceCapability.id} has no matching source page in catalog/reference-sources.json.`,
+    );
     const record = {
       id: sourceCapability.id,
       kind: sourceCapability.kind,
       title: sourceCapability.title,
       officialUrl: sourceCapability.officialUrl,
-      docPath: override?.docPath ?? overviewDocumentPath,
+      docPath: override?.docPath ?? referenceSource.targetPath,
       status: override?.status ?? sourceCapability.status,
       usageFrequency: sourceCapability.usageFrequency,
       frequencyBasis: sourceCapability.frequencyBasis,

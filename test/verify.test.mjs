@@ -216,16 +216,35 @@ test("Markdown validation rejects escaping paths and missing anchors", async () 
   try {
     const docsDirectory = path.join(temporaryRoot, "docs");
     await mkdir(docsDirectory, { recursive: true });
-    await writeFile(path.join(docsDirectory, "target.md"), "# Valid Heading\n", "utf8");
+    await writeFile(
+      path.join(docsDirectory, "target.md"),
+      "# Valid Heading\n\n<a id=\"legacy-anchor\"></a>\n",
+      "utf8",
+    );
+    const fence = "\`\`\`";
+
+    const sourcePath = path.join(docsDirectory, "source.md");
+    const sourceContent = [
+      "<a id=\"source-anchor\"></a>",
+      "[valid](target.md#valid-heading)",
+      "[legacy](target.md#legacy-anchor)",
+      "[same-document](#source-anchor)",
+      "\`[inline example](missing.md)\`",
+      fence,
+      "[fenced example](missing.md)",
+      fence,
+      "[missing](target.md#missing-heading)",
+      "[escape](../../outside.md)",
+    ].join("\n");
+    await writeFile(sourcePath, sourceContent, "utf8");
 
     const errors = [];
-    await checkMarkdownLinks(
-      "[valid](target.md#valid-heading)\n[missing](target.md#missing-heading)\n[escape](../../outside.md)\n",
-      path.join(docsDirectory, "source.md"),
-      errors,
-      temporaryRoot,
-    );
+    await checkMarkdownLinks(sourceContent, sourcePath, errors, temporaryRoot);
 
+    assert.ok(!errors.some((error) => error.includes("legacy-anchor")));
+    assert.ok(!errors.some((error) => error.includes("source-anchor")));
+    assert.ok(!errors.some((error) => error.includes("inline example")));
+    assert.ok(!errors.some((error) => error.includes("fenced example")));
     assert.ok(errors.some((error) => error.includes("broken local anchor")));
     assert.ok(errors.some((error) => error.includes("escapes the repository")));
   } finally {
@@ -237,7 +256,7 @@ test("the checked-in capability corpus is self-consistent", async () => {
   const result = await verifyRepository();
 
   assert.deepEqual(result.errors, []);
-  assert.ok(result.capabilityCount >= 8);
-  assert.ok(result.fixtureCount >= 8);
-  assert.ok(result.documentCount >= 15);
+  assert.equal(result.capabilityCount, 237);
+  assert.equal(result.fixtureCount, 32);
+  assert.ok(result.documentCount >= 279);
 });

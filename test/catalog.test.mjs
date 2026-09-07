@@ -1,7 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { findCapabilities, summarizeCapabilities } from "../cli/lib/catalog.mjs";
+import {
+  findCapabilities,
+  summarizeCapabilities,
+  summarizeReferenceSources,
+} from "../cli/lib/catalog.mjs";
 
 const capabilities = [
   {
@@ -52,4 +56,31 @@ test("summarizeCapabilities groups stable dimensions", () => {
       medium: 1,
     },
   });
+});
+
+test("summarizeReferenceSources distinguishes official pages from navigation pages", () => {
+  assert.deepEqual(
+    summarizeReferenceSources([
+      { platform: "openapi", officialUrl: "https://project.feishu.cn/b/helpcenter/example" },
+      { platform: "plugin", officialUrl: null },
+      { platform: "openapi", officialUrl: "https://project.feishu.cn/b/helpcenter/another" },
+    ]),
+    {
+      total: 3,
+      withOfficialUrl: 2,
+      sourceSilent: 1,
+      byPlatform: {
+        openapi: {
+          total: 2,
+          withOfficialUrl: 2,
+          sourceSilent: 0,
+        },
+        plugin: {
+          total: 1,
+          withOfficialUrl: 0,
+          sourceSilent: 1,
+        },
+      },
+    },
+  );
 });

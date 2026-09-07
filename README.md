@@ -1,6 +1,6 @@
 # meego-plugin
 
-`meego-plugin` 是用于飞书项目插件开发的私有、平台中性知识系统。它提供版本化本地资料、类型化能力契约、高频能力的完整示例 fixture、确定性的本地 CLI 与 Codex 适配层。
+`meego-plugin` 是用于飞书项目插件开发的私有、平台中性知识系统。它提供全量本地平台参考、类型化能力契约、高频能力的完整示例 fixture、确定性的本地 CLI 与 Codex 适配层。
 
 它只覆盖飞书项目平台能力：
 
@@ -17,7 +17,8 @@
 | `catalog/` | 机器可读的能力目录与关系。 |
 | `schemas/` | 能力和 fixture 契约的 JSON Schema。 |
 | `fixtures/` | 平台中性的请求、响应、运行时和事件示例。 |
-| `docs/` | 精修的中文导读与能力文档。 |
+| `docs/` | 高频能力的精修导读、契约与示例入口。 |
+| `docs/reference/` | 全量平台参考页：OpenAPI 163 篇、插件与客户端 75 篇。 |
 | `cli/` | 本地 `meego` 检索、报告、渲染与校验命令。 |
 | `adapters/codex/` | Codex 原生 `meego-plugin` skill。 |
 
@@ -38,4 +39,6 @@ npm run verify
 
 ## Source Policy
 
-仓内文档是独立编写的平台参考。每篇能力文档底部只保留更新时间和官方 URL；原始快照、下载的官方资源和租户数据均不进入版本控制。
+资料分为两层：高频能力页提供经核对的契约和 fixture；`docs/reference/` 保留按官方页面逐篇整理的完整平台资料及正文必要资源。后者由 `catalog/reference-sources.json` 逐页映射：231 篇带官方 URL，7 篇本地导航页明确标为 `source_silent`。
+
+每篇有官方来源的资料底部只保留更新时间和官方 URL。原始采集快照、来源工作区文件、租户数据和凭证均不进入版本控制。
