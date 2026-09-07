@@ -20,6 +20,7 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run catalog:build
+      - run: npm run docs:sync
       - run: npm run docs:render
       - run: npm test
       - run: npm run verify

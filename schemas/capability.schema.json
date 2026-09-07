@@ -9,6 +9,7 @@
     "title",
     "officialUrl",
     "docPath",
+    "docAnchor",
     "status",
     "usageFrequency",
     "frequencyBasis",
@@ -39,6 +40,10 @@
     "docPath": {
       "type": "string",
       "pattern": "^docs/.+\\.md$"
+    },
+    "docAnchor": {
+      "type": "string",
+      "pattern": "^capability-[a-z0-9]+(?:[._-][a-z0-9]+)*$"
     },
     "status": {
       "enum": [

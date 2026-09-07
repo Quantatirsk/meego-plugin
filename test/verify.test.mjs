@@ -137,6 +137,7 @@ test("source_silent capabilities require source-silence evidence", async () => {
     title: "Example source-silent API",
     officialUrl: "https://project.feishu.cn/b/helpcenter/example",
     docPath: "docs/README.md",
+    docAnchor: "capability-jssdk.example.source-silent",
     status: "source_silent",
     usageFrequency: "low",
     frequencyBasis: "local-static-heuristic",
@@ -258,5 +259,5 @@ test("the checked-in capability corpus is self-consistent", async () => {
   assert.deepEqual(result.errors, []);
   assert.equal(result.capabilityCount, 237);
   assert.equal(result.fixtureCount, 32);
-  assert.ok(result.documentCount >= 279);
+  assert.equal(result.documentCount, 244);
 });

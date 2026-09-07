@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 
-import { referenceSourceManifestPath, registryPath } from "./paths.mjs";
+import { documentSourceManifestPath, registryPath } from "./paths.mjs";
 
 export async function loadRegistry() {
   const content = await readFile(registryPath, "utf8");
@@ -13,12 +13,12 @@ export async function loadRegistry() {
   return registry;
 }
 
-export async function loadReferenceSources() {
-  const content = await readFile(referenceSourceManifestPath, "utf8");
+export async function loadDocumentSources() {
+  const content = await readFile(documentSourceManifestPath, "utf8");
   const manifest = JSON.parse(content);
 
   if (!Array.isArray(manifest.sources)) {
-    throw new Error("catalog/reference-sources.json must contain a sources array.");
+    throw new Error("catalog/document-sources.json must contain a sources array.");
   }
 
   return manifest.sources;
@@ -104,7 +104,7 @@ export function summarizeCapabilities(capabilities) {
   return summary;
 }
 
-export function summarizeReferenceSources(sources) {
+export function summarizeDocumentSources(sources) {
   const summary = {
     total: sources.length,
     withOfficialUrl: 0,
@@ -139,7 +139,7 @@ export function buildCoverageMarkdown(registry) {
     .sort((left, right) => left.id.localeCompare(right.id))
     .map(
       (capability) =>
-        `| ${capability.id} | ${capability.kind} | ${capability.usageFrequency} | ${capability.status} | [${capability.title}](../${capability.docPath}) |`,
+        `| ${capability.id} | ${capability.kind} | ${capability.usageFrequency} | ${capability.status} | [${capability.title}](../${capability.docPath}#${capability.docAnchor}) |`,
     );
 
   return [

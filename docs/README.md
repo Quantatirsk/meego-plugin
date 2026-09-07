@@ -1,41 +1,27 @@
-# 飞书项目插件能力资料
+# 飞书项目插件平台文档
 
-本目录收录可复用的飞书项目平台能力。每篇只描述平台提供的点位、客户端契约、服务端接口或回调规则；业务字段、页面内容、存储策略与访问规则由使用方自行定义。
+本目录是飞书项目平台能力的唯一权威正文。每篇页面按一个官方主题整理；同一官方页包含多个接口或方法时，它们在该页顶部逐项列出，不再另建摘要副本。
 
-## 阅读顺序
+## 使用方式
 
-1. 需要在宿主界面中增加入口时，先选择对应的[插件点位](plugin/control.md)。
-2. 需要读取宿主运行信息时，查阅[JSSDK 控件上下文](plugin/control-get-context.md)。
-3. 需要由服务端读取或写入平台数据时，先阅读[凭证与权限](openapi/credentials-permissions.md)，再阅读精确的工作项接口。
-4. 需要接收平台回调时，先实现[事件验签](events/webhook-signature.md)，再扩展到具体事件类型。
+1. 先运行 `meego resolve <query>`，获取能力、唯一文档页、稳定锚点、状态和 fixture。
+2. 阅读该页顶部的“平台能力标记”：`高`、`中`、`低`是本地插件调用痕迹推断的阅读优先级，不是官方承诺或遥测数据。
+3. 对 `verified` 能力，同时阅读 fixture 与结构化契约；对 `needs_runtime_validation` 和 `source_silent`，只使用正文已证实的事实。
 
-## 高频能力
+## 文档入口
 
-高频能力来自本地插件源码中的可达静态调用，不代表线上遥测。它们都具有独立能力页、类型化契约和可机器读取的 fixture；其余能力通过 `meego resolve` 返回状态和官方 URL，不能因此被当作已经验证。
-
-| 分类 | 能力 |
+| 资料 | 内容 |
 | --- | --- |
-| 插件点位 | [Control](plugin/control.md)、[Tab](plugin/tab.md)、[Configuration](plugin/configuration.md)、[Button](plugin/button.md) |
-| JSSDK 上下文 | [Control](plugin/control-get-context.md)、[Tab](jssdk/tab-get-context.md)、[Button](jssdk/button-get-context.md)、[Configuration](jssdk/configuration-get-context.md)、[Context.load](jssdk/context-load.md) |
-| JSSDK 运行时 | [shared.setSharedModules](jssdk/shared-set-shared-modules.md)、[storage.getItem](jssdk/storage-get-item.md)、[storage.setItem](jssdk/storage-set-item.md)、[storage.removeItem](jssdk/storage-remove-item.md)、[containerModal.close](jssdk/container-modal-close.md) |
-| JSSDK 提示 | [toast.error](jssdk/toast-error.md)、[toast.success](jssdk/toast-success.md)、[toast.warning](jssdk/toast-warning.md)、[toast.info](jssdk/toast-info.md) |
-| OpenAPI 凭证 | [插件凭证](openapi/plugin-token.md)、[用户凭证](openapi/user-plugin-token.md)、[刷新凭证](openapi/refresh-token.md)、[凭证与权限](openapi/credentials-permissions.md) |
-| OpenAPI 数据 | [字段信息](openapi/field-all.md)、[用户详情](openapi/user-query.md)、[工作项类型](openapi/work-item-type-config.md)、[获取工作项](openapi/work-item-get.md)、[创建工作项](openapi/work-item-create.md)、[更新工作项](openapi/work-item-update.md)、[下载附件](openapi/work-item-file-download.md) |
-| 事件 | [回调验签](events/webhook-signature.md)、[监听事件](events/listener-delivery.md)、[拦截事件](events/intercept-response.md)、[Control 新建回调](events/control-create-callback.md) |
+| [OpenAPI](openapi/README.md) | 163 篇服务端接口、事件、凭证、权限、格式与 AI 能力资料。 |
+| [插件与客户端](plugin/README.md) | 75 篇插件点位、JSSDK、组件、CLI、调试与发布资料。 |
+| [来源清单](../catalog/document-sources.json) | 每篇规范文档的来源路径、官方 URL 与内容哈希。 |
+| [能力覆盖](../reports/coverage.md) | 237 条可调用能力的机器可读目录与频次统计。 |
 
-fixture 用于理解契约和本地验证，不携带可用凭证，也不构成任何远程调用授权。
+## 频次与边界
 
-## 全量参考层
+所有可调用能力都有 `高`、`中` 或 `低` 标记。目录、格式、平台说明和支持页会明确写为“无直接调用频次”，避免把资料页误标为低频接口。
 
-`meego resolve <query>` 会返回最准确的本地能力页。高频能力优先进入本目录的精修页；其余能力直接定位到 `reference/` 中与官方页面一一映射的资料。
-
-| 资料 | 覆盖范围 |
-| --- | --- |
-| [OpenAPI 参考](reference/openapi/README.md) | 163 篇 OpenAPI 与直接相关的服务端资料。 |
-| [插件与客户端参考](reference/plugin/README.md) | 75 篇插件点位、客户端、JSSDK、组件、CLI 与发布资料。 |
-| [来源清单](../catalog/reference-sources.json) | 每篇源页面、目标路径、官方 URL 和内容哈希。 |
-
-参考层中有 231 篇页面带独立官方 URL。另有 7 篇本地目录、导读或覆盖说明没有对应独立官方页面，均在各自的 `COVERAGE-GAPS.md` 中明确标记为 `source_silent`，不作为平台契约依据。
+fixture 只提供脱敏的请求、响应或运行时样例。它们不携带凭证，也不授权任何远端操作。插件创建、配置、权限、构建、调试和发布使用 `lpm`；本地文档和 CLI 不会执行真实 OpenAPI 请求。
 
 更新时间：2026-09-07
 官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn

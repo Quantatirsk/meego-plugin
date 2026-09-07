@@ -12,6 +12,7 @@
   },
   "scripts": {
     "catalog:build": "node catalog/build-registry.mjs",
+    "docs:sync": "node catalog/sync-document-metadata.mjs",
     "docs:render": "node cli/meego.mjs render",
     "meego": "node cli/meego.mjs",
     "test": "node --test test/**/*.test.mjs",

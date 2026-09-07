@@ -4,10 +4,10 @@ import path from "node:path";
 
 import {
   findCapabilities,
-  loadReferenceSources,
+  loadDocumentSources,
   loadRegistry,
   summarizeCapabilities,
-  summarizeReferenceSources,
+  summarizeDocumentSources,
 } from "./lib/catalog.mjs";
 import { renderCoverageReport, verifyRepository } from "./lib/verify.mjs";
 import { repositoryRoot } from "./lib/paths.mjs";
@@ -53,16 +53,16 @@ function printJson(value) {
 }
 
 function printStatus(status) {
-  const { capabilities, reference } = status;
+  const { capabilities, documentation } = status;
   console.log(`Repository: ${repositoryRoot}`);
   console.log(`Capabilities: ${capabilities.total}`);
   console.log(`By kind: ${JSON.stringify(capabilities.byKind)}`);
   console.log(`By status: ${JSON.stringify(capabilities.byStatus)}`);
   console.log(`By usage frequency: ${JSON.stringify(capabilities.byUsageFrequency)}`);
-  console.log(`Reference pages: ${reference.total}`);
-  console.log(`Reference pages with official URL: ${reference.withOfficialUrl}`);
-  console.log(`Reference navigation pages: ${reference.sourceSilent}`);
-  console.log(`Reference pages by platform: ${JSON.stringify(reference.byPlatform)}`);
+  console.log(`Documentation pages: ${documentation.total}`);
+  console.log(`Documentation pages with official URL: ${documentation.withOfficialUrl}`);
+  console.log(`Documentation navigation pages: ${documentation.sourceSilent}`);
+  console.log(`Documentation pages by platform: ${JSON.stringify(documentation.byPlatform)}`);
 }
 
 function printMatches(matches) {
@@ -75,7 +75,7 @@ function printMatches(matches) {
     console.log(`${capability.id} (${score})`);
     console.log(`  ${capability.title}`);
     console.log(`  ${capability.kind} | ${capability.usageFrequency} | ${capability.status}`);
-    console.log(`  ${capability.docPath}`);
+    console.log(`  ${capability.docPath}#${capability.docAnchor}`);
     console.log(`  ${capability.officialUrl}`);
     if (capability.fixtureIds?.length) {
       console.log(`  Fixtures: ${capability.fixtureIds.join(", ")}`);
@@ -116,13 +116,13 @@ async function run() {
   }
 
   if (command === "status") {
-    const [registry, referenceSources] = await Promise.all([
+    const [registry, documentSources] = await Promise.all([
       loadRegistry(),
-      loadReferenceSources(),
+      loadDocumentSources(),
     ]);
     const status = {
       capabilities: summarizeCapabilities(registry.capabilities),
-      reference: summarizeReferenceSources(referenceSources),
+      documentation: summarizeDocumentSources(documentSources),
     };
     if (format === "json") {
       printJson(status);

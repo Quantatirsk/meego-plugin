@@ -6,6 +6,7 @@ import { parse } from "@babel/parser";
 import Ajv from "ajv";
 
 import { buildRegistry } from "../../catalog/build-registry.mjs";
+import { validateDocumentMetadata } from "../../catalog/sync-document-metadata.mjs";
 import { buildCoverageMarkdown, loadRegistry } from "./catalog.mjs";
 import {
   capabilitySchemaPath,
@@ -13,7 +14,7 @@ import {
   documentationDirectory,
   fixtureDirectory,
   fixtureSchemaPath,
-  referenceSourceManifestPath,
+  documentSourceManifestPath,
   registryPath,
   reportDirectory,
   repositoryRoot,
@@ -377,12 +378,12 @@ function isSafeRelativePath(value) {
   );
 }
 
-function validateReferenceManifest(manifest) {
+function validateDocumentManifest(manifest) {
   const errors = [];
   const expectedCounts = { openapi: 163, plugin: 75 };
 
   if (manifest?.schemaVersion !== 1 || !Array.isArray(manifest?.sources)) {
-    return ["catalog/reference-sources.json: expected schemaVersion 1 and a sources array."];
+    return ["catalog/document-sources.json: expected schemaVersion 1 and a sources array."];
   }
 
   const sourceKeys = new Set();
@@ -390,41 +391,41 @@ function validateReferenceManifest(manifest) {
   const counts = { openapi: 0, plugin: 0 };
   for (const source of manifest.sources) {
     if (!source || typeof source !== "object") {
-      errors.push("catalog/reference-sources.json: source entry must be an object.");
+      errors.push("catalog/document-sources.json: source entry must be an object.");
       continue;
     }
     if (!(source.platform in expectedCounts)) {
-      errors.push(`catalog/reference-sources.json: invalid platform ${source.platform ?? "unknown"}.`);
+      errors.push(`catalog/document-sources.json: invalid platform ${source.platform ?? "unknown"}.`);
       continue;
     }
     if (!isSafeRelativePath(source.sourcePath) || !source.sourcePath.endsWith(".md")) {
-      errors.push(`catalog/reference-sources.json: invalid source path for ${source.platform}.`);
+      errors.push(`catalog/document-sources.json: invalid source path for ${source.platform}.`);
     }
-    const expectedPrefix = `docs/reference/${source.platform}/`;
+    const expectedPrefix = `docs/${source.platform}/`;
     if (
       typeof source.targetPath !== "string" ||
       !source.targetPath.startsWith(expectedPrefix) ||
       !source.targetPath.endsWith(".md")
     ) {
-      errors.push(`catalog/reference-sources.json: invalid target path for ${source.sourcePath}.`);
+      errors.push(`catalog/document-sources.json: invalid target path for ${source.sourcePath}.`);
     }
     if (typeof source.officialUrl !== "string" && source.officialUrl !== null) {
-      errors.push(`catalog/reference-sources.json: invalid official URL for ${source.sourcePath}.`);
+      errors.push(`catalog/document-sources.json: invalid official URL for ${source.sourcePath}.`);
     }
     if (
       typeof source.officialUrl === "string" &&
       !/^https:\/\/project\.feishu\.cn\/b\/helpcenter\/[^\s]+$/.test(source.officialUrl)
     ) {
-      errors.push(`catalog/reference-sources.json: invalid official URL for ${source.sourcePath}.`);
+      errors.push(`catalog/document-sources.json: invalid official URL for ${source.sourcePath}.`);
     }
 
     const sourceKey = `${source.platform}:${source.sourcePath}`;
     if (sourceKeys.has(sourceKey)) {
-      errors.push(`catalog/reference-sources.json: duplicate source ${sourceKey}.`);
+      errors.push(`catalog/document-sources.json: duplicate source ${sourceKey}.`);
     }
     sourceKeys.add(sourceKey);
     if (targetPaths.has(source.targetPath)) {
-      errors.push(`catalog/reference-sources.json: duplicate target ${source.targetPath}.`);
+      errors.push(`catalog/document-sources.json: duplicate target ${source.targetPath}.`);
     }
     targetPaths.add(source.targetPath);
     counts[source.platform] += 1;
@@ -433,35 +434,55 @@ function validateReferenceManifest(manifest) {
   for (const [platform, expectedCount] of Object.entries(expectedCounts)) {
     if (counts[platform] !== expectedCount) {
       errors.push(
-        `catalog/reference-sources.json: expected ${expectedCount} ${platform} sources, found ${counts[platform]}.`,
+        `catalog/document-sources.json: expected ${expectedCount} ${platform} sources, found ${counts[platform]}.`,
       );
     }
   }
   if (manifest.sources.length !== 238) {
-    errors.push(`catalog/reference-sources.json: expected 238 sources, found ${manifest.sources.length}.`);
+    errors.push(`catalog/document-sources.json: expected 238 sources, found ${manifest.sources.length}.`);
   }
 
   return errors;
 }
 
-async function verifyReferenceCorpus(manifest, errors) {
+async function verifyDocumentCorpus(manifest, errors) {
   for (const source of manifest.sources) {
     if (!source || typeof source.targetPath !== "string") {
       continue;
     }
     const documentPath = path.join(repositoryRoot, source.targetPath);
     if (!isPathInsideDirectory(documentPath, repositoryRoot) || !(await exists(documentPath))) {
-      errors.push(`${source.targetPath}: missing reference document for ${source.platform}/${source.sourcePath}.`);
+      errors.push(`${source.targetPath}: missing canonical document for ${source.platform}/${source.sourcePath}.`);
       continue;
     }
 
     const content = await readFile(documentPath, "utf8");
     const expectedOfficialUrl = source.officialUrl ?? "source_silent";
     if (!checkDocumentFooter(content, expectedOfficialUrl)) {
-      errors.push(`${source.targetPath}: footer does not match its reference source.`);
+      errors.push(`${source.targetPath}: footer does not match its canonical source.`);
     }
     if (source.officialUrl === null && !content.includes("来源链接：source_silent")) {
       errors.push(`${source.targetPath}: source-silent navigation pages must identify the missing official URL.`);
+    }
+  }
+}
+
+async function verifyCanonicalDocumentSet(manifest, errors) {
+  const expectedPaths = new Set(["docs/README.md"]);
+  for (const source of manifest.sources) {
+    if (typeof source?.targetPath === "string") {
+      expectedPaths.add(source.targetPath);
+    }
+  }
+
+  const actualPaths = new Set(
+    (await listFiles(documentationDirectory, (filePath) => filePath.endsWith(".md"))).map((filePath) =>
+      path.relative(repositoryRoot, filePath),
+    ),
+  );
+  for (const actualPath of actualPaths) {
+    if (!expectedPaths.has(actualPath)) {
+      errors.push(`${actualPath}: duplicate or untracked documentation page outside the canonical source set.`);
     }
   }
 }
@@ -558,21 +579,22 @@ export async function verifyRepository() {
   const errors = [];
   const warnings = [];
   const sourceIndexContent = await readTextOrNull(sourceIndexPath);
-  const referenceManifestContent = await readTextOrNull(referenceSourceManifestPath);
+  const documentManifestContent = await readTextOrNull(documentSourceManifestPath);
   const registryContent = await readTextOrNull(registryPath);
   const coverageContent = await readTextOrNull(coverageReportPath);
   let registry;
-  let referenceManifest;
+  let documentManifest;
 
-  if (referenceManifestContent === null) {
-    errors.push("catalog/reference-sources.json: reference manifest is missing.");
+  if (documentManifestContent === null) {
+    errors.push("catalog/document-sources.json: document manifest is missing.");
   } else {
     try {
-      referenceManifest = JSON.parse(referenceManifestContent);
-      errors.push(...validateReferenceManifest(referenceManifest));
-      await verifyReferenceCorpus(referenceManifest, errors);
+      documentManifest = JSON.parse(documentManifestContent);
+      errors.push(...validateDocumentManifest(documentManifest));
+      await verifyDocumentCorpus(documentManifest, errors);
+      await verifyCanonicalDocumentSet(documentManifest, errors);
     } catch (error) {
-      errors.push(`catalog/reference-sources.json: invalid JSON: ${error.message}`);
+      errors.push(`catalog/document-sources.json: invalid JSON: ${error.message}`);
     }
   }
 
@@ -595,6 +617,14 @@ export async function verifyRepository() {
     } catch (error) {
       errors.push(`catalog/registry.json: invalid JSON: ${error.message}`);
     }
+  }
+
+  if (await exists(path.join(documentationDirectory, "reference"))) {
+    errors.push("docs/reference: duplicate documentation tree must not exist.");
+  }
+
+  if (documentManifest && registry?.capabilities) {
+    errors.push(...(await validateDocumentMetadata(documentManifest, registry)));
   }
 
   const markdownFiles = await collectMarkdownFiles(errors);

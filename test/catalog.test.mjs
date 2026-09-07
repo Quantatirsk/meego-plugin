@@ -4,8 +4,14 @@ import assert from "node:assert/strict";
 import {
   findCapabilities,
   summarizeCapabilities,
-  summarizeReferenceSources,
+  summarizeDocumentSources,
 } from "../cli/lib/catalog.mjs";
+import {
+  documentMetadataIsCurrent,
+  renderDocumentMetadata,
+  replaceDocumentMetadata,
+  validateDocumentMetadata,
+} from "../catalog/sync-document-metadata.mjs";
 
 const capabilities = [
   {
@@ -58,9 +64,9 @@ test("summarizeCapabilities groups stable dimensions", () => {
   });
 });
 
-test("summarizeReferenceSources distinguishes official pages from navigation pages", () => {
+test("summarizeDocumentSources distinguishes official pages from navigation pages", () => {
   assert.deepEqual(
-    summarizeReferenceSources([
+    summarizeDocumentSources([
       { platform: "openapi", officialUrl: "https://project.feishu.cn/b/helpcenter/example" },
       { platform: "plugin", officialUrl: null },
       { platform: "openapi", officialUrl: "https://project.feishu.cn/b/helpcenter/another" },
@@ -83,4 +89,56 @@ test("summarizeReferenceSources distinguishes official pages from navigation pag
       },
     },
   );
+});
+
+test("document metadata exposes frequency for callables and omits it for guides", () => {
+  const callableMetadata = renderDocumentMetadata(
+    "/workspace/docs/plugin/jssdk/storage.md",
+    [
+      {
+        id: "jssdk.storage.get-item",
+        title: "storage.getItem",
+        docAnchor: "capability-jssdk.storage.get-item",
+        usageFrequency: "high",
+        status: "verified",
+        fixtureIds: ["jssdk.storage.get-item.fixture"],
+      },
+    ],
+    new Map([["jssdk.storage.get-item.fixture", "/workspace/fixtures/jssdk/storage-get-item.json"]]),
+  );
+  const guideMetadata = renderDocumentMetadata(
+    "/workspace/docs/openapi/guides/OpenAPI概述.md",
+    [],
+    new Map(),
+  );
+
+  assert.match(callableMetadata, /capability-jssdk\.storage\.get-item/);
+  assert.match(callableMetadata, /频次：高/);
+  assert.match(callableMetadata, /fixtures\/jssdk\/storage-get-item\.json/);
+  assert.match(guideMetadata, /无直接调用频次/);
+  const inserted = replaceDocumentMetadata("# Example\n\nBody\n", callableMetadata);
+  assert.match(inserted, /# Example\n\n<!-- capability-metadata:start -->/);
+  assert.equal(documentMetadataIsCurrent(inserted, callableMetadata), true);
+});
+
+test("document metadata sync removes duplicate blocks and reports missing pages", async () => {
+  const metadata = renderDocumentMetadata("/workspace/docs/example.md", [], new Map());
+  const duplicated = `# Example\n\n${metadata}\n\n${metadata}\n\nBody\n`;
+  const synchronized = replaceDocumentMetadata(duplicated, metadata);
+
+  assert.equal(
+    (synchronized.match(/<!-- capability-metadata:start -->/gu) ?? []).length,
+    1,
+  );
+  assert.equal(documentMetadataIsCurrent(synchronized, metadata), true);
+  assert.equal(documentMetadataIsCurrent(duplicated, metadata), false);
+
+  const missingTargetPath = `docs/__missing-metadata-${process.pid}.md`;
+  const errors = await validateDocumentMetadata(
+    { sources: [{ targetPath: missingTargetPath }] },
+    { capabilities: [] },
+  );
+  assert.deepEqual(errors, [
+    `${missingTargetPath}: capability metadata cannot be validated because the canonical document is missing.`,
+  ]);
 });

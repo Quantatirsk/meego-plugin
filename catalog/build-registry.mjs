@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 const catalogDirectory = path.dirname(fileURLToPath(import.meta.url));
 const sourceIndexPath = path.join(catalogDirectory, "source-index.json");
 const registryPath = path.join(catalogDirectory, "registry.json");
-const referenceSourceManifestPath = path.join(catalogDirectory, "reference-sources.json");
+const documentSourceManifestPath = path.join(catalogDirectory, "document-sources.json");
 
 const validKinds = new Set([
   "http_api",
@@ -24,14 +24,14 @@ const validStatuses = new Set([
 const validUsageFrequencies = new Set(["high", "medium", "low"]);
 const capabilityIdPattern = /^[a-z0-9]+(?:[._-][a-z0-9]+)*$/;
 const documentPathPattern = /^docs\/.+\.md$/;
+const documentAnchorPattern = /^capability-[a-z0-9]+(?:[._-][a-z0-9]+)*$/;
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/;
 const officialHost = "project.feishu.cn";
-const referenceSourceManifest = JSON.parse(readFileSync(referenceSourceManifestPath, "utf8"));
+const documentSourceManifest = JSON.parse(readFileSync(documentSourceManifestPath, "utf8"));
 
 const curatedOverrides = {
   "plugin-point.control": {
     status: "verified",
-    docPath: "docs/plugin/control.md",
     fixtureIds: ["plugin-point.control.fixture"],
     contract: {
       point: "control",
@@ -49,7 +49,6 @@ const curatedOverrides = {
   },
   "plugin-point.tab": {
     status: "verified",
-    docPath: "docs/plugin/tab.md",
     fixtureIds: ["plugin-point.tab.fixture"],
     contract: {
       point: "tab",
@@ -67,7 +66,6 @@ const curatedOverrides = {
   },
   "plugin-point.configuration": {
     status: "verified",
-    docPath: "docs/plugin/configuration.md",
     fixtureIds: ["plugin-point.configuration.fixture"],
     contract: {
       point: "configuration",
@@ -84,7 +82,6 @@ const curatedOverrides = {
   },
   "jssdk.control.get-context": {
     status: "verified",
-    docPath: "docs/plugin/control-get-context.md",
     fixtureIds: ["jssdk.control.get-context.fixture"],
     contract: {
       namespace: "control",
@@ -95,7 +92,6 @@ const curatedOverrides = {
   },
   "openapi.work-item.get": {
     status: "verified",
-    docPath: "docs/openapi/work-item-get.md",
     fixtureIds: ["openapi.work-item.get.fixture"],
     contract: {
       operation: {
@@ -124,7 +120,6 @@ const curatedOverrides = {
   },
   "openapi.work-item.create": {
     status: "verified",
-    docPath: "docs/openapi/work-item-create.md",
     fixtureIds: ["openapi.work-item.create.fixture"],
     contract: {
       operation: {
@@ -153,7 +148,6 @@ const curatedOverrides = {
   },
   "openapi.work-item.update": {
     status: "verified",
-    docPath: "docs/openapi/work-item-update.md",
     fixtureIds: ["openapi.work-item.update.fixture"],
     contract: {
       operation: {
@@ -183,7 +177,6 @@ const curatedOverrides = {
   },
   "plugin-point.button": {
     status: "verified",
-    docPath: "docs/plugin/button.md",
     fixtureIds: ["plugin-point.button.fixture"],
     contract: {
       point: "button",
@@ -198,7 +191,6 @@ const curatedOverrides = {
   },
   "jssdk.button.get-context": {
     status: "verified",
-    docPath: "docs/jssdk/button-get-context.md",
     fixtureIds: ["jssdk.button.get-context.fixture"],
     contract: {
       namespace: "button",
@@ -208,7 +200,6 @@ const curatedOverrides = {
   },
   "jssdk.tab.get-context": {
     status: "verified",
-    docPath: "docs/jssdk/tab-get-context.md",
     fixtureIds: ["jssdk.tab.get-context.fixture"],
     contract: {
       namespace: "tab",
@@ -218,7 +209,6 @@ const curatedOverrides = {
   },
   "jssdk.configuration.get-context": {
     status: "verified",
-    docPath: "docs/jssdk/configuration-get-context.md",
     fixtureIds: ["jssdk.configuration.get-context.fixture"],
     contract: {
       namespace: "configuration",
@@ -228,7 +218,6 @@ const curatedOverrides = {
   },
   "jssdk.context.load": {
     status: "verified",
-    docPath: "docs/jssdk/context-load.md",
     fixtureIds: ["jssdk.context.load.fixture"],
     contract: {
       namespace: "Context",
@@ -238,7 +227,6 @@ const curatedOverrides = {
   },
   "jssdk.shared.set-shared-modules": {
     status: "verified",
-    docPath: "docs/jssdk/shared-set-shared-modules.md",
     fixtureIds: ["jssdk.shared.set-shared-modules.fixture"],
     contract: {
       namespace: "shared",
@@ -248,7 +236,6 @@ const curatedOverrides = {
   },
   "jssdk.storage.get-item": {
     status: "verified",
-    docPath: "docs/jssdk/storage-get-item.md",
     fixtureIds: ["jssdk.storage.get-item.fixture"],
     contract: {
       namespace: "storage",
@@ -258,7 +245,6 @@ const curatedOverrides = {
   },
   "jssdk.storage.set-item": {
     status: "verified",
-    docPath: "docs/jssdk/storage-set-item.md",
     fixtureIds: ["jssdk.storage.set-item.fixture"],
     contract: {
       namespace: "storage",
@@ -268,7 +254,6 @@ const curatedOverrides = {
   },
   "jssdk.storage.remove-item": {
     status: "verified",
-    docPath: "docs/jssdk/storage-remove-item.md",
     fixtureIds: ["jssdk.storage.remove-item.fixture"],
     contract: {
       namespace: "storage",
@@ -278,7 +263,6 @@ const curatedOverrides = {
   },
   "jssdk.container-modal.close": {
     status: "verified",
-    docPath: "docs/jssdk/container-modal-close.md",
     fixtureIds: ["jssdk.container-modal.close.fixture"],
     contract: {
       namespace: "containerModal",
@@ -288,7 +272,6 @@ const curatedOverrides = {
   },
   "jssdk.toast.error": {
     status: "verified",
-    docPath: "docs/jssdk/toast-error.md",
     fixtureIds: ["jssdk.toast.error.fixture"],
     contract: {
       namespace: "toast",
@@ -298,7 +281,6 @@ const curatedOverrides = {
   },
   "jssdk.toast.success": {
     status: "verified",
-    docPath: "docs/jssdk/toast-success.md",
     fixtureIds: ["jssdk.toast.success.fixture"],
     contract: {
       namespace: "toast",
@@ -308,7 +290,6 @@ const curatedOverrides = {
   },
   "jssdk.toast.warning": {
     status: "verified",
-    docPath: "docs/jssdk/toast-warning.md",
     fixtureIds: ["jssdk.toast.warning.fixture"],
     contract: {
       namespace: "toast",
@@ -318,7 +299,6 @@ const curatedOverrides = {
   },
   "jssdk.toast.info": {
     status: "verified",
-    docPath: "docs/jssdk/toast-info.md",
     fixtureIds: ["jssdk.toast.info.fixture"],
     contract: {
       namespace: "toast",
@@ -328,7 +308,6 @@ const curatedOverrides = {
   },
   "openapi.post.open-api-authen-plugin-token": {
     status: "verified",
-    docPath: "docs/openapi/plugin-token.md",
     fixtureIds: ["openapi.authen.plugin-token.fixture"],
     contract: {
       operation: {
@@ -347,7 +326,6 @@ const curatedOverrides = {
   },
   "openapi.post.open-api-authen-user-plugin-token": {
     status: "verified",
-    docPath: "docs/openapi/user-plugin-token.md",
     fixtureIds: ["openapi.authen.user-plugin-token.fixture"],
     contract: {
       operation: {
@@ -366,7 +344,6 @@ const curatedOverrides = {
   },
   "openapi.post.open-api-authen-refresh-token": {
     status: "verified",
-    docPath: "docs/openapi/refresh-token.md",
     fixtureIds: ["openapi.authen.refresh-token.fixture"],
     contract: {
       operation: {
@@ -385,7 +362,6 @@ const curatedOverrides = {
   },
   "openapi.post.open-api-project-key-field-all": {
     status: "verified",
-    docPath: "docs/openapi/field-all.md",
     fixtureIds: ["openapi.project-key.field-all.fixture"],
     contract: {
       operation: {
@@ -399,7 +375,6 @@ const curatedOverrides = {
   },
   "openapi.post.open-api-user-query": {
     status: "verified",
-    docPath: "docs/openapi/user-query.md",
     fixtureIds: ["openapi.user.query.fixture"],
     contract: {
       operation: {
@@ -413,7 +388,6 @@ const curatedOverrides = {
   },
   "openapi.get.open-api-project-key-work-item-type-work-item-type-key": {
     status: "verified",
-    docPath: "docs/openapi/work-item-type-config.md",
     fixtureIds: ["openapi.project-key.work-item-type-config.fixture"],
     contract: {
       operation: {
@@ -427,7 +401,6 @@ const curatedOverrides = {
   },
   "openapi.post.open-api-project-key-work-item-work-item-type-key-work-item-id-file-download": {
     status: "verified",
-    docPath: "docs/openapi/work-item-file-download.md",
     fixtureIds: ["openapi.project-key.work-item-file-download.fixture"],
     contract: {
       operation: {
@@ -441,7 +414,6 @@ const curatedOverrides = {
   },
   "event-contract.webhook-signature": {
     status: "needs_runtime_validation",
-    docPath: "docs/events/webhook-signature.md",
     fixtureIds: ["event-contract.webhook-signature.fixture"],
     contract: {
       delivery: {
@@ -461,7 +433,6 @@ const curatedOverrides = {
   },
   "event-contract.listen": {
     status: "needs_runtime_validation",
-    docPath: "docs/events/listener-delivery.md",
     fixtureIds: ["event-contract.listen.fixture"],
     contract: {
       delivery: {
@@ -483,7 +454,6 @@ const curatedOverrides = {
   },
   "event-contract.intercept": {
     status: "needs_runtime_validation",
-    docPath: "docs/events/intercept-response.md",
     fixtureIds: ["event-contract.intercept.fixture"],
     contract: {
       delivery: {
@@ -504,7 +474,6 @@ const curatedOverrides = {
   },
   "event-contract.control-create-callback": {
     status: "needs_runtime_validation",
-    docPath: "docs/events/control-create-callback.md",
     fixtureIds: ["event-contract.control-create-callback.fixture"],
     contract: {
       delivery: {
@@ -624,28 +593,28 @@ function ensure(condition, message) {
   }
 }
 
-function referenceSourcesByOfficialUrl(manifest) {
-  ensure(manifest?.schemaVersion === 1, "catalog/reference-sources.json: schemaVersion must be 1.");
-  ensure(Array.isArray(manifest.sources), "catalog/reference-sources.json must contain sources.");
+function documentSourcesByOfficialUrl(manifest) {
+  ensure(manifest?.schemaVersion === 1, "catalog/document-sources.json: schemaVersion must be 1.");
+  ensure(Array.isArray(manifest.sources), "catalog/document-sources.json must contain sources.");
 
   const sourcesByOfficialUrl = new Map();
   for (const source of manifest.sources) {
-    ensure(source && typeof source === "object", "Reference source must be an object.");
+    ensure(source && typeof source === "object", "Document source must be an object.");
     ensure(
       source.platform === "openapi" || source.platform === "plugin",
-      `Invalid reference platform for ${source.sourcePath ?? "unknown"}.`,
+      `Invalid document platform for ${source.sourcePath ?? "unknown"}.`,
     );
     ensure(
       typeof source.sourcePath === "string" && source.sourcePath.endsWith(".md"),
-      "Reference source must have a Markdown source path.",
+      "Document source must have a Markdown source path.",
     );
     ensure(
       typeof source.targetPath === "string" && documentPathPattern.test(source.targetPath),
-      `Invalid reference target path for ${source.sourcePath}.`,
+      `Invalid document target path for ${source.sourcePath}.`,
     );
     ensure(
       typeof source.officialUrl === "string" || source.officialUrl === null,
-      `Invalid official URL for reference source ${source.sourcePath}.`,
+      `Invalid official URL for document source ${source.sourcePath}.`,
     );
     if (source.officialUrl === null) {
       continue;
@@ -654,11 +623,11 @@ function referenceSourcesByOfficialUrl(manifest) {
     const url = new URL(source.officialUrl);
     ensure(
       url.protocol === "https:" && url.hostname === officialHost,
-      `Invalid official URL for reference source ${source.sourcePath}.`,
+      `Invalid official URL for document source ${source.sourcePath}.`,
     );
     ensure(
       !sourcesByOfficialUrl.has(source.officialUrl),
-      `Duplicate reference official URL: ${source.officialUrl}.`,
+      `Duplicate document official URL: ${source.officialUrl}.`,
     );
     sourcesByOfficialUrl.set(source.officialUrl, source);
   }
@@ -672,7 +641,6 @@ function validateSourceCapability(capability) {
     "kind",
     "title",
     "officialUrl",
-    "docPath",
     "status",
     "usageFrequency",
     "frequencyBasis",
@@ -689,7 +657,6 @@ function validateSourceCapability(capability) {
   ensure(validKinds.has(capability.kind), `Invalid kind for ${capability.id}.`);
   ensure(typeof capability.title === "string" && capability.title.length > 0, `Missing title for ${capability.id}.`);
   ensure(typeof capability.officialUrl === "string", `Missing official URL for ${capability.id}.`);
-  ensure(typeof capability.docPath === "string", `Missing document path for ${capability.id}.`);
   ensure(validStatuses.has(capability.status), `Invalid status for ${capability.id}.`);
   ensure(validUsageFrequencies.has(capability.usageFrequency), `Invalid usage frequency for ${capability.id}.`);
   ensure(
@@ -726,6 +693,7 @@ function validateGeneratedCapability(capability, knownIds) {
     "title",
     "officialUrl",
     "docPath",
+    "docAnchor",
     "status",
     "usageFrequency",
     "frequencyBasis",
@@ -741,6 +709,7 @@ function validateGeneratedCapability(capability, knownIds) {
     `Generated capability ${capability.id} contains an unsupported field.`,
   );
   ensure(documentPathPattern.test(capability.docPath), `Invalid document path for ${capability.id}.`);
+  ensure(documentAnchorPattern.test(capability.docAnchor), `Invalid document anchor for ${capability.id}.`);
   const hasFixture = "fixtureIds" in capability;
   const hasContract = "contract" in capability;
   const hasCuratedMaterial = hasFixture || hasContract;
@@ -806,7 +775,7 @@ export function buildRegistry(sourceIndex) {
   ensure(Array.isArray(sourceIndex.capabilities), "catalog/source-index.json must contain capabilities.");
 
   const sourceIds = new Set();
-  const sourcesByOfficialUrl = referenceSourcesByOfficialUrl(referenceSourceManifest);
+  const sourcesByOfficialUrl = documentSourcesByOfficialUrl(documentSourceManifest);
   for (const capability of sourceIndex.capabilities) {
     validateSourceCapability(capability);
     ensure(!sourceIds.has(capability.id), `Duplicate source capability ID: ${capability.id}.`);
@@ -819,17 +788,18 @@ export function buildRegistry(sourceIndex) {
 
   const capabilities = sourceIndex.capabilities.map((sourceCapability) => {
     const override = curatedOverrides[sourceCapability.id];
-    const referenceSource = sourcesByOfficialUrl.get(sourceCapability.officialUrl);
+    const documentSource = sourcesByOfficialUrl.get(sourceCapability.officialUrl);
     ensure(
-      referenceSource,
-      `${sourceCapability.id} has no matching source page in catalog/reference-sources.json.`,
+      documentSource,
+      `${sourceCapability.id} has no matching source page in catalog/document-sources.json.`,
     );
     const record = {
       id: sourceCapability.id,
       kind: sourceCapability.kind,
       title: sourceCapability.title,
       officialUrl: sourceCapability.officialUrl,
-      docPath: override?.docPath ?? referenceSource.targetPath,
+      docPath: documentSource.targetPath,
+      docAnchor: `capability-${sourceCapability.id}`,
       status: override?.status ?? sourceCapability.status,
       usageFrequency: sourceCapability.usageFrequency,
       frequencyBasis: sourceCapability.frequencyBasis,

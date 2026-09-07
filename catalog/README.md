@@ -1,20 +1,21 @@
 # 能力目录
 
-`source-index.json` 仅保存可再生成的能力元数据：稳定 ID、类型、标题、官方 URL、状态、启发式频次和标签。其 `generatedAt` 是明确维护的资料版本日期，保证重复生成不会因执行日期产生差异。它不保存来源正文、快照或媒体资源。
+`source-index.json` 保存可再生成的能力事实：稳定 ID、类型、标题、官方 URL、状态、频次和标签。它不保存正文路径，避免与规范文档树形成第二套导航。
 
-`reference-sources.json` 记录完整参考层的逐页映射。它包含来源相对路径、目标文档、官方 URL 和源内容哈希；七个没有独立官方页面的本地导航页使用 `source_silent`。
+`document-sources.json` 记录完整文档树的逐页来源映射：来源相对路径、唯一目标文档、官方 URL 与内容哈希。七个没有独立官方页面的导航或覆盖页使用 `source_silent`。
 
-`build-registry.mjs` 只读取该仓库内的清洁索引和参考页映射，为已精修的能力页和 fixture 补充类型化契约，并生成 `registry.json`。
+`build-registry.mjs` 将能力事实映射到唯一的 `docPath` 和 `docAnchor`，并为已核对的高频能力补充 fixture 与类型化契约。`sync-document-metadata.mjs` 将同一数据渲染到每个规范页面顶部，校验器会拒绝过期标记。
 
 ```sh
 npm run catalog:build
+npm run docs:sync
 ```
 
 状态含义如下：
 
-- `verified`：有经过来源核对的本地能力页、结构化契约和 fixture。
-- `needs_runtime_validation`：上游已给出静态调用、配置或事件约定，仍需要真实运行环境验证。
-- `source_silent`：上游资料明确没有给出可移植的运行时契约或失败形状。不能因为尚未形成精修能力页而使用该状态；`source-index.json` 中还必须附带 `sourceSilenceEvidence`。
+- `verified`：有来源核对、结构化契约和 fixture。
+- `needs_runtime_validation`：上游资料给出静态调用、配置或事件约定，仍需要真实运行环境验证。
+- `source_silent`：上游资料没有给出可移植的运行时契约或失败形状，且条目会保存具体证据。
 - `deprecated`：资料明确说明能力已经退役。
 
-`usageFrequency` 的 `local-static-heuristic` 只用于阅读优先级，不代表真实调用遥测。它以本地插件源码中可达的调用点为依据：没有证据的能力默认低频，当前高频能力必须同时是 `verified`，并具有独立能力页、契约和 fixture。尚未形成精修能力页的条目导航到对应的[完整参考页](../docs/reference/openapi/README.md)，不能因此被视为已完成运行时验证。
+`usageFrequency` 的 `local-static-heuristic` 只用于阅读优先级，不代表真实调用遥测。每个可调用能力都会标为高、中或低；没有直接调用动作的页面不设置低频，而是显示“无直接调用频次”。
