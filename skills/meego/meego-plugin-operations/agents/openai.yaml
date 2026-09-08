@@ -1,3 +1,0 @@
-interface:
-  display_name: "Meego Plugin Operations"
-  short_description: "Operate Feishu Project plugins through lpm"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meego Plugin"
+  short_description: "Develop Feishu Project plugins with local platform guidance"
+  default_prompt: "Use $meego-plugin to develop or extend a Feishu Project plugin."

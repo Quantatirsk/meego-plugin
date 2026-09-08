@@ -4,8 +4,8 @@ import assert from "node:assert/strict";
 import {
   findCapabilities,
   summarizeCapabilities,
-} from "../skills/meego/meego-platform-facts/resources/cli/lib/catalog.mjs";
-import { findGuides } from "../skills/meego/meego-platform-facts/resources/cli/lib/guides.mjs";
+} from "../skills/meego-plugin/cli/lib/catalog.mjs";
+import { findGuides } from "../skills/meego-plugin/cli/lib/guides.mjs";
 import {
   documentMetadataIsCurrent,
   renderDocumentMetadata,

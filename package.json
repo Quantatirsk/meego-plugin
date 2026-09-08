@@ -9,7 +9,7 @@
   },
   "scripts": {
     "docs:sync": "node maintainer/sync-document-metadata.mjs",
-    "meego": "node skills/meego/meego-platform-facts/resources/cli/meego.mjs",
+    "meego": "node skills/meego-plugin/cli/meego.mjs",
     "test": "node --test test/**/*.test.mjs",
     "verify": "node maintainer/verify-corpus.mjs"
   },

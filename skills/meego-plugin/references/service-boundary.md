@@ -1,6 +1,6 @@
 # 服务端与 OpenAPI 代理
 
-在自建服务端、平台凭证、OpenAPI 调用、事件回调或长任务发生改动时读取。本页给出通用边界；精确 URL、参数、Header、请求与响应必须从 `meego-platform-facts` 选择对应 OpenAPI 页面。
+在自建服务端、平台凭证、OpenAPI 调用、事件回调或长任务发生改动时读取。本页给出通用边界；精确 URL、参数、Header、请求与响应必须先通过 `meego resolve` 选择对应 OpenAPI 页面。
 
 ## 调用链
 
@@ -62,7 +62,7 @@ def configure_cors(app: FastAPI, environment: str, allowed_origins: list[str]) -
 
 ## FastAPI 代理形状
 
-以下示例固定代理“读取工作项详情”这一项平台能力。它展示路由边界、身份传递、超时与错误映射；请求体和返回字段以[获取工作项详情](../../meego-platform-facts/resources/docs/openapi/api/获取工作项详情.md)为准。
+以下示例固定代理“读取工作项详情”这一项平台能力。它展示路由边界、身份传递、超时与错误映射；请求体和返回字段以[获取工作项详情](../docs/openapi/api/获取工作项详情.md)为准。
 
 ```python
 from collections.abc import Awaitable, Callable

@@ -10,19 +10,10 @@
 npx skills@latest add Quantatirsk/meego-plugin
 ```
 
-安装时选择全部四个 skill。`meego-plugin` 是开发入口，`meego-platform-facts` 提供本地 OpenAPI、JSSDK 和点位资料。
+安装时选择 `meego-plugin`。它是唯一的可安装 skill，随附本地 OpenAPI、JSSDK、点位、事件、示例与检索 CLI。
 
-## Skills
+## 使用方式
 
-| Skill | 调用方式 | 责任 |
-| --- | --- | --- |
-| `meego-plugin` | 新建或继续开发插件 | 从控制台配置到本地调试的主路径。 |
-| `meego-platform-facts` | 查点位、JSSDK、OpenAPI、事件或权限 | 从本地细粒度文档定位准确契约。 |
-| `meego-plugin-development` | 实现、修改、测试或排查代码 | 沉淀通用的客户端、服务端和验证实践。 |
-| `meego-plugin-operations` | 托管配置、scope、构建、预览或发布 | 通过 `lpm` 操作平台生命周期。 |
-
-## 开发起点
-
-安装后直接让 Agent 使用 `meego-plugin`。它会先区分新建工程、已有工程、接口查阅和远端发布四种情况；新建插件时会引导到插件凭证、插件构成、`lpm init` 和相应的点位资料。
+安装后直接让 Agent 使用 `meego-plugin`。入口按需读取初始化、客户端、服务端、验证或 `lpm` 生命周期资料；精确查找点位、JSSDK、OpenAPI、事件、权限、请求或响应时，使用随附的 `meego guide`、`meego resolve` 和 `meego show` 命令定位单页资料与示例。
 
 本包只沉淀飞书项目平台能力与通用工程实践。业务系统、组织流程、私有基础设施和具体产品字段不属于默认实现。

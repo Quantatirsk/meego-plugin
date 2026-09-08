@@ -6,7 +6,7 @@ import {
   capabilitiesPath,
   fixtureDirectory,
   provenancePath,
-  resourceRoot,
+  skillRoot,
 } from "./paths.mjs";
 
 export const metadataStartMarker = "<!-- capability-metadata:start -->";
@@ -35,9 +35,9 @@ function isPathInsideDirectory(filePath, directory) {
 }
 
 function documentPathFor(targetPath) {
-  const documentPath = path.resolve(resourceRoot, targetPath);
-  if (!isPathInsideDirectory(documentPath, resourceRoot)) {
-    throw new Error(`Document path escapes the resource root: ${targetPath}`);
+  const documentPath = path.resolve(skillRoot, targetPath);
+  if (!isPathInsideDirectory(documentPath, skillRoot)) {
+    throw new Error(`Document path escapes the skill root: ${targetPath}`);
   }
   return documentPath;
 }

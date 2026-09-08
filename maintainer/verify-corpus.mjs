@@ -14,12 +14,14 @@ import {
   fixtureDirectory,
   fixtureSchemaPath,
   provenancePath,
-  resourceRoot,
+  referencesDirectory,
+  skillEntrypointPath,
+  skillRoot,
 } from "./paths.mjs";
 
 const ignoredDirectories = new Set([".git", "node_modules", ".cache", ".meego-cache"]);
 const provenanceLabel = "maintainer/provenance/document-sources.json";
-const catalogLabel = "resources/catalog/capabilities.json";
+const catalogLabel = "catalog/capabilities.json";
 const textFenceLanguages = new Set(["", "text", "plaintext"]);
 const typescriptFenceLanguages = new Set(["ts", "tsx", "typescript", "js", "jsx", "javascript"]);
 const pythonFenceLanguages = new Set(["py", "python"]);
@@ -102,12 +104,12 @@ function isSafeRelativePath(value) {
   );
 }
 
-function resourcePath(targetPath) {
-  return path.resolve(resourceRoot, targetPath);
+function skillPath(targetPath) {
+  return path.resolve(skillRoot, targetPath);
 }
 
-function resourceRelativePath(filePath) {
-  return path.relative(resourceRoot, filePath).split(path.sep).join("/");
+function skillRelativePath(filePath) {
+  return path.relative(skillRoot, filePath).split(path.sep).join("/");
 }
 
 export function extractMarkdownLinks(content) {
@@ -214,7 +216,7 @@ function markdownAnchors(content) {
   return anchors;
 }
 
-export async function checkMarkdownLinks(content, markdownPath, errors, rootDirectory = resourceRoot) {
+export async function checkMarkdownLinks(content, markdownPath, errors, rootDirectory = skillRoot) {
   const relativePath = path.relative(rootDirectory, markdownPath);
 
   for (const link of extractMarkdownLinks(content)) {
@@ -469,7 +471,7 @@ async function verifyDocumentProvenance(provenance, errors) {
     if (!isSafeRelativePath(source?.targetPath)) {
       continue;
     }
-    const documentPath = resourcePath(source.targetPath);
+    const documentPath = skillPath(source.targetPath);
     if (!isPathInsideDirectory(documentPath, documentationDirectory) || !(await exists(documentPath))) {
       errors.push(
         source.targetPath +
@@ -502,7 +504,7 @@ async function verifyCanonicalDocumentSet(provenance, errors) {
   }
 
   for (const filePath of await listFiles(documentationDirectory, (item) => item.endsWith(".md"))) {
-    const relativePath = resourceRelativePath(filePath);
+    const relativePath = skillRelativePath(filePath);
     if (!expectedPaths.has(relativePath)) {
       errors.push(relativePath + ": documentation page is not recorded in provenance.");
     }
@@ -562,10 +564,27 @@ export function validateFixtureSemantics(fixture, capability) {
 
 async function collectMarkdownFiles(errors) {
   if (!(await pathIsDirectory(documentationDirectory))) {
-    errors.push("resources/docs: required Markdown directory is missing.");
+    errors.push("docs: required Markdown directory is missing.");
     return [];
   }
   return listFiles(documentationDirectory, (filePath) => filePath.endsWith(".md"));
+}
+
+async function collectRuntimeMarkdownFiles(errors) {
+  const files = [];
+  if (await exists(skillEntrypointPath)) {
+    files.push(skillEntrypointPath);
+  } else {
+    errors.push("SKILL.md: required skill entry point is missing.");
+  }
+
+  if (!(await pathIsDirectory(referencesDirectory))) {
+    errors.push("references: required runtime Markdown directory is missing.");
+    return files;
+  }
+
+  files.push(...(await listFiles(referencesDirectory, (filePath) => filePath.endsWith(".md"))));
+  return files;
 }
 
 async function loadOptionalJson(filePath, label, errors) {
@@ -634,9 +653,9 @@ async function validateCapabilities(catalog, errors) {
       fixtureReferences.set(fixtureId, owners);
     }
 
-    const documentPath = resourcePath(capability.docPath);
+    const documentPath = skillPath(capability.docPath);
     if (!isPathInsideDirectory(documentPath, documentationDirectory)) {
-      errors.push(capability.id + ": documentation path escapes resources/docs.");
+      errors.push(capability.id + ": documentation path escapes docs.");
       continue;
     }
     if (!(await exists(documentPath))) {
@@ -669,7 +688,7 @@ async function validateCapabilities(catalog, errors) {
 
 async function validateFixtures(capabilitiesById, fixtureReferences, errors) {
   if (!(await pathIsDirectory(fixtureDirectory))) {
-    errors.push("resources/fixtures: required fixture directory is missing.");
+    errors.push("fixtures: required fixture directory is missing.");
     return 0;
   }
   const fixtureSchema = await loadOptionalJson(
@@ -688,7 +707,7 @@ async function validateFixtures(capabilitiesById, fixtureReferences, errors) {
   const fixturesById = new Map();
 
   for (const fixturePath of fixtureFiles) {
-    const relativePath = resourceRelativePath(fixturePath);
+    const relativePath = skillRelativePath(fixturePath);
     let fixture;
     try {
       fixture = await readJson(fixturePath);
@@ -760,10 +779,18 @@ export async function verifyRepository() {
   const markdownFiles = await collectMarkdownFiles(errors);
   for (const markdownPath of markdownFiles) {
     const content = await readFile(markdownPath, "utf8");
-    const relativePath = resourceRelativePath(markdownPath);
+    const relativePath = skillRelativePath(markdownPath);
     if (!hasMinimalDocumentFooter(content)) {
       errors.push(relativePath + ": expected the minimal two-line source footer.");
     }
+    checkCodeFences(content, relativePath, errors);
+    await checkMarkdownLinks(content, markdownPath, errors);
+  }
+
+  const runtimeMarkdownFiles = await collectRuntimeMarkdownFiles(errors);
+  for (const markdownPath of runtimeMarkdownFiles) {
+    const content = await readFile(markdownPath, "utf8");
+    const relativePath = skillRelativePath(markdownPath);
     checkCodeFences(content, relativePath, errors);
     await checkMarkdownLinks(content, markdownPath, errors);
   }

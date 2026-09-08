@@ -11,6 +11,7 @@ import {
   documentationDirectory,
   fixtureDirectory,
   fixtureSchemaPath,
+  skillRoot,
 } from "../maintainer/paths.mjs";
 import {
   checkMarkdownLinks,
@@ -28,6 +29,17 @@ test("listFiles returns only matching documents", async () => {
   const files = await listFiles(documentationDirectory, (filePath) => filePath.endsWith(".md"));
 
   assert.ok(files.every((filePath) => filePath.endsWith(".md")));
+});
+
+test("installed skill topology has one entry point and an agent manifest", async () => {
+  const skillsDirectory = path.dirname(skillRoot);
+  const skillEntrypoints = await listFiles(skillsDirectory, (filePath) => path.basename(filePath) === "SKILL.md");
+  const relativeEntrypoints = skillEntrypoints
+    .map((filePath) => path.relative(skillsDirectory, filePath).split(path.sep).join("/"))
+    .sort();
+
+  assert.deepEqual(relativeEntrypoints, ["meego-plugin/SKILL.md"]);
+  await readFile(path.join(skillRoot, "agents", "openai.yaml"), "utf8");
 });
 
 test("fixture semantics reject a mismatched kind and incomplete HTTP exchange", () => {
