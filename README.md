@@ -4,13 +4,13 @@
 
 ## 安装
 
-本仓库直接由 `skills` CLI 从 GitHub 安装，不发布 npm 包。完整安装使用：
+本仓库直接由 `skills` CLI 从 GitHub 安装，不发布 npm 包。推荐使用：
 
 ```sh
-npx skills@latest add Quantatirsk/meego-plugin --skill '*' -g -a codex --copy -y
+npx skills@latest add Quantatirsk/meego-plugin
 ```
 
-也可以省略 `--skill '*'`，在交互式列表中选择需要的 skill。`meego-platform-facts` 是本地规范资料的依赖；开发或远端操作 skill 应与它一起安装。
+CLI 会引导选择安装位置和 skill。`meego-platform-facts` 是本地规范资料的依赖；开发或远端操作 skill 应与它一起安装。
 
 ## Skills
 
