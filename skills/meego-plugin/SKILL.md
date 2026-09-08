@@ -35,7 +35,8 @@ node "$SKILL_DIR/cli/meego.mjs" show "<capability-id>"
 
 ## 实现边界
 
-- `pluginSecret` 只能保存在受控的本机配置或服务端密钥配置中；不得进入浏览器运行时、前端产物、日志、fixture、Git 或 CI 输出。平台访问凭证和刷新凭证始终只留在服务端。
+- `pluginSecret` 只能保存在受控的本机 LPM 配置或服务端密钥配置中；不得进入浏览器运行时、前端产物、日志、fixture、Git 或 CI 输出。`plugin.config.json` 出现 `pluginSecret` 字段或长字符串不等于已发现明文泄漏：先确认它是否由 `lpm config set` 管理，再检查客户端源码和产物是否读取或包含实际密钥。平台访问凭证和刷新凭证始终只留在服务端。
+- 只使用 JSSDK、宿主上下文和客户端交互的纯前端插件不需要运行时 Secret。只要需要用 Secret 换取凭证或调用 OpenAPI，就应增加服务端边界；构建时环境变量不能把 Secret 安全地注入浏览器。
 - 写入工作项或字段前，先查询目标空间和工作项类型的元数据。显示名称、字段 key 与选项 value 不能互换。
 - 长任务、轮询、流式连接和可取消请求需要终止条件、卸载清理与可见失败状态。
 - 本地构建、上传、预览、发布和安装验证是不同状态。涉及远端配置、scope 或发布时遵守 [`lpm` 生命周期](references/lpm-lifecycle.md) 的确认规则。
