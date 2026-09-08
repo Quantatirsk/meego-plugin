@@ -4,14 +4,13 @@ import assert from "node:assert/strict";
 import {
   findCapabilities,
   summarizeCapabilities,
-  summarizeDocumentSources,
-} from "../cli/lib/catalog.mjs";
+} from "../skills/meego/meego-platform-facts/resources/cli/lib/catalog.mjs";
 import {
   documentMetadataIsCurrent,
   renderDocumentMetadata,
   replaceDocumentMetadata,
   validateDocumentMetadata,
-} from "../catalog/sync-document-metadata.mjs";
+} from "../maintainer/sync-document-metadata.mjs";
 
 const capabilities = [
   {
@@ -62,33 +61,6 @@ test("summarizeCapabilities groups stable dimensions", () => {
       medium: 1,
     },
   });
-});
-
-test("summarizeDocumentSources distinguishes official pages from navigation pages", () => {
-  assert.deepEqual(
-    summarizeDocumentSources([
-      { platform: "openapi", officialUrl: "https://project.feishu.cn/b/helpcenter/example" },
-      { platform: "plugin", officialUrl: null },
-      { platform: "openapi", officialUrl: "https://project.feishu.cn/b/helpcenter/another" },
-    ]),
-    {
-      total: 3,
-      withOfficialUrl: 2,
-      sourceSilent: 1,
-      byPlatform: {
-        openapi: {
-          total: 2,
-          withOfficialUrl: 2,
-          sourceSilent: 0,
-        },
-        plugin: {
-          total: 1,
-          withOfficialUrl: 0,
-          sourceSilent: 1,
-        },
-      },
-    },
-  );
 });
 
 test("document metadata exposes frequency for callables and omits it for guides", () => {

@@ -3,7 +3,6 @@ node_modules/
 .cache/
 .meego-cache/
 coverage/
-reports/*.local.*
 .env
 .env.*
 !/.env.example

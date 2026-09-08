@@ -1,3 +1,0 @@
-interface:
-  display_name: "Meego Plugin"
-  short_description: "Resolve platform facts and operate plugins safely"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Meego Platform Facts"
+  short_description: "Resolve Feishu Project platform contracts"

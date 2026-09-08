@@ -4,7 +4,7 @@
 
 ## 使用方式
 
-1. 先运行 `meego resolve <query>`，获取能力、唯一文档页、稳定锚点、状态和 fixture。
+1. 由 `meego-platform-facts` 运行随附解析器，先以 `resolve <query>` 获取候选能力；选定 ID 后以 `show <capability-id>` 打开其稳定文档锚点与 fixture。
 2. 阅读该页顶部的“平台能力标记”：`高`、`中`、`低`是本地插件调用痕迹推断的阅读优先级，不是官方承诺或遥测数据。
 3. 对 `verified` 能力，同时阅读 fixture 与结构化契约；对 `needs_runtime_validation` 和 `source_silent`，只使用正文已证实的事实。
 
@@ -14,8 +14,6 @@
 | --- | --- |
 | [OpenAPI](openapi/README.md) | 163 篇服务端接口、事件、凭证、权限、格式与 AI 能力资料。 |
 | [插件与客户端](plugin/README.md) | 75 篇插件点位、JSSDK、组件、CLI、调试与发布资料。 |
-| [来源清单](../catalog/document-sources.json) | 每篇规范文档的来源路径、官方 URL 与内容哈希。 |
-| [能力覆盖](../reports/coverage.md) | 237 条可调用能力的机器可读目录与频次统计。 |
 
 ## 频次与边界
 
@@ -23,5 +21,5 @@
 
 fixture 只提供脱敏的请求、响应或运行时样例。它们不携带凭证，也不授权任何远端操作。插件创建、配置、权限、构建、调试和发布使用 `lpm`；本地文档和 CLI 不会执行真实 OpenAPI 请求。
 
-更新时间：2026-09-07
+更新时间：2026-09-08
 官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn

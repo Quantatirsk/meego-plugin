@@ -2,11 +2,12 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const catalogDirectory = path.dirname(fileURLToPath(import.meta.url));
-const repositoryRoot = path.resolve(catalogDirectory, "..");
-const registryPath = path.join(catalogDirectory, "registry.json");
-const documentSourceManifestPath = path.join(catalogDirectory, "document-sources.json");
-const fixtureDirectory = path.join(repositoryRoot, "fixtures");
+import {
+  capabilitiesPath,
+  fixtureDirectory,
+  provenancePath,
+  resourceRoot,
+} from "./paths.mjs";
 
 export const metadataStartMarker = "<!-- capability-metadata:start -->";
 export const metadataEndMarker = "<!-- capability-metadata:end -->";
@@ -25,10 +26,20 @@ const statusLabels = {
 };
 
 function metadataBlockPattern() {
-  return new RegExp(
-    `${metadataStartMarker}[\\s\\S]*?${metadataEndMarker}(?:\\r?\\n)*`,
-    "gu",
-  );
+  return new RegExp(`${metadataStartMarker}[\\s\\S]*?${metadataEndMarker}(?:\\r?\\n)*`, "gu");
+}
+
+function isPathInsideDirectory(filePath, directory) {
+  const relative = path.relative(directory, filePath);
+  return relative === "" || (!relative.startsWith(`..${path.sep}`) && relative !== ".." && !path.isAbsolute(relative));
+}
+
+function documentPathFor(targetPath) {
+  const documentPath = path.resolve(resourceRoot, targetPath);
+  if (!isPathInsideDirectory(documentPath, resourceRoot)) {
+    throw new Error(`Document path escapes the resource root: ${targetPath}`);
+  }
+  return documentPath;
 }
 
 async function listJsonFiles(directory) {
@@ -51,9 +62,13 @@ export async function loadFixturePathsById() {
   const fixtures = new Map();
   for (const fixturePath of await listJsonFiles(fixtureDirectory)) {
     const fixture = JSON.parse(await readFile(fixturePath, "utf8"));
-    if (typeof fixture.id === "string") {
-      fixtures.set(fixture.id, fixturePath);
+    if (typeof fixture.id !== "string") {
+      continue;
     }
+    if (fixtures.has(fixture.id)) {
+      throw new Error(`Duplicate fixture ID: ${fixture.id}`);
+    }
+    fixtures.set(fixture.id, fixturePath);
   }
   return fixtures;
 }
@@ -61,7 +76,11 @@ export async function loadFixturePathsById() {
 function fixtureLink(documentPath, fixturePath, fixtureId) {
   const relativePath = path.relative(path.dirname(documentPath), fixturePath).split(path.sep).join("/");
   const target = relativePath.startsWith(".") ? relativePath : `./${relativePath}`;
-  return `[\`${fixtureId}\`](<${target}>)`;
+  return "[" + inlineCode(fixtureId) + "](<" + target + ">)";
+}
+
+function inlineCode(value) {
+  return "`" + value + "`";
 }
 
 export function groupCapabilitiesByDocument(capabilities) {
@@ -83,13 +102,13 @@ export function renderDocumentMetadata(documentPath, capabilities, fixturePathsB
     for (const capability of capabilities.slice().sort((left, right) => left.id.localeCompare(right.id))) {
       const attributes = [
         `**${capability.title}**`,
-        `\`${capability.id}\``,
+        inlineCode(capability.id),
         `频次：${frequencyLabels[capability.usageFrequency]}`,
         `状态：${statusLabels[capability.status]}`,
       ];
       const fixtureLinks = (capability.fixtureIds ?? []).map((fixtureId) => {
         const fixturePath = fixturePathsById.get(fixtureId);
-        return fixturePath ? fixtureLink(documentPath, fixturePath, fixtureId) : `\`${fixtureId}\``;
+        return fixturePath ? fixtureLink(documentPath, fixturePath, fixtureId) : inlineCode(fixtureId);
       });
       if (fixtureLinks.length > 0) {
         attributes.push(`示例：${fixtureLinks.join("、")}`);
@@ -128,27 +147,27 @@ export function documentMetadataIsCurrent(content, metadata) {
   return metadataBlocks.length === 1 && metadataBlocks[0].trimEnd() === metadata;
 }
 
-async function loadCatalogArtifacts() {
-  const [registryContent, manifestContent, fixturePathsById] = await Promise.all([
-    readFile(registryPath, "utf8"),
-    readFile(documentSourceManifestPath, "utf8"),
+async function loadCorpusArtifacts() {
+  const [catalogContent, provenanceContent, fixturePathsById] = await Promise.all([
+    readFile(capabilitiesPath, "utf8"),
+    readFile(provenancePath, "utf8"),
     loadFixturePathsById(),
   ]);
-  const registry = JSON.parse(registryContent);
-  const manifest = JSON.parse(manifestContent);
-  if (!Array.isArray(registry.capabilities) || !Array.isArray(manifest.sources)) {
-    throw new Error("Registry and document-source manifest must contain arrays.");
+  const catalog = JSON.parse(catalogContent);
+  const provenance = JSON.parse(provenanceContent);
+  if (!Array.isArray(catalog.capabilities) || !Array.isArray(provenance.sources)) {
+    throw new Error("Capability catalog and document provenance must contain arrays.");
   }
-  return { registry, manifest, fixturePathsById };
+  return { catalog, provenance, fixturePathsById };
 }
 
 export async function synchronizeDocumentMetadata() {
-  const { registry, manifest, fixturePathsById } = await loadCatalogArtifacts();
-  const capabilitiesByDocument = groupCapabilitiesByDocument(registry.capabilities);
+  const { catalog, provenance, fixturePathsById } = await loadCorpusArtifacts();
+  const capabilitiesByDocument = groupCapabilitiesByDocument(catalog.capabilities);
   let updated = 0;
 
-  for (const source of manifest.sources) {
-    const documentPath = path.join(repositoryRoot, source.targetPath);
+  for (const source of provenance.sources) {
+    const documentPath = documentPathFor(source.targetPath);
     const content = await readFile(documentPath, "utf8");
     const metadata = renderDocumentMetadata(
       documentPath,
@@ -162,16 +181,23 @@ export async function synchronizeDocumentMetadata() {
     }
   }
 
-  return { documentCount: manifest.sources.length, updated };
+  return { documentCount: provenance.sources.length, updated };
 }
 
-export async function validateDocumentMetadata(manifest, registry) {
+export async function validateDocumentMetadata(provenance, catalog) {
   const errors = [];
   const fixturePathsById = await loadFixturePathsById();
-  const capabilitiesByDocument = groupCapabilitiesByDocument(registry.capabilities);
+  const capabilitiesByDocument = groupCapabilitiesByDocument(catalog.capabilities);
 
-  for (const source of manifest.sources) {
-    const documentPath = path.join(repositoryRoot, source.targetPath);
+  for (const source of provenance.sources) {
+    let documentPath;
+    try {
+      documentPath = documentPathFor(source.targetPath);
+    } catch (error) {
+      errors.push(`${source.targetPath}: ${error.message}`);
+      continue;
+    }
+
     let content;
     try {
       content = await readFile(documentPath, "utf8");

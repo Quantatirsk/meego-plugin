@@ -7,22 +7,18 @@ import test from "node:test";
 import Ajv from "ajv";
 
 import {
-  coverageReportPath,
   capabilitySchemaPath,
   documentationDirectory,
   fixtureDirectory,
   fixtureSchemaPath,
-  registryPath,
-  sourceIndexPath,
-} from "../cli/lib/paths.mjs";
+} from "../maintainer/paths.mjs";
 import {
   checkMarkdownLinks,
   listFiles,
   pathIsDirectory,
   validateFixtureSemantics,
-  verifyGeneratedArtifacts,
   verifyRepository,
-} from "../cli/lib/verify.mjs";
+} from "../maintainer/verify-corpus.mjs";
 
 test("documentation directory is discoverable", async () => {
   assert.equal(await pathIsDirectory(documentationDirectory), true);
@@ -32,34 +28,6 @@ test("listFiles returns only matching documents", async () => {
   const files = await listFiles(documentationDirectory, (filePath) => filePath.endsWith(".md"));
 
   assert.ok(files.every((filePath) => filePath.endsWith(".md")));
-});
-
-test("generated artifacts match the source index", async () => {
-  const [sourceIndexContent, registryContent, coverageContent] = await Promise.all([
-    readFile(sourceIndexPath, "utf8"),
-    readFile(registryPath, "utf8"),
-    readFile(coverageReportPath, "utf8"),
-  ]);
-  const sourceIndex = JSON.parse(sourceIndexContent);
-  const result = verifyGeneratedArtifacts(sourceIndex, registryContent, coverageContent);
-
-  assert.deepEqual(result.errors, []);
-
-  const staleRegistry = JSON.parse(registryContent);
-  staleRegistry.generatedAt = "2000-01-01";
-  const staleRegistryResult = verifyGeneratedArtifacts(
-    sourceIndex,
-    `${JSON.stringify(staleRegistry, null, 2)}\n`,
-    coverageContent,
-  );
-  assert.ok(staleRegistryResult.errors.some((error) => error.includes("registry is stale")));
-
-  const staleCoverageResult = verifyGeneratedArtifacts(
-    sourceIndex,
-    registryContent,
-    `${coverageContent}\nstale`,
-  );
-  assert.ok(staleCoverageResult.errors.some((error) => error.includes("coverage report is stale")));
 });
 
 test("fixture semantics reject a mismatched kind and incomplete HTTP exchange", () => {
@@ -247,7 +215,7 @@ test("Markdown validation rejects escaping paths and missing anchors", async () 
     assert.ok(!errors.some((error) => error.includes("inline example")));
     assert.ok(!errors.some((error) => error.includes("fenced example")));
     assert.ok(errors.some((error) => error.includes("broken local anchor")));
-    assert.ok(errors.some((error) => error.includes("escapes the repository")));
+    assert.ok(errors.some((error) => error.includes("escapes the corpus")));
   } finally {
     await rm(temporaryRoot, { recursive: true, force: true });
   }
@@ -259,5 +227,5 @@ test("the checked-in capability corpus is self-consistent", async () => {
   assert.deepEqual(result.errors, []);
   assert.equal(result.capabilityCount, 237);
   assert.equal(result.fixtureCount, 32);
-  assert.equal(result.documentCount, 245);
+  assert.equal(result.documentCount, 239);
 });

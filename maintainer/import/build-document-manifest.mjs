@@ -3,10 +3,7 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const catalogDirectory = path.dirname(fileURLToPath(import.meta.url));
-const repositoryRoot = path.resolve(catalogDirectory, "..");
-const outputPath = path.join(catalogDirectory, "document-sources.json");
-const generatedAt = "2026-09-07";
+import { provenancePath, repositoryRoot } from "../paths.mjs";
 
 const platforms = [
   {
@@ -68,6 +65,27 @@ function contentHash(content) {
   return createHash("sha256").update(content).digest("hex");
 }
 
+function summarizeSources(sources) {
+  return {
+    sourceDocuments: sources.length,
+    withOfficialUrl: sources.filter((source) => source.officialUrl !== null).length,
+    withoutOfficialUrl: sources.filter((source) => source.officialUrl === null).length,
+    byPlatform: Object.fromEntries(
+      platforms.map((platform) => {
+        const platformSources = sources.filter((source) => source.platform === platform.name);
+        return [
+          platform.name,
+          {
+            sourceDocuments: platformSources.length,
+            withOfficialUrl: platformSources.filter((source) => source.officialUrl !== null).length,
+            withoutOfficialUrl: platformSources.filter((source) => source.officialUrl === null).length,
+          },
+        ];
+      }),
+    ),
+  };
+}
+
 export async function buildDocumentManifest(sourceRoot) {
   const sources = [];
 
@@ -94,42 +112,23 @@ export async function buildDocumentManifest(sourceRoot) {
       left.platform.localeCompare(right.platform) || left.sourcePath.localeCompare(right.sourcePath, "zh-CN"),
   );
 
-  const totals = {
-    sourceDocuments: sources.length,
-    withOfficialUrl: sources.filter((source) => source.officialUrl !== null).length,
-    withoutOfficialUrl: sources.filter((source) => source.officialUrl === null).length,
-    byPlatform: Object.fromEntries(
-      platforms.map((platform) => {
-        const platformSources = sources.filter((source) => source.platform === platform.name);
-        return [
-          platform.name,
-          {
-            sourceDocuments: platformSources.length,
-            withOfficialUrl: platformSources.filter((source) => source.officialUrl !== null).length,
-            withoutOfficialUrl: platformSources.filter((source) => source.officialUrl === null).length,
-          },
-        ];
-      }),
-    ),
-  };
-
   return {
     schemaVersion: 1,
-    generatedAt,
+    generatedAt: new Date().toISOString().slice(0, 10),
     sources,
-    totals,
+    totals: summarizeSources(sources),
   };
 }
 
 async function main() {
   const sourceRoot = process.argv[2];
   if (!sourceRoot) {
-    throw new Error("Usage: node catalog/build-document-manifest.mjs <source-docs-root>");
+    throw new Error("Usage: node maintainer/import/build-document-manifest.mjs <source-docs-root>");
   }
 
   const manifest = await buildDocumentManifest(path.resolve(repositoryRoot, sourceRoot));
-  await writeFile(outputPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
-  process.stdout.write(`Wrote ${manifest.totals.sourceDocuments} document sources to catalog/document-sources.json.\n`);
+  await writeFile(provenancePath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+  process.stdout.write(`Wrote ${manifest.totals.sourceDocuments} document sources to maintainer/provenance/document-sources.json.\n`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
