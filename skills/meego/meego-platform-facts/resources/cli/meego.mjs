@@ -5,11 +5,13 @@ import {
   loadCapabilities,
   summarizeCapabilities,
 } from "./lib/catalog.mjs";
+import { findGuides, loadGuides } from "./lib/guides.mjs";
 
 function printUsage() {
   console.log(`Usage: meego <command> [options]
 
 Commands:
+  guide [query] [--format text|json]
   resolve <query> [--kind <kind>] [--format text|json]
   show <capability-id> [--format text|json]
   status [--format text|json]
@@ -78,6 +80,20 @@ function printMatches(matches) {
   }
 }
 
+function printGuides(guides) {
+  if (guides.length === 0) {
+    console.log("No development guide matched the query.");
+    return;
+  }
+
+  for (const guide of guides) {
+    console.log(guide.id);
+    console.log(`  ${guide.title}`);
+    console.log(`  ${guide.docPath}#${guide.docAnchor}`);
+    console.log(`  ${guide.officialUrl}`);
+  }
+}
+
 async function run() {
   const [command, ...argumentsList] = process.argv.slice(2);
   const format = optionValue(argumentsList, "--format") ?? "text";
@@ -89,6 +105,16 @@ async function run() {
 
   if (!["text", "json"].includes(format)) {
     throw new Error("--format must be text or json.");
+  }
+
+  if (command === "guide") {
+    const guides = findGuides(await loadGuides(), withoutOptions(argumentsList).join(" "));
+    if (format === "json") {
+      printJson(guides);
+    } else {
+      printGuides(guides);
+    }
+    return;
   }
 
   if (command === "resolve") {

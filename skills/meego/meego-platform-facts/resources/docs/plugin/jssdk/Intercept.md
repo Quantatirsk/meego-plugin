@@ -20,7 +20,7 @@
 | --- | --- | --- | --- |
 | `intercept.getContext()` | 支持 | V7.35.0+ | 拦截事件自定义弹窗 |
 
-官方页面将移动端下限标为 V7.35.0+，SDK 2.1.8 的方法注释标为 7.22.0。本文采用页面更保守的 V7.35.0+；现有资料不能确认 7.22.0 至 7.34.x 的完整支持范围。
+移动端接入要求为 V7.35.0+。
 
 <a id="910857e8"></a>
 
@@ -28,7 +28,7 @@
 
 无运行时参数，返回 `Promise<InterceptFeatureContext<T>>`。泛型 `T` 仅描述 `customData`，不会改变 `workItems` 的类型，也不会校验或转换宿主实际返回的数据。
 
-SDK 2.1.8 的 `getContext` 泛型默认值为 `any`。业务未建立并校验透传数据契约时，应显式调用 `getContext<unknown>()`，在读取其属性前完成类型收窄。
+`getContext` 的泛型默认值为 `any`。业务未建立并校验透传数据契约时，应显式调用 `getContext<unknown>()`，在读取其属性前完成类型收窄。
 
 <a id="cff9ed66"></a>
 
@@ -41,13 +41,13 @@ SDK 2.1.8 的 `getContext` 泛型默认值为 `any`。业务未建立并校验�
 | `workItems` | 工作项数组 | 每项包含 `BriefWorkItem` 的关键属性及可选的 `changedValue`，详见下节 |
 | `customData` | `T` | 插件服务端返回并透传给客户端的自定义数据 |
 
-`eventType` 的 SDK 枚举与服务端完整事件列表需分别查阅。SDK 2.1.8 声明的枚举不能用来断言服务端只存在这些事件；事件编码与业务含义见 [服务端事件列表](<../../openapi/events/拦截事件.md#e514bf06>)。
+`eventType` 的客户端枚举与服务端完整事件列表需分别查阅。客户端枚举不能用来断言服务端只存在这些事件；事件编码与业务含义见 [服务端事件列表](<../../openapi/events/拦截事件.md#e514bf06>)。
 
 <a id="table-content-1"></a>
 
 ### workItems：工作项与变更明细
 
-SDK 中每项的类型为 `BriefWorkItem` 与包含可选 `changedValue` 的对象的交叉类型。原稿中缺失的工作项基础类型已按 SDK 2.1.8 补全。
+每项的类型为 `BriefWorkItem` 与包含可选 `changedValue` 的对象的交叉类型。
 
 | 属性 | 类型 | 必有 | 含义 |
 | --- | --- | --- | --- |
@@ -100,7 +100,7 @@ SDK 将后三个成员声明为 `any`，并未提供可直接采用的客户端�
 
 ## 示例：读取提示与字段变更
 
-以下代码在拦截事件自定义弹窗中调用，保留 `customData` 为 `unknown`。原文示例的提示为“无权限操作，请先发起审批”，事件编码为 `1001`；实际内容取决于触发事件和服务端响应，不能将这两个值硬编码为每次调用的预期结果。
+以下代码在拦截事件自定义弹窗中调用，并将 `customData` 保留为 `unknown`。提示内容和事件编码取决于触发事件及服务端响应，不能硬编码为固定预期。
 
 ```typescript
 import type { InterceptFeatureContext } from '@lark-project/js-sdk';
@@ -132,13 +132,11 @@ await readInterceptContext();
 
 官方页面和 SDK 声明没有列出本方法专属的错误码或错误类型。示例捕获读取失败，但不把 Promise 拒绝解释为服务端放行，也不在客户端修改拦截结论。关闭弹窗与重新执行业务操作是不同动作，后续处理见 [拦截点位流程](<../points/拦截事件 Intercept.md#18d969a2>)。
 
-## 相关资料与校订记录
+## 相关文档
 
 - [通用类型定义：InterceptEvent](<通用类型定义.md#8717ee48>)：SDK 声明的事件枚举与类型范围。
 - [Context](<Context.md>)：平台级上下文；其自定义弹窗上下文接口与本页的拦截上下文接口用途不同。
 - [服务端拦截事件](<../../openapi/events/拦截事件.md>)：完整事件、拦截响应与验签要求。
-- 依据 `@lark-project/js-sdk` 2.1.8 的 `InterceptFeatureContext<T>`、`BriefWorkItem` 与 `Intercept.getContext` 声明补全工作项结构，移除原稿损坏的类型片段和不受约束的泛型示例，保留全部原锚点。
-- 移动端以官方页面的 V7.35.0+ 为接入下限；SDK 注释中的较早版本、未细化的变更对象结构及专属错误行为仍需宿主环境验证，本文不补造协议。
 
 更新时间：2026-09-07
 官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/282nm7ww

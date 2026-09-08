@@ -94,29 +94,29 @@ export function groupCapabilitiesByDocument(capabilities) {
 }
 
 export function renderDocumentMetadata(documentPath, capabilities, fixturePathsById) {
+  if (capabilities.length === 0) {
+    return "";
+  }
+
   const lines = [metadataStartMarker, "## 平台能力标记", ""];
 
-  if (capabilities.length === 0) {
-    lines.push("> 调用频次：无直接调用频次。本页用于平台说明、格式、目录或支持信息。");
-  } else {
-    for (const capability of capabilities.slice().sort((left, right) => left.id.localeCompare(right.id))) {
-      const attributes = [
-        `**${capability.title}**`,
-        inlineCode(capability.id),
-        `频次：${frequencyLabels[capability.usageFrequency]}`,
-        `状态：${statusLabels[capability.status]}`,
-      ];
-      const fixtureLinks = (capability.fixtureIds ?? []).map((fixtureId) => {
-        const fixturePath = fixturePathsById.get(fixtureId);
-        return fixturePath ? fixtureLink(documentPath, fixturePath, fixtureId) : inlineCode(fixtureId);
-      });
-      if (fixtureLinks.length > 0) {
-        attributes.push(`示例：${fixtureLinks.join("、")}`);
-      }
-
-      lines.push(`<a id="${capability.docAnchor}"></a>`);
-      lines.push(`- ${attributes.join(" ｜ ")}`);
+  for (const capability of capabilities.slice().sort((left, right) => left.id.localeCompare(right.id))) {
+    const attributes = [
+      `**${capability.title}**`,
+      inlineCode(capability.id),
+      `频次：${frequencyLabels[capability.usageFrequency]}`,
+      `状态：${statusLabels[capability.status]}`,
+    ];
+    const fixtureLinks = (capability.fixtureIds ?? []).map((fixtureId) => {
+      const fixturePath = fixturePathsById.get(fixtureId);
+      return fixturePath ? fixtureLink(documentPath, fixturePath, fixtureId) : inlineCode(fixtureId);
+    });
+    if (fixtureLinks.length > 0) {
+      attributes.push(`示例：${fixtureLinks.join("、")}`);
     }
+
+    lines.push(`<a id="${capability.docAnchor}"></a>`);
+    lines.push(`- ${attributes.join(" ｜ ")}`);
   }
 
   lines.push("", metadataEndMarker);
@@ -124,6 +124,10 @@ export function renderDocumentMetadata(documentPath, capabilities, fixturePathsB
 }
 
 export function replaceDocumentMetadata(content, metadata) {
+  if (!metadata) {
+    return content.replace(metadataBlockPattern(), "").replace(/^\r?\n+/u, "");
+  }
+
   let replacementCount = 0;
   const replacedContent = content.replace(metadataBlockPattern(), () => {
     replacementCount += 1;
@@ -144,6 +148,9 @@ export function replaceDocumentMetadata(content, metadata) {
 
 export function documentMetadataIsCurrent(content, metadata) {
   const metadataBlocks = content.match(metadataBlockPattern()) ?? [];
+  if (!metadata) {
+    return metadataBlocks.length === 0;
+  }
   return metadataBlocks.length === 1 && metadataBlocks[0].trimEnd() === metadata;
 }
 

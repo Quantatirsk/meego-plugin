@@ -1,27 +1,155 @@
-# 服务边界
+# 服务端与 OpenAPI 代理
 
-在自建服务端、平台凭证、OpenAPI 调用、外部依赖或长任务发生改动时读取。本页适用于 FastAPI 目标工程，也保留同等的安全和运行时边界给其他服务端框架。
+在自建服务端、平台凭证、OpenAPI 调用、事件回调或长任务发生改动时读取。本页给出通用边界；精确 URL、参数、Header、请求与响应必须从 `meego-platform-facts` 选择对应 OpenAPI 页面。
 
-## 先确认职责
+## 调用链
 
-服务端负责保存插件密钥和平台凭证、调用 OpenAPI、处理回调或向客户端提供自己的短期会话。具体端点、请求头、scope、验签和凭证交换由 `meego-platform-facts` 的已选能力决定；不要从其他插件的代理代码猜测它们。
+```text
+Plugin client -> Plugin backend -> Feishu Project OpenAPI
+```
 
-服务端不应在运行时依赖 `lpm`，也不应把插件生命周期操作、企业内部系统或业务流程接入本 skill 的默认实现。
+客户端只调用自己的后端，并通过 JSSDK 获取当前点位 context 或一次性授权码。后端验证自己的会话、保存 Plugin Secret 与平台 token、按明确接口调用 OpenAPI，并把经过筛选的结果返回客户端。
 
-## FastAPI 实现基线
+- `pluginSecret` 可以存在于本机 `lpm` 配置和服务端密钥配置，但不能被客户端代码读取，也不能提交到 Git。
+- `plugin_access_token`、`virtual_plugin_token`、`user_access_token` 和 `refresh_token` 只保存在服务端。
+- 用户授权时，客户端调用 `window.JSSDK.utils.getAuthCode()` 并把一次性 `code` 发给后端；后端完成用户凭证交换与刷新。完整流程见“获取访问凭证”。
 
-- 使用应用工厂或等价的明确组装边界，将 lifecycle、路由、CORS、异常处理和健康检查集中管理。
-- 使用 Pydantic 模型定义外部请求和响应；客户端预检不能替代服务端输入校验、授权和租户/用户归属校验。
-- 调用平台或外部服务时使用异步客户端和显式超时。固定目标域名、允许的路径和必要的 header/query 应逐项声明；不要建立接受任意路径的透明代理。
-- 日志应在请求和响应两侧脱敏。不要记录密钥、token、授权码、完整敏感载荷或原样上游错误。
-- 将配置、模式、超时、CORS origin 和外部凭证留在环境层。生产环境对 origin 使用显式白名单，按需关闭交互式 API 文档，并在缺少必需配置时失败而不是退化到通配符。
+不要将浏览器请求直接代理为任意 `/open_api/{path}`。每个客户端能力都应对应一个明确的后端路由和一个已选定的 OpenAPI 接口。
 
-## 长任务与外部服务
+## 开发与生产
 
-长任务需要可持久化的本地关联标识与远端任务标识，且要检查租户和用户是否有权读取或继续该任务。状态查询、重试、取消和过期清理应是显式接口；前端轮询不能成为唯一的状态机。
+| 边界 | 本地开发 | 生产 |
+| --- | --- | --- |
+| 浏览器来源 | 允许受控的 `localhost` 和 `127.0.0.1` 开发端口 | 仅允许部署后的明确 Origin 列表 |
+| CORS | 可使用 localhost 正则；携带 cookie 时仍不能使用 `*` Origin | 不使用通配符，缺少 allowlist 直接启动失败 |
+| 后端路由 | 可开放当前开发功能所需的少量固定路由 | 每条路由都绑定明确的请求模型、授权和平台接口 |
+| OpenAPI 目标 | 固定飞书项目域名；短期允许一组已列出的接口 | 固定域名、接口级 allowlist、请求大小和超时限制 |
+| 身份 | 开发会话仍需解析到明确用户 | 验证会话、租户、用户归属和资源访问权限 |
+| 凭证与日志 | 本机受控配置；日志同样脱敏 | 密钥管理服务或受控环境注入；结构化脱敏日志与轮换 |
 
-对上传、批量写入和 webhook 先定义幂等键、输入上限和失败恢复策略。外部服务的模型、路径、域名、数据库表和部署拓扑均属于目标工程配置，不能从现有案例复制。
+开发模式可以放宽本地 Origin 和暂时开放的接口集合，不能放宽浏览器拿到平台 Secret/token、任意主机代理、任意路径代理或原样记录凭证的边界。
 
-## 生产配置
+在 FastAPI 中可将 CORS 策略集中到应用装配处：
 
-镜像和部署配置应提供确定的运行版本、健康探针、最小权限的密钥注入和可观测日志。不要用 `latest`、静态内网地址、SQLite 加多 worker 或某个 compose 文件当作平台推荐基线；这些选择必须由目标服务的并发、存储和部署环境决定。
+```python
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+
+def configure_cors(app: FastAPI, environment: str, allowed_origins: list[str]) -> None:
+    if environment == "development":
+        app.add_middleware(
+            CORSMiddleware,
+            allow_origins=[],
+            allow_origin_regex=r"^http://(localhost|127\.0\.0\.1)(:\d+)?$",
+            allow_credentials=True,
+            allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            allow_headers=["Content-Type", "X-App-Session"],
+        )
+        return
+
+    if not allowed_origins:
+        raise RuntimeError("Production CORS origins are required")
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=allowed_origins,
+        allow_credentials=True,
+        allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allow_headers=["Content-Type", "X-App-Session"],
+    )
+```
+
+## FastAPI 代理形状
+
+以下示例固定代理“读取工作项详情”这一项平台能力。它展示路由边界、身份传递、超时与错误映射；请求体和返回字段以[获取工作项详情](../../meego-platform-facts/resources/docs/openapi/api/获取工作项详情.md)为准。
+
+```python
+from collections.abc import Awaitable, Callable
+from typing import Annotated
+
+import httpx
+from fastapi import APIRouter, Depends, HTTPException, Path
+from pydantic import BaseModel, Field
+
+router = APIRouter(prefix="/api", tags=["work-items"])
+
+
+class Session(BaseModel):
+    user_key: str
+
+
+class WorkItemQuery(BaseModel):
+    work_item_ids: list[int] = Field(min_length=1, max_length=50)
+    fields: list[str] | None = None
+
+
+class ProjectClient:
+    def __init__(self, get_plugin_token: Callable[[], Awaitable[str]]) -> None:
+        self._get_plugin_token = get_plugin_token
+
+    async def query_work_items(
+        self,
+        project_key: str,
+        work_item_type_key: str,
+        session: Session,
+        request: WorkItemQuery,
+    ) -> dict[str, object]:
+        token = await self._get_plugin_token()
+        url = (
+            "https://project.feishu.cn/open_api/"
+            f"{project_key}/work_item/{work_item_type_key}/query"
+        )
+        headers = {
+            "Content-Type": "application/json",
+            "X-Plugin-Token": token,
+            "X-User-Key": session.user_key,
+            "x-auth-mode": "1",
+        }
+        async with httpx.AsyncClient(timeout=httpx.Timeout(10.0)) as client:
+            response = await client.post(url, headers=headers, json=request.model_dump(exclude_none=True))
+
+        if response.status_code >= 500:
+            raise HTTPException(status_code=502, detail="Feishu Project is unavailable")
+        if response.status_code >= 400:
+            raise HTTPException(status_code=502, detail="Feishu Project rejected the request")
+
+        payload = response.json()
+        if not isinstance(payload, dict):
+            raise HTTPException(status_code=502, detail="Feishu Project returned an invalid response")
+        if payload.get("err_code", 0) != 0:
+            raise HTTPException(status_code=502, detail="Feishu Project returned an API error")
+        return payload
+
+
+async def require_session() -> Session:
+    raise HTTPException(status_code=501, detail="Implement application session validation")
+
+
+async def get_project_client() -> ProjectClient:
+    raise HTTPException(status_code=501, detail="Configure server-side token retrieval")
+
+
+@router.post("/projects/{project_key}/work-item-types/{work_item_type_key}/query")
+async def query_work_items(
+    project_key: Annotated[str, Path(min_length=1)],
+    work_item_type_key: Annotated[str, Path(min_length=1)],
+    request: WorkItemQuery,
+    session: Annotated[Session, Depends(require_session)],
+    project_client: Annotated[ProjectClient, Depends(get_project_client)],
+) -> dict[str, object]:
+    return await project_client.query_work_items(
+        project_key,
+        work_item_type_key,
+        session,
+        request,
+    )
+```
+
+`x-auth-mode: 1` 只适用于文档明确支持的严格读取接口；写接口、其他读取接口和用户凭证调用不能照抄。代理应将上游 token、`log_id`、完整响应和密钥保留在服务端日志边界，客户端只获得它需要的业务错误与结果。
+
+## 长任务、回调与运行配置
+
+长任务需分别保存本地关联 ID 与平台任务 ID，提供查询、重试、取消和过期清理；客户端轮询不能成为唯一状态机。上传、批量写入和 webhook 需要幂等键、输入上限和失败恢复策略。
+
+FastAPI 工程使用 Pydantic 输入模型、异步 HTTP 客户端、显式超时、集中式异常处理和健康检查。部署版本、数据库、外部服务、镜像和拓扑由目标工程决定，不从其他插件案例复制。

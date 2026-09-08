@@ -1,12 +1,5 @@
 # x-auth-mode 模式说明
 
-<!-- capability-metadata:start -->
-## 平台能力标记
-
-> 调用频次：无直接调用频次。本页用于平台说明、格式、目录或支持信息。
-
-<!-- capability-metadata:end -->
-
 `x-auth-mode` 控制部分只读接口在使用插件凭证时，是否严格按 `X-User-Key` 指定的用户校验读取权限。它不是全部 OpenAPI 的通用权限开关，也不会扩大插件已获授权的接口范围。
 
 **阅读导航**：[适用范围](#scope) · [模式对比](#modes) · [请求示例](#examples) · [支持接口](#supported-endpoints) · [常见问题](#faq)

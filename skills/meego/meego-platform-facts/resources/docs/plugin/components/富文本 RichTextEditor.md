@@ -34,12 +34,6 @@
 | `editable={true}`、`editType="inline"` | 内联编辑，两个属性均为默认值 | 退出编辑、点击外部或失焦时 |
 | `editable={true}`、`editType="popover"` | 触发浮层编辑 | 弹层触发 `onClickOutSide` 时 |
 
-![内联预览](<../assets/0faeed38bba099f1a8c6aa6b.png>)
-
-![内联编辑](<../assets/31decd9519eca794b7a86f8c.gif>)
-
-![浮层编辑](<../assets/7b4e086b73ab9f5aa259c487.gif>)
-
 <a id="33690807"></a>
 <a id="e98b5370"></a>
 <a id="4f5b3ca6"></a>
@@ -188,8 +182,6 @@ export default function EditorWithImageUpload({ spaceId, doc, uploadUrl, uploadT
 ## 图片预览排查
 
 原页指出：内联预览图片失败、弹层编辑器却能正常显示时，可以检查浏览器第三方 Cookie 策略是否阻止了图片所需的访问。应先核对当前站点的策略与请求失败信息，原页旧版浏览器设置地址不作为稳定操作入口。
-
-![原页第三方 Cookie 设置示意](<../assets/a8d3538591a5aafc35a1d97c.png>)
 
 <a id="eac71622"></a>
 

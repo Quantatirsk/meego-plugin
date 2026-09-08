@@ -10,8 +10,6 @@
 
 `window.JSSDK.richTextEditor.show()` 打开宿主提供的富文本编辑器。它编辑并返回 `RichTextEditorContent`，可由[富文本组件](<../components/富文本 RichTextEditor.md>)展示；它不是普通浏览器弹窗，也不能脱离飞书项目容器运行。
 
-![富文本编辑器](<../assets/3598f26523bbcfdb61e29db3.png>)
-
 **阅读导航**：[支持范围](#b0bac185) · [show](#402eb084) · [配置](#a09f7e63) · [图床协议](#e82812eb) · [返回结果](#abfd9049) · [示例](#66c73476)
 
 <a id="b0bac185"></a>
@@ -173,8 +171,6 @@ async function editRichText(
   );
 }
 ```
-
-![编辑器结果](<../assets/9e3abfb3156605fd9ee830aa.gif>)
 
 更新时间：2026-09-07
 官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/1btl061e

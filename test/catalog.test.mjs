@@ -5,6 +5,7 @@ import {
   findCapabilities,
   summarizeCapabilities,
 } from "../skills/meego/meego-platform-facts/resources/cli/lib/catalog.mjs";
+import { findGuides } from "../skills/meego/meego-platform-facts/resources/cli/lib/guides.mjs";
 import {
   documentMetadataIsCurrent,
   renderDocumentMetadata,
@@ -63,7 +64,31 @@ test("summarizeCapabilities groups stable dimensions", () => {
   });
 });
 
-test("document metadata exposes frequency for callables and omits it for guides", () => {
+test("findGuides routes setup and credential queries to a focused document", () => {
+  const guides = [
+    {
+      id: "plugin.bootstrap",
+      title: "Start a plugin",
+      tags: ["environment", "lpm init"],
+    },
+    {
+      id: "plugin.credentials",
+      title: "Plugin ID and Plugin Secret",
+      tags: ["app key", "plugin secret"],
+    },
+  ];
+
+  assert.deepEqual(
+    findGuides(guides, "plugin secret").map((guide) => guide.id),
+    ["plugin.credentials"],
+  );
+  assert.deepEqual(
+    findGuides(guides, "").map((guide) => guide.id),
+    ["plugin.bootstrap", "plugin.credentials"],
+  );
+});
+
+test("document metadata exposes frequency only for callables", () => {
   const callableMetadata = renderDocumentMetadata(
     "/workspace/docs/plugin/jssdk/storage.md",
     [
@@ -87,20 +112,25 @@ test("document metadata exposes frequency for callables and omits it for guides"
   assert.match(callableMetadata, /capability-jssdk\.storage\.get-item/);
   assert.match(callableMetadata, /频次：高/);
   assert.match(callableMetadata, /fixtures\/jssdk\/storage-get-item\.json/);
-  assert.match(guideMetadata, /无直接调用频次/);
+  assert.equal(guideMetadata, "");
   const inserted = replaceDocumentMetadata("# Example\n\nBody\n", callableMetadata);
   assert.match(inserted, /# Example\n\n<!-- capability-metadata:start -->/);
   assert.equal(documentMetadataIsCurrent(inserted, callableMetadata), true);
 });
 
-test("document metadata sync removes duplicate blocks and reports missing pages", async () => {
+test("document metadata sync removes guide blocks and reports missing pages", async () => {
   const metadata = renderDocumentMetadata("/workspace/docs/example.md", [], new Map());
-  const duplicated = `# Example\n\n${metadata}\n\n${metadata}\n\nBody\n`;
+  const legacyMetadata = [
+    "<!-- capability-metadata:start -->",
+    "## Capability metadata",
+    "<!-- capability-metadata:end -->",
+  ].join("\n");
+  const duplicated = `# Example\n\n${legacyMetadata}\n\n${legacyMetadata}\n\nBody\n`;
   const synchronized = replaceDocumentMetadata(duplicated, metadata);
 
   assert.equal(
     (synchronized.match(/<!-- capability-metadata:start -->/gu) ?? []).length,
-    1,
+    0,
   );
   assert.equal(documentMetadataIsCurrent(synchronized, metadata), true);
   assert.equal(documentMetadataIsCurrent(duplicated, metadata), false);

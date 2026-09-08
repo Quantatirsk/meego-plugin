@@ -1,14 +1,5 @@
 # 飞书项目 OpenAPI 接口速查
 
-<!-- capability-metadata:start -->
-## 平台能力标记
-
-> 调用频次：无直接调用频次。本页用于平台说明、格式、目录或支持信息。
-
-<!-- capability-metadata:end -->
-
-来源链接：source_silent
-
 [阅读入口](README.md) · [完整目录](INDEX.md)
 
 ## 接入与鉴权
@@ -203,4 +194,4 @@
 | `GET` | `/open_api/commercial/product/tenant_entitlement` | [查询买方租户权益信息](api/查询买方租户权益信息.md) |
 
 更新时间：2026-09-07
-官方 URL：source_silent
+官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn

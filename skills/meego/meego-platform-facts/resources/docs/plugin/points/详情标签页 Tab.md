@@ -18,12 +18,6 @@
 
 点位支持网页端与移动端。`tab.getContext()` 在移动端的最低版本为 V7.35.0+，表单值变化监听仅支持网页端；开发双端页面时分别检查所调用 API 的支持范围。
 
-![标签页在插件开发流程中的位置](<../assets/29763dc90bbe16d6f952932c.png>)
-
-![网页端详情标签页入口](<../assets/6a9bfad3e5641bf5153258ab.gif>)
-
-![移动端详情标签页入口](<../assets/b7543a5e89e2d26e54c9d9e9.gif>)
-
 完整开发、测试和发布流程见 [开发并发布第一个插件](<../guides/开发并发布第一个插件.md>)。下面聚焦添加 Tab 构成、接入客户端及验证页面。
 
 <a id="f8da1547"></a>
@@ -83,8 +77,6 @@ lpm start
 ## 字段分类开发示例
 
 官方 [字段分类示例工程](https://github.com/larksuite/lark-project-template/tree/feat/help-doc-demo/project/doc-demos/field-category-config) 展示两项业务：按所选字段类型分栏展示字段；依据插件配置页设置的字段分类授权决定展示范围。
-
-![字段分类页面效果](<../assets/e22b3feeff2678dded9ace26.png>)
 
 权限展示需配合 [插件配置 / Configuration](<插件配置 Configuration.md>) 页面完成。以下代码描述页面接入与组件边界，依赖示例工程中的数据模型、选项和业务渲染模块，不能作为独立工程直接运行。
 

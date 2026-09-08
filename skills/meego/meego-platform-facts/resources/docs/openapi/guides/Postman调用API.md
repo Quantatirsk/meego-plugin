@@ -1,15 +1,8 @@
 # 使用 postman 调用 API 接口
 
-<!-- capability-metadata:start -->
-## 平台能力标记
-
-> 调用频次：无直接调用频次。本页用于平台说明、格式、目录或支持信息。
-
-<!-- capability-metadata:end -->
-
 官方 Postman 模板包含环境变量和 API 请求集合，可用于检查凭证、权限和业务参数。本篇以创建需求工作项为例，说明从导入模板到核对结果的完整过程。
 
-本篇同时核对了随原文下载的模板：正文中的 `base url` 实际对应模板键 `base_url`；业务请求引用的是 `plugin_token`，仅填写另一个 `token` 变量不会自动切换请求身份。
+本篇按官方模板校核变量引用：正文中的 `base url` 实际对应模板键 `base_url`；业务请求引用的是 `plugin_token`，仅填写另一个 `token` 变量不会自动切换请求身份。
 
 **阅读导航**：[准备与导入](#import) · [环境变量](#environment) · [插件凭证](#plugin-identity) · [用户凭证](#user-identity) · [创建工作项](#create-work-item) · [排查](#troubleshooting)
 
@@ -26,7 +19,7 @@
 
 ## 导入环境与请求集合
 
-1. 打开[本地官方 Postman 模板 ZIP](../assets/88e7ebbf71bd8732dff6.zip)，解压到本地。
+1. 打开[官方 Postman 文档](https://project.feishu.cn/b/helpcenter/1p8d7djs/5kwry3yy)，下载当前模板并解压到本地。
 2. 在 Postman 中创建一个 Workspace。
 3. 导入后缀为 `.postman_environment.json` 的环境文件。
 4. 导入后缀为 `.postman_collection.json` 的请求集合。
@@ -39,8 +32,6 @@ ZIP 内还包含 macOS 生成的 `.DS_Store` 和 `__MACOSX` 文件，这些不�
 ## 配置环境变量
 
 在 “Environments” 中打开“开放平台环境变量”，填写并保存后，将其选为当前请求使用的环境。
-
-![在 Postman 中选择并配置开放平台环境](../assets/e50aee0ab1bb0fb20ac8.png)
 
 ### 首次调用前填写
 
@@ -55,12 +46,6 @@ ZIP 内还包含 macOS 生成的 `.DS_Store` 和 `__MACOSX` 文件，这些不�
 
 `user_key` 是用户标识，原文表格称其为“用户密钥”，容易与 `plugin_secret` 混淆。它们分别用于指定用户与证明插件身份，不能互换。
 
-![插件基本信息中的 plugin_id](../assets/dcb2e8611d1189bee9bc.png)
-
-![插件基本信息中的 plugin_secret](../assets/96ab7b5e44d5c14a7107.png)
-
-![原文展示的浏览器 Network 请求头位置](../assets/718b8217c1e3b6b434e4.png)
-
 ### 调用过程中产生的变量
 
 | 模板中的键 | 用途 | 本地模板核对结果 |
@@ -71,7 +56,7 @@ ZIP 内还包含 macOS 生成的 `.DS_Store` 和 `__MACOSX` 文件，这些不�
 | `idem_uuid` | 预留的幂等值 | 环境文件中存在，但当前请求集合未引用 |
 | `token` | 环境文件中的另一个凭证键 | 环境文件中存在，但当前请求集合未引用 |
 
-上表是对本地 ZIP 的检查结果。判断请求到底使用哪个凭证，应打开该请求的 Headers 查看变量引用，不能只依据环境变量的名称。
+上表是对官方模板的校核结果。判断请求到底使用哪个凭证，应打开该请求的 Headers 查看变量引用，不能只依据环境变量的名称。
 
 <a id="4f7f81de"></a>
 
@@ -95,8 +80,6 @@ ZIP 内还包含 macOS 生成的 `.DS_Store` 和 `__MACOSX` 文件，这些不�
 4. 发送请求，检查返回结果。
 5. 选中响应中 `data.token` 的值，保存到当前环境的 `plugin_token`。
 
-![在 Postman 中获取插件凭证](../assets/c3b50ce20734810d321a.png)
-
 原文使用右键菜单 “Set → 开放平台环境变量 → plugin_token” 保存值。不同 Postman 版本的菜单位置可能不同，也可直接在当前环境中填写变量。
 
 凭证接口定义、`type` 的取值与开发数据范围见[获取插件凭证](获取访问凭证.md#plugin-token)。
@@ -113,10 +96,6 @@ ZIP 内还包含 macOS 生成的 `.DS_Store` 和 `__MACOSX` 文件，这些不�
 3. 打开模板中的“获取 code”请求，检查 Body 后发送，将返回的 code 保存到环境变量 `code`。
 4. 打开“获取 user_plugin_token”请求，检查 code 与 `grant_type` 后发送。
 5. 保存响应中的用户凭证和 `refresh_token`，并确认后续业务请求实际引用的是用户凭证。
-
-![在模板中获取用户授权码](../assets/ca961efd97f051cec54f.png)
-
-![通过授权码交换用户凭证](../assets/14730d6d0583feb0f2ab.png)
 
 ### 对齐响应字段和请求头
 
@@ -140,10 +119,6 @@ ZIP 内还包含 macOS 生成的 `.DS_Store` 和 `__MACOSX` 文件，这些不�
 3. **填写创建信息。** 打开[创建工作项](../api/创建工作项.md)请求，按接口定义填写类型、名称及其他必填字段。
 4. **发送并检查响应。** 核对返回的业务错误码和工作项标识。
 5. **在平台核对。** 打开同一空间，确认工作项已创建且字段符合请求内容。
-
-![创建工作项请求及响应结果](../assets/566d8e9175cb9bed9cc1.png)
-
-![在飞书项目中核对创建的工作项](../assets/7a74ccaa1995fa5dafc5.png)
 
 <a id="troubleshooting"></a>
 

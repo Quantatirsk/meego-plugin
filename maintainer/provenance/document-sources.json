@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07",
+  "generatedAt": "2026-09-08",
   "sources": [
     {
       "platform": "openapi",
@@ -1092,18 +1092,10 @@
     },
     {
       "platform": "openapi",
-      "sourcePath": "COVERAGE.md",
-      "targetPath": "docs/openapi/COVERAGE.md",
-      "category": "root",
-      "officialUrl": null,
-      "contentHash": "0e5e926973c00a7bca6e195422c6a310a89a024448b163b1d23015a06ab800ce"
-    },
-    {
-      "platform": "openapi",
       "sourcePath": "ENDPOINTS.md",
       "targetPath": "docs/openapi/ENDPOINTS.md",
       "category": "root",
-      "officialUrl": null,
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
       "contentHash": "97be9e18e1f5cc3618663c83ed1cb9c6d87fcfbba0cbc58fc31ca82a4b704c3e"
     },
     {
@@ -1207,7 +1199,7 @@
       "sourcePath": "GUIDE.md",
       "targetPath": "docs/openapi/GUIDE.md",
       "category": "root",
-      "officialUrl": null,
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
       "contentHash": "42188bd3a464ace1e922b5fb691b293834c2d22251a2b4922a8429a164fd868a"
     },
     {
@@ -1263,7 +1255,7 @@
       "sourcePath": "INDEX.md",
       "targetPath": "docs/openapi/INDEX.md",
       "category": "root",
-      "officialUrl": null,
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
       "contentHash": "818e5827ddd8ff0df88aaa9f64f9e34a3ec4ba5007762b8beae59bdc44a539b1"
     },
     {
@@ -1271,7 +1263,7 @@
       "sourcePath": "README.md",
       "targetPath": "docs/openapi/README.md",
       "category": "root",
-      "officialUrl": null,
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
       "contentHash": "afc1333cf3c8dd53d9448cb6361452e9c7c283b046042cc3faaa4b56cac304d6"
     },
     {
@@ -1575,7 +1567,7 @@
       "sourcePath": "INDEX.md",
       "targetPath": "docs/plugin/INDEX.md",
       "category": "root",
-      "officialUrl": null,
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
       "contentHash": "11824d7e6fd0ab5b1b97487afaa5b27fcef93fe19e8e4e6a930d6861bf385d90"
     },
     {
@@ -1903,24 +1895,32 @@
       "sourcePath": "README.md",
       "targetPath": "docs/plugin/README.md",
       "category": "root",
-      "officialUrl": null,
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
       "contentHash": "7491747e897b1ed710c6de7e5352dd2d43044ad67aeb3424d76b6d4a0ee5ba18"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/快速开始.md",
+      "targetPath": "docs/plugin/guides/快速开始.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
+      "contentHash": "34ddce839e543e3f74fe59b21faaedfed4dd628ca1c98970b91280d620a98d66"
     }
   ],
   "totals": {
     "sourceDocuments": 238,
-    "withOfficialUrl": 231,
-    "withoutOfficialUrl": 7,
+    "withOfficialUrl": 238,
+    "withoutOfficialUrl": 0,
     "byPlatform": {
       "openapi": {
-        "sourceDocuments": 163,
-        "withOfficialUrl": 158,
-        "withoutOfficialUrl": 5
+        "sourceDocuments": 162,
+        "withOfficialUrl": 162,
+        "withoutOfficialUrl": 0
       },
       "plugin": {
-        "sourceDocuments": 75,
-        "withOfficialUrl": 73,
-        "withoutOfficialUrl": 2
+        "sourceDocuments": 76,
+        "withOfficialUrl": 76,
+        "withoutOfficialUrl": 0
       }
     }
   }

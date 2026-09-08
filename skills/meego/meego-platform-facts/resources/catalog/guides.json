@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "guides": [
+    {
+      "id": "plugin.bootstrap",
+      "title": "从零开发飞书项目插件",
+      "tags": ["快速开始", "环境准备", "创建插件", "初始化工程", "lpm init"],
+      "docPath": "docs/plugin/guides/快速开始.md",
+      "docAnchor": "environment",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn"
+    },
+    {
+      "id": "plugin.credentials",
+      "title": "Plugin ID 与 Plugin Secret",
+      "tags": ["plugin id", "plugin secret", "插件凭证", "app key", "app_key", "密钥"],
+      "docPath": "docs/plugin/guides/快速开始.md",
+      "docAnchor": "console-credentials",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn"
+    },
+    {
+      "id": "plugin.features",
+      "title": "添加插件构成与 ResourceId",
+      "tags": ["插件功能", "app feature", "app_feature", "构成", "resource id", "resourceid"],
+      "docPath": "docs/plugin/guides/快速开始.md",
+      "docAnchor": "plugin-feature",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn"
+    },
+    {
+      "id": "plugin.client",
+      "title": "客户端点位与 JSSDK",
+      "tags": ["客户端", "jssdk", "context", "control", "tab", "button", "configuration"],
+      "docPath": "docs/plugin/README.md",
+      "docAnchor": "客户端开发",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn"
+    },
+    {
+      "id": "openapi.authentication",
+      "title": "OpenAPI 凭证与权限",
+      "tags": ["openapi", "token", "auth code", "授权码", "权限", "plugin access token", "user access token"],
+      "docPath": "docs/openapi/README.md",
+      "docAnchor": "优先入口",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn"
+    },
+    {
+      "id": "openapi.proxy",
+      "title": "服务端 OpenAPI 代理与安全策略",
+      "tags": ["代理", "proxy", "fastapi", "cors", "开发安全", "生产安全", "backend"],
+      "docPath": "docs/plugin/guides/快速开始.md",
+      "docAnchor": "implementation",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn"
+    },
+    {
+      "id": "plugin.debug-release",
+      "title": "本地调试、构建与发布",
+      "tags": ["lpm start", "debug", "release", "build", "发布", "调试", "预览"],
+      "docPath": "docs/plugin/guides/快速开始.md",
+      "docAnchor": "debug-release",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn"
+    }
+  ]
+}

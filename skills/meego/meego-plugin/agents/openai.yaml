@@ -1,6 +1,4 @@
 interface:
   display_name: "Meego Plugin"
-  short_description: "Route Feishu Project plugin development work"
-  default_prompt: "Use $meego-plugin to choose the right Feishu Project plugin workflow."
-policy:
-  allow_implicit_invocation: false
+  short_description: "Start and develop Feishu Project plugins"
+  default_prompt: "Use $meego-plugin to start or continue a Feishu Project plugin."

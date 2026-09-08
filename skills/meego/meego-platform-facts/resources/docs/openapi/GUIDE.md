@@ -1,14 +1,5 @@
 # 飞书项目 OpenAPI 接入导读
 
-<!-- capability-metadata:start -->
-## 平台能力标记
-
-> 调用频次：无直接调用频次。本页用于平台说明、格式、目录或支持信息。
-
-<!-- capability-metadata:end -->
-
-来源链接：source_silent
-
 [完整目录](INDEX.md) · [HTTP 接口速查](ENDPOINTS.md) · [阅读入口](README.md)
 
 本页根据同目录中的官方文档整理，用于建立查阅顺序。所有参数、响应结构和例外条件以对应接口详情为准。
@@ -121,7 +112,7 @@ AI 能力的服务端操作分为[修改节点](ai/修改AI节点数据.md)、[�
 
 ## 8. 校订与待核实内容
 
-正文中的确定性错误已按具体接口、字段定义及官方 SDK 修正，错误的完整示例已删除。未能确认的边界单独标为待核实，并以对应页面底部的官方 URL 为准。[校订与校验说明](COVERAGE.md#source-issues)
+接口参数、返回结构、限流和异常行为都以目标页面为准；遇到文档未定义的边界时，不要从相邻接口推断。
 
 更新时间：2026-09-07
-官方 URL：source_silent
+官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn

@@ -27,12 +27,6 @@
 
 ## 使用场景
 
-![单选选择器](<../assets/e814d2e26a52ec92db5d0e2c.gif>)
-
-![多选及标签折叠](<../assets/4a03760bdd3f70423daa805d.gif>)
-
-![自定义选中项和下拉项](<../assets/bafbebdf6b8d981e2aedb5e7.gif>)
-
 <a id="9b048eda"></a>
 <a id="ca49ddb4"></a>
 

@@ -1,14 +1,5 @@
 # 飞书项目 OpenAPI 文档目录
 
-<!-- capability-metadata:start -->
-## 平台能力标记
-
-> 调用频次：无直接调用频次。本页用于平台说明、格式、目录或支持信息。
-
-<!-- capability-metadata:end -->
-
-来源链接：source_silent
-
 [阅读入口](README.md) · [接入导读](GUIDE.md) · [HTTP 接口速查](ENDPOINTS.md)
 
 [接入与鉴权](#guides) · [字段与格式](#formats) · [业务接口](#api) · [事件与回调](#events) · [AI 应用](#ai) · [公告与排障](#support)
@@ -282,4 +273,4 @@
 - [Open API 错误码排查](support/OpenAPI错误码排查.md)
 
 更新时间：2026-09-07
-官方 URL：source_silent
+官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn

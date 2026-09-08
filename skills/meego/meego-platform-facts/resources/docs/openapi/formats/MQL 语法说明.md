@@ -1,12 +1,5 @@
 # MQL 语法说明
 
-<!-- capability-metadata:start -->
-## 平台能力标记
-
-> 调用频次：无直接调用频次。本页用于平台说明、格式、目录或支持信息。
-
-<!-- capability-metadata:end -->
-
 MQL（Meego Query Language）是飞书项目的结构化查询语言，采用 SQL 风格语法，并扩展数组、人员、节点、状态和关系查询能力。`search_by_mql` 接收完整查询字符串。
 
 ## 使用前确认

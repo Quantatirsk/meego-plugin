@@ -92,8 +92,6 @@ await window.JSSDK.modal.confirm(
 
 文案分别对应原文的内容、标题、确认和取消展示文字，不是固定协议值。
 
-![确认框效果](<../assets/1607c09d16631ea9a8d6cd16.gif>)
-
 <a id="8ab02bbb"></a>
 
 ## open：打开自定义弹窗
@@ -131,8 +129,6 @@ await window.JSSDK.modal.confirm(
 返回 `Promise<{ close: () => void } | void>`：UI 模式解析为可关闭弹窗的引用，脚本模式没有该引用。只有获得引用后才能调用其 `close()`。
 
 `onSubmit` 触发不等于弹窗自动关闭。官方示例由打开方在回调中主动关闭；异步回调的等待和错误传播规则未在原文定义。
-
-![自定义弹窗](<../assets/f3e99da660d046ad49daff5b.png>)
 
 <a id="02b00283"></a>
 

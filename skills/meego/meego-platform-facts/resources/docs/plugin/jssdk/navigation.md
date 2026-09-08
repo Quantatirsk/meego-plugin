@@ -161,8 +161,6 @@ window.JSSDK.navigation.openWorkItemCreatePage(
 );
 ```
 
-![新建工作项效果](<../assets/3fa5ac135779c3dd8a99299b.gif>)
-
 <a id="51bb3507"></a>
 
 ## openWorkItemDetailPage：打开实例详情
@@ -194,8 +192,6 @@ window.JSSDK.navigation.openWorkItemDetailPage({
   workItemId: 1234,
 });
 ```
-
-![打开工作项详情效果](<../assets/027d8af5c12b825b61f51b31.gif>)
 
 ## 相关文档
 

@@ -1,15 +1,5 @@
 # 飞书项目插件开发文档索引
 
-<!-- capability-metadata:start -->
-## 平台能力标记
-
-> 调用频次：无直接调用频次。本页用于平台说明、格式、目录或支持信息。
-
-<!-- capability-metadata:end -->
-
-来源链接：source_silent
-
-
 ## 开发插件
 
 ### 什么是插件
@@ -20,6 +10,7 @@
 
 ### 快速开始
 
+- [从零开发飞书项目插件](<guides/快速开始.md>)
 - [环境准备](<guides/环境准备.md>)
 - [开发并发布第一个插件](<guides/开发并发布第一个插件.md>)
 
@@ -127,7 +118,6 @@
 ## 使用开发工具 CLI
 
 - [飞书项目开发工具 CLI 介绍](<cli/飞书项目开发工具 CLI 介绍.md>)
-- [飞书项目开发工具 CLI 开发实践](<cli/飞书项目开发工具 CLI 开发实践.md>)
 
 ## 产品动态
 
@@ -146,4 +136,4 @@
 - [开发调试咨询](<guides/开发调试咨询.md>)
 
 更新时间：2026-09-07
-官方 URL：source_silent
+官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn

@@ -71,8 +71,6 @@ const toastId = await window.JSSDK.toast.info({
 });
 ```
 
-![普通提示](<../assets/2eada03976de2bd3b66b223a.gif>)
-
 <a id="76cbcc9a"></a>
 
 ## warning：警告提示
@@ -94,8 +92,6 @@ const toastId = await window.JSSDK.toast.warning({
   duration: 5,
 });
 ```
-
-![警告提示](<../assets/5658c2c3629d042b0402a85a.gif>)
 
 <a id="0234f5c2"></a>
 
@@ -119,8 +115,6 @@ const toastId = await window.JSSDK.toast.error({
 });
 ```
 
-![错误提示](<../assets/3e0eedfdfd59d1ad34470ac4.gif>)
-
 <a id="c3a0fd93"></a>
 
 ## success：成功提示
@@ -142,8 +136,6 @@ const toastId = await window.JSSDK.toast.success({
   duration: 5,
 });
 ```
-
-![成功提示](<../assets/f6c5bb977f61f58131584902.gif>)
 
 <a id="db4c1b1f"></a>
 
