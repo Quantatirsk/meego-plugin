@@ -41,4 +41,4 @@
 
 以最小改动实现所请求的行为。面向平台的代码和文档应保持中立：对业务方拥有的值使用占位符，并将事实关联到已解析的能力资料。在提出任何远端操作前，使用仓库已有检查验证本地变更。
 
-Codex 工作流适配器位于 [adapters/codex/meego-plugin/SKILL.md](adapters/codex/meego-plugin/SKILL.md)。它补充任务路由和详细确认处理，不改变本仓库级协议。
+Codex 工作流入口位于 [SKILL.md](SKILL.md)。它补充任务路由和详细确认处理，不改变本仓库级协议。

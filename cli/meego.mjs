@@ -9,7 +9,6 @@ import {
   summarizeCapabilities,
   summarizeDocumentSources,
 } from "./lib/catalog.mjs";
-import { renderCoverageReport, verifyRepository } from "./lib/verify.mjs";
 import { repositoryRoot } from "./lib/paths.mjs";
 
 function printUsage() {
@@ -133,12 +132,14 @@ async function run() {
   }
 
   if (command === "render") {
+    const { renderCoverageReport } = await import("./lib/verify.mjs");
     const reportPath = await renderCoverageReport();
     console.log(`Wrote ${path.relative(repositoryRoot, reportPath)}.`);
     return;
   }
 
   if (command === "verify") {
+    const { verifyRepository } = await import("./lib/verify.mjs");
     const result = await verifyRepository();
     for (const warning of result.warnings) {
       console.warn(`Warning: ${warning}`);

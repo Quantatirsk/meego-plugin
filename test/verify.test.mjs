@@ -259,5 +259,5 @@ test("the checked-in capability corpus is self-consistent", async () => {
   assert.deepEqual(result.errors, []);
   assert.equal(result.capabilityCount, 237);
   assert.equal(result.fixtureCount, 32);
-  assert.equal(result.documentCount, 244);
+  assert.equal(result.documentCount, 245);
 });

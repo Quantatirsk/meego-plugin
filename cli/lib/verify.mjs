@@ -22,10 +22,11 @@ import {
 } from "./paths.mjs";
 
 const ignoredDirectories = new Set([".git", "node_modules", ".cache", ".meego-cache"]);
-const markdownDirectories = [documentationDirectory, path.join(repositoryRoot, "adapters")];
+const markdownDirectories = [documentationDirectory, path.join(repositoryRoot, "references")];
 const rootMarkdownFiles = [
   path.join(repositoryRoot, "README.md"),
   path.join(repositoryRoot, "AGENTS.md"),
+  path.join(repositoryRoot, "SKILL.md"),
 ];
 const forbiddenPatterns = [
   { name: "external integration", pattern: /\bseafile\b/i },
