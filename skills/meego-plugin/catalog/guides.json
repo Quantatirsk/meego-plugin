@@ -56,6 +56,49 @@
       "docPath": "docs/plugin/guides/快速开始.md",
       "docAnchor": "debug-release",
       "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn"
+    },
+    {
+      "id": "openapi.wbs",
+      "title": "计划表配置列、基线与引用",
+      "tags": [
+        "计划表",
+        "wbs",
+        "基线",
+        "聚合列",
+        "引用",
+        "排期依赖"
+      ],
+      "docPath": "docs/openapi/GUIDE.md",
+      "docAnchor": "计划表查询路径",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/0tfjtyns"
+    },
+    {
+      "id": "plugin.mcp",
+      "title": "插件体系 MCP Server",
+      "tags": [
+        "mcp",
+        "streamable http",
+        "插件鉴权"
+      ],
+      "docPath": "docs/plugin/README.md",
+      "docAnchor": "插件体系-mcp-server",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jdmql9oj"
+    },
+    {
+      "id": "plugin.ai-app",
+      "title": "开发 AI 应用",
+      "tags": [
+        "ai 应用",
+        "ai 节点",
+        "ai 字段",
+        "ai 操作",
+        "ainode",
+        "aioperation",
+        "aamp"
+      ],
+      "docPath": "docs/plugin/README.md",
+      "docAnchor": "ai-应用",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/6ezzkzro"
     }
   ]
 }

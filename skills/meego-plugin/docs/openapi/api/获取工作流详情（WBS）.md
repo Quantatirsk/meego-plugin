@@ -1,10 +1,12 @@
 # 获取工作流详情（WBS）
 
+官方于 2026-10-20 将此接口标为不再维护。新接入按需求查阅[获取工作流详情](获取工作流详情.md)或[计划表接口](../INDEX.md#计划表)，并重新核对所需字段。
+
 <!-- capability-metadata:start -->
 ## 平台能力标记
 
 <a id="capability-openapi.get.open-api-project-key-work-item-work-item-type-key-work-item-id-wbs-view"></a>
-- **获取工作流详情（WBS）** ｜ `openapi.get.open-api-project-key-work-item-work-item-type-key-work-item-id-wbs-view` ｜ 频次：低 ｜ 状态：待运行时验证
+- **获取工作流详情（WBS）** ｜ `openapi.get.open-api-project-key-work-item-work-item-type-key-work-item-id-wbs-view` ｜ 频次：低 ｜ 状态：已废弃
 
 <!-- capability-metadata:end -->
 

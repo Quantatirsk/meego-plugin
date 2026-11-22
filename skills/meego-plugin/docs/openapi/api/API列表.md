@@ -88,7 +88,7 @@
 | API名称                                                                                                                        | 解释                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `POST /open_api/:project_key/work_item/:work_item_type_key/:work_item_id/workflow/query`<br>[获取工作流详情](获取工作流详情.md)      | 用于获取指定空间和工作项类型下的一个工作项实例的工作流信息，包括节点的状态、负责人、估分以及表单、子任务等。对应的平台功能介绍，如节点流类型以需求实例举例，可参考[流程图](https://project.feishu.cn/1ykiuvvj/69kaicie#%E6%B5%81%E7%A8%8B%E5%9B%BE)，如状态流类型以缺陷举例，可参考[新建缺陷](https://project.feishu.cn/1ykiuvvj/5ci97x50) |
-| `GET /open_api/:project_key/work_item/:work_item_type_key/:work_item_id/wbs_view`<br>[获取工作流详情（WBS）](获取工作流详情（WBS）.md)      | 用于获取行业专版中一个节点流工作项实例的WBS工作流信息                                                                                                                                                                                                                                                                                      |
+| `GET /open_api/:project_key/work_item/:work_item_type_key/:work_item_id/wbs_view`<br>[获取工作流详情（WBS，不再维护）](获取工作流详情（WBS）.md)      | 用于获取行业专版中一个节点流工作项实例的WBS工作流信息                                                                                                                                                                                                                                                                                      |
 | `PUT /open_api/:project_key/workflow/:work_item_type_key/:work_item_id/node/:node_id`<br>[更新节点/排期](更新节点与排期.md)          | 用于更新一个工作项实例的指定节点信息（节点流），包括节点负责人、排期和表单信息等                                                                                                                                                                                                                                                           |
 | `POST /open_api/:project_key/workflow/:work_item_type_key/:work_item_id/node/:node_id/operate`<br>[节点完成/回滚](节点完成与回滚.md) | 用于完成或者回滚一个工作项实例的指定节点（节点流），同时更新节点信息，包括节点负责人、排期和表单信息等                                                                                                                                                                                                                                     |
 | `POST /open_api/:project_key/workflow/:work_item_type_key/:work_item_id/node/state_change`<br>[状态流转](状态流转.md)          | 用于流转一个工作项实例到指定状态（状态流），同时更新节点信息，包括人员角色和表单信息等                                                                                                                                                                                                                                                     |
@@ -250,6 +250,8 @@
 
 ## 计划表
 
+官方总表中的创建和重置草稿进度路径有 `quer` 拼写差异。本表采用各接口独立文档的 `/query` 路径。
+
 | API名称                                                                                              | 解释                             |
 | ---------------------------------------------------------------------------------------------------- | -------------------------------- |
 | `POST /open_api/work_item/wbs_draft/create`<br>[创建计划表草稿](创建计划表草稿.md)                         | 用于在工作项实例下创建计划表草稿 |
@@ -266,6 +268,10 @@
 | `POST /open_api/work_item/wbs_view/detail/query`<br>[查询计划表行详细信息](查询计划表行详细信息.md)              | 用于查询计划表行详细信息         |
 | `POST /open_api/work_item/wbs_instance/expand/query`<br>[查询计划表扩展信息](查询计划表扩展信息.md)            | 用于查询计划表扩展信息           |
 | `POST /open_api/work_item/wbs_draft/task_conf/query`<br>[查询计划表草稿行配置信息](查询计划表草稿行配置信息.md)      | 用于查询计划表草稿行配置信息     |
+| `POST /open_api/work_item/wbs_view/column_config/query`<br>[查询计划表配置列](查询计划表配置列.md) | 读取预置列与自定义聚合列 |
+| `GET /open_api/:project_key/work_item_baseline/:work_item_id/list`<br>[获取计划表基线列表](获取计划表基线列表.md) | 查询已完成的历史基线 |
+| `POST /open_api/:project_key/work_item_baseline/:work_item_id/query`<br>[获取基线详情](获取基线详情.md) | 读取历史基线行和排期字段 |
+| `POST /open_api/work_item/wbs_ref/source/list`<br>[查询实例被引用的父行信息](查询实例被引用的父行信息.md) | 从源工作项反查引用方计划表和挂载父行 |
 
 更新时间：2026-09-07
 官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/wlcwhshe

@@ -12,6 +12,8 @@ description: Start, extend, or deliver a Feishu Project plugin, from console con
 | 还没有插件工程 | 阅读 [快速开始](docs/plugin/guides/快速开始.md)，完成环境、凭证、构成和 `lpm init`。 |
 | 已有 `plugin.config.json`，需要实现或修复客户端 | 阅读 [客户端运行时](references/client-runtime.md)。 |
 | 需要实现或排查 FastAPI、自建服务、凭证或 OpenAPI 代理 | 阅读 [服务边界](references/service-boundary.md)。 |
+| 需要查询计划表配置列、基线、引用关系，或更新排期依赖 | 阅读 [OpenAPI 接入导读](docs/openapi/GUIDE.md#计划表查询路径)。 |
+| 需要开发 AI 应用或接入插件体系 MCP | 从 [插件与客户端文档](docs/plugin/README.md) 进入对应指南。 |
 | 需要测试、构建、宿主联调或交付检查 | 阅读 [验证路径](references/verification.md)。 |
 | 需要同步构成、申请 scope、调试、构建、预览或发布 | 阅读 [`lpm` 生命周期](references/lpm-lifecycle.md)。 |
 

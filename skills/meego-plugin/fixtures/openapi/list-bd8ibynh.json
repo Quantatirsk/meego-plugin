@@ -1,0 +1,52 @@
+{
+  "id": "openapi.post.open-api-work-item-wbs-ref-source-list.fixture",
+  "capabilityId": "openapi.post.open-api-work-item-wbs-ref-source-list",
+  "kind": "http_api",
+  "cases": [
+    {
+      "name": "documented-success-example",
+      "outcome": "success",
+      "description": "依据官方示例合成的脱敏请求与响应。",
+      "request": {
+        "method": "POST",
+        "url": "https://project.feishu.cn/open_api/work_item/wbs_ref/source/list",
+        "headers": {
+          "X-Plugin-Token": "PLUGIN_ACCESS_TOKEN_PLACEHOLDER",
+          "X-User-Key": "USER_KEY_PLACEHOLDER",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "project_key": "space_demo",
+          "work_item_id": 12345
+        }
+      },
+      "response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "err_code": 0,
+          "err_msg": "",
+          "data": {
+            "referenced_rows": [
+              {
+                "parent_name": "Parent row",
+                "parent_uuid": "row_demo",
+                "reference_id": 123,
+                "ref_space_name": "Example space",
+                "ref_project_key": "ref_space_demo",
+                "is_reference_head": true,
+                "parent_work_item_id": 23456,
+                "reference_head_uuid": "head_demo",
+                "parent_work_item_name": "Parent item",
+                "ref_root_work_item_id": 34567,
+                "ref_root_work_item_name": "Root item"
+              }
+            ]
+          }
+        }
+      },
+      "sourceSilence": "The endpoint documentation shows the success body without specifying an HTTP status."
+    }
+  ]
+}

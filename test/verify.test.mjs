@@ -237,7 +237,7 @@ test("the checked-in capability corpus is self-consistent", async () => {
   const result = await verifyRepository();
 
   assert.deepEqual(result.errors, []);
-  assert.equal(result.capabilityCount, 237);
-  assert.equal(result.fixtureCount, 32);
-  assert.equal(result.documentCount, 239);
+  assert.equal(result.capabilityCount, 241);
+  assert.equal(result.fixtureCount, 36);
+  assert.equal(result.documentCount, 258);
 });

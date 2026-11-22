@@ -14,4 +14,6 @@ npm test
 npm run verify
 ```
 
+检查官方文档覆盖时，从仓库根目录运行 `python3 maintainer/check-official-coverage.py . /tmp/meego-official-coverage --since YYYY-MM-DD`。日期使用上次复核日。脚本读取公开开发者手册，输出目录匹配、接口路径匹配和待复核原页。按独立接口页确认契约差异，再更新本地正文、索引和示例。将输出目录保留在工作树外。详见 `maintainer/research/2026-11-22-official-coverage.md`。
+
 不要为验证示例执行真实 OpenAPI 请求或记录凭据。远端插件生命周期与托管配置操作遵循 `skills/meego-plugin/references/lpm-lifecycle.md`。

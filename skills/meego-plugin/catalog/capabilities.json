@@ -2185,6 +2185,26 @@
       ]
     },
     {
+      "id": "openapi.get.open-api-project-key-work-item-baseline-work-item-id-list",
+      "kind": "http_api",
+      "title": "获取计划表基线列表",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/w7ozv537",
+      "docPath": "docs/openapi/api/获取计划表基线列表.md",
+      "docAnchor": "capability-openapi.get.open-api-project-key-work-item-baseline-work-item-id-list",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "get",
+        "openapi",
+        "wbs",
+        "/open_api/:project_key/work_item_baseline/:work_item_id/list"
+      ],
+      "fixtureIds": [
+        "openapi.get.open-api-project-key-work-item-baseline-work-item-id-list.fixture"
+      ]
+    },
+    {
       "id": "openapi.get.open-api-project-key-work-item-relation",
       "kind": "http_api",
       "title": "获取工作项关系列表",
@@ -2289,7 +2309,7 @@
       "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1t3boa28",
       "docPath": "docs/openapi/api/获取工作流详情（WBS）.md",
       "docAnchor": "capability-openapi.get.open-api-project-key-work-item-work-item-type-key-work-item-id-wbs-view",
-      "status": "needs_runtime_validation",
+      "status": "deprecated",
       "usageFrequency": "low",
       "frequencyBasis": "local-static-heuristic",
       "tags": [
@@ -3023,6 +3043,26 @@
         "post",
         "space",
         "view"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-project-key-work-item-baseline-work-item-id-query",
+      "kind": "http_api",
+      "title": "获取基线详情",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/0yolifo8",
+      "docPath": "docs/openapi/api/获取基线详情.md",
+      "docAnchor": "capability-openapi.post.open-api-project-key-work-item-baseline-work-item-id-query",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "post",
+        "openapi",
+        "wbs",
+        "/open_api/:project_key/work_item_baseline/:work_item_id/query"
+      ],
+      "fixtureIds": [
+        "openapi.post.open-api-project-key-work-item-baseline-work-item-id-query.fixture"
       ]
     },
     {
@@ -3864,7 +3904,8 @@
         "openapi",
         "post",
         "wbs",
-        "work-item"
+        "work-item",
+        "UpdateScheduleDependencies"
       ]
     },
     {
@@ -3984,6 +4025,46 @@
         "post",
         "wbs",
         "work-item"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-ref-source-list",
+      "kind": "http_api",
+      "title": "查询实例被引用的父行信息",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bd8ibynh",
+      "docPath": "docs/openapi/api/查询实例被引用的父行信息.md",
+      "docAnchor": "capability-openapi.post.open-api-work-item-wbs-ref-source-list",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "post",
+        "openapi",
+        "wbs",
+        "/open_api/work_item/wbs_ref/source/list"
+      ],
+      "fixtureIds": [
+        "openapi.post.open-api-work-item-wbs-ref-source-list.fixture"
+      ]
+    },
+    {
+      "id": "openapi.post.open-api-work-item-wbs-view-column-config-query",
+      "kind": "http_api",
+      "title": "查询计划表配置列",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/0tfjtyns",
+      "docPath": "docs/openapi/api/查询计划表配置列.md",
+      "docAnchor": "capability-openapi.post.open-api-work-item-wbs-view-column-config-query",
+      "status": "needs_runtime_validation",
+      "usageFrequency": "low",
+      "frequencyBasis": "local-static-heuristic",
+      "tags": [
+        "post",
+        "openapi",
+        "wbs",
+        "/open_api/work_item/wbs_view/column_config/query"
+      ],
+      "fixtureIds": [
+        "openapi.post.open-api-work-item-wbs-view-column-config-query.fixture"
       ]
     },
     {

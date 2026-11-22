@@ -78,7 +78,7 @@
 | `POST` | `/open_api/work_item/resource/:project_key/:work_item_id/create_instance` | [通过资源创建实例](api/通过资源创建实例.md) |
 | `POST` | `/open_api/work_item/field/options` | [获取工作项指定字段可选选项](api/获取工作项指定字段可选选项.md) |
 | `POST` | `/open_api/:project_key/work_item/:work_item_type_key/:work_item_id/workflow/query` | [获取工作流详情](api/获取工作流详情.md) |
-| `GET` | `/open_api/:project_key/work_item/:work_item_type_key/:work_item_id/wbs_view` | [获取工作流详情（WBS）](api/获取工作流详情（WBS）.md) |
+| `GET` | `/open_api/:project_key/work_item/:work_item_type_key/:work_item_id/wbs_view` | [获取工作流详情（WBS，不再维护）](api/获取工作流详情（WBS）.md) |
 | `PUT` | `/open_api/:project_key/workflow/:work_item_type_key/:work_item_id/node/:node_id` | [更新节点/排期](api/更新节点与排期.md) |
 | `POST` | `/open_api/:project_key/workflow/:work_item_type_key/:work_item_id/node/:node_id/operate` | [节点完成/回滚](api/节点完成与回滚.md) |
 | `POST` | `/open_api/:project_key/workflow/:work_item_type_key/:work_item_id/node/state_change` | [状态流转](api/状态流转.md) |
@@ -120,6 +120,10 @@
 | `POST` | `/open_api/work_item/wbs_view/detail/query` | [查询计划表行详细信息](api/查询计划表行详细信息.md) |
 | `POST` | `/open_api/work_item/wbs_instance/expand/query` | [查询计划表扩展信息](api/查询计划表扩展信息.md) |
 | `POST` | `/open_api/work_item/wbs_draft/task_conf/query` | [查询计划表草稿行配置信息](api/查询计划表草稿行配置信息.md) |
+| `POST` | `/open_api/work_item/wbs_view/column_config/query` | [查询计划表配置列](api/查询计划表配置列.md) |
+| `GET` | `/open_api/:project_key/work_item_baseline/:work_item_id/list` | [获取计划表基线列表](api/获取计划表基线列表.md) |
+| `POST` | `/open_api/:project_key/work_item_baseline/:work_item_id/query` | [获取基线详情](api/获取基线详情.md) |
+| `POST` | `/open_api/work_item/wbs_ref/source/list` | [查询实例被引用的父行信息](api/查询实例被引用的父行信息.md) |
 
 ## 文件
 

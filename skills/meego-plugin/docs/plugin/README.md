@@ -21,5 +21,29 @@
 
 JSSDK 类型按 `@lark-project/js-sdk` `2.1.8` 快照校订；实际工程仍应以安装版本和目标页面的支持范围为准。
 
-更新时间：2026-09-07
+## 插件体系 MCP Server
+
+- [插件体系 MCP Server 介绍](<guides/插件体系 MCP Server 介绍.md>)
+- [通过插件体系调用 MCP Server](<guides/通过插件体系调用 MCP Server.md>)
+- [MCP 使用常见问题](<guides/MCP 使用常见问题.md>)
+
+## 插件开发案例
+
+- [开发一个用于需求分类的轻应用组件](<guides/开发一个用于需求分类的轻应用组件.md>)
+- [开发实践 X 排期扩展组件](<guides/开发实践 X 排期扩展组件.md>)
+- [开发实践 X 字段类型组件](<guides/开发实践 X 字段类型组件.md>)
+
+## AI 应用
+
+- [什么是 AI 节点](<guides/什么是 AI 节点.md>)
+- [开发并使用 AI 节点](<guides/开发并使用 AI 节点.md>)
+- [AINode](<guides/AINode.md>)
+- [什么是 AI 字段开放能力](<guides/什么是 AI 字段开放能力.md>)
+- [开发并使用 AI 字段](<guides/开发并使用 AI 字段.md>)
+- [什么是 AI 操作](<guides/什么是 AI 操作.md>)
+- [开发并使用 AI 操作](<guides/开发并使用 AI 操作.md>)
+- [AIOperation](<guides/AIOperation.md>)
+- [AAMP 协议](<guides/AAMP 协议.md>)
+
+更新时间：2026-11-22
 官方 URL：https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn

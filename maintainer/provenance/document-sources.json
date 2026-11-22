@@ -1905,21 +1905,173 @@
       "category": "guides",
       "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/nh4exbsn",
       "contentHash": "34ddce839e543e3f74fe59b21faaedfed4dd628ca1c98970b91280d620a98d66"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询实例被引用的父行信息.md",
+      "targetPath": "docs/openapi/api/查询实例被引用的父行信息.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/bd8ibynh",
+      "contentHash": "d8b3b928f830c9209d3afb9f982aae4e9e530cd894cdbf7decaa40eede403655"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/查询计划表配置列.md",
+      "targetPath": "docs/openapi/api/查询计划表配置列.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/0tfjtyns",
+      "contentHash": "629cd2946de1bc1896ce23719afa1b30ec92684877dcf2bb183563b74546ef6c"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取基线详情.md",
+      "targetPath": "docs/openapi/api/获取基线详情.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/0yolifo8",
+      "contentHash": "e67f23d3bf641e91aab7cd5b83fff75941aff6b1b3a48cf9d42aa93412862596"
+    },
+    {
+      "platform": "openapi",
+      "sourcePath": "api/获取计划表基线列表.md",
+      "targetPath": "docs/openapi/api/获取计划表基线列表.md",
+      "category": "api",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/w7ozv537",
+      "contentHash": "1f046126902f731e22636d09269891f847584f7411a97a0910af8d29293a2a92"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/AAMP 协议.md",
+      "targetPath": "docs/plugin/guides/AAMP 协议.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/1ah9bfkw",
+      "contentHash": "756656a313a91b1fa2a801dbcbd7ac9a1d2b01438a8049969d54af9aea5d6e2e"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/AINode.md",
+      "targetPath": "docs/plugin/guides/AINode.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ei3f0dic",
+      "contentHash": "c5624cd33d108e3dbb9136f04e8242499d12ff83a5f91beb47dd48adbd738cf1"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/AIOperation.md",
+      "targetPath": "docs/plugin/guides/AIOperation.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/yaviyf52",
+      "contentHash": "5f5bbc490a69110f5e737e24297818ef28cc67a412261379d5bb6c60c7dadb60"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/MCP 使用常见问题.md",
+      "targetPath": "docs/plugin/guides/MCP 使用常见问题.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ffh7qjvn",
+      "contentHash": "e0549cc96e08b53af69cc0e54357f4f223d1ce0902d032a6837bd4ef076b6e1b"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/什么是 AI 字段开放能力.md",
+      "targetPath": "docs/plugin/guides/什么是 AI 字段开放能力.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/dc5dgqwa",
+      "contentHash": "f2eb5534e0c01bde6dd6e45b81b5baa128672ecfc6a4c4c58177848a7445bb9e"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/什么是 AI 操作.md",
+      "targetPath": "docs/plugin/guides/什么是 AI 操作.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/144td4c6",
+      "contentHash": "6fc4607d5f4207d0e3ab464c11591a8466b6ced37791900e84f0fce1e218aca7"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/什么是 AI 节点.md",
+      "targetPath": "docs/plugin/guides/什么是 AI 节点.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/3v8lklx9",
+      "contentHash": "678b56bec0aa61a358ed4a943ed3051d967e61c467d05877214e75a055e3fd46"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/开发一个用于需求分类的轻应用组件.md",
+      "targetPath": "docs/plugin/guides/开发一个用于需求分类的轻应用组件.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/czmot1t3",
+      "contentHash": "57b0a44844e07a8cedd42018c3915be1afa564318907a3294f58fed0c7b29892"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/开发实践 X 字段类型组件.md",
+      "targetPath": "docs/plugin/guides/开发实践 X 字段类型组件.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/ya3mmuos",
+      "contentHash": "2b351ca9b50feba1524fb3628d7b3a890d277fcae0de8f4296f92b300b29a92d"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/开发实践 X 排期扩展组件.md",
+      "targetPath": "docs/plugin/guides/开发实践 X 排期扩展组件.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/g41e0dfm",
+      "contentHash": "12a8106eaa487c91c4b1197c53b9cfe71bc65e61cb90fc1cd51cb860d8b43bd6"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/开发并使用 AI 字段.md",
+      "targetPath": "docs/plugin/guides/开发并使用 AI 字段.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/prw01fij",
+      "contentHash": "6fe034420e65705c9565ed817135b7cd1d4a3d78adfa91631e46c217ff72f5bb"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/开发并使用 AI 操作.md",
+      "targetPath": "docs/plugin/guides/开发并使用 AI 操作.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/w9s1le0m",
+      "contentHash": "93ed9a7e3a53af759d029c1abd7d3f618050de671925fb2adb145687d0b767e8"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/开发并使用 AI 节点.md",
+      "targetPath": "docs/plugin/guides/开发并使用 AI 节点.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/6ezzkzro",
+      "contentHash": "9bf05a23fdefc31dc5330215f5467cc0e6613ef10835f44329f686c815a25ab4"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/插件体系 MCP Server 介绍.md",
+      "targetPath": "docs/plugin/guides/插件体系 MCP Server 介绍.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/jdmql9oj",
+      "contentHash": "bc668e5bc0062b40030314df266f3e2cbecd16f36efef1af64b638eb35410308"
+    },
+    {
+      "platform": "plugin",
+      "sourcePath": "guides/通过插件体系调用 MCP Server.md",
+      "targetPath": "docs/plugin/guides/通过插件体系调用 MCP Server.md",
+      "category": "guides",
+      "officialUrl": "https://project.feishu.cn/b/helpcenter/1p8d7djs/73n2upf3",
+      "contentHash": "31e2bbc19635b03a3606d0add6ea61f3f98c2cc968c6c0ccf073db44fb218567"
     }
   ],
   "totals": {
-    "sourceDocuments": 238,
-    "withOfficialUrl": 238,
+    "sourceDocuments": 257,
+    "withOfficialUrl": 257,
     "withoutOfficialUrl": 0,
     "byPlatform": {
       "openapi": {
-        "sourceDocuments": 162,
-        "withOfficialUrl": 162,
+        "sourceDocuments": 166,
+        "withOfficialUrl": 166,
         "withoutOfficialUrl": 0
       },
       "plugin": {
-        "sourceDocuments": 76,
-        "withOfficialUrl": 76,
+        "sourceDocuments": 91,
+        "withOfficialUrl": 91,
         "withoutOfficialUrl": 0
       }
     }
